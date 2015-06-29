@@ -1,0 +1,27 @@
+{
+  "name": "Dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Muitxer <miguel_3c@hotmail.com>",
+  "contributors": [{
+   "name": "Ramón Calderón",
+   "email": "contact@rcalderon.es"  
+  }],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h4ckademy"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "mocha":     "2.0.1",
+    "request":   "2.47.0",
+    "expect.js": "^0.3.1"
+  },
+  "dependencies": {
+    "express": "4.13.0",
+    "sequelize": "3.3.2"
+  }
+}
