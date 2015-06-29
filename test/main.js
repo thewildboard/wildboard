@@ -15,12 +15,12 @@ describe('Dashboard', function() {
   });
 
   it('can be started', function(done) {
-    expect(Core()).not.to.be(null);
+    expect(Core("test")).not.to.be(null);
     done();
   });
 
   it('can be closed', function(done) {
-    var core = Core();
+    var core = Core("test");
     expect(function() {
       core.close();
     }).not.to.throwException();
