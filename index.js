@@ -1,1 +1,3 @@
-module.exports = require('./lib/app');
+Core = require('./lib/core.js');
+
+Core();

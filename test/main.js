@@ -2,24 +2,30 @@ var request = require('request'),
   expect = require('expect.js'),
   urlParser = require('url');
 
-describe('Dashboard', function() {
-  var App;
+var Core = require('../lib/core.js');
 
+describe('Dashboard', function() {
   before(function(done) {
-    App = require("..");
     done();
   });
 
   it('can be required', function(done) {
-    expect(App).not.to.be(undefined);
+    expect(Core).not.to.be(undefined);
     done();
   });
 
   it('can be started', function(done) {
-    expect(App()).not.to.be(null);
+    expect(Core()).not.to.be(null);
+    done();
+  });
+
+  it('can be closed', function(done) {
+    var core = Core();
+    expect(function() {
+      core.close();
+    }).not.to.throwException();
     done();
   });
 
   after(function() {});
 });
-
