@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "description": "",
   "author": "Muitxer <miguel_3c@hotmail.com>",
-  "contributors": [{
-   "name": "Ramón Calderón",
-   "email": "contact@rcalderon.es"  
-  }],
+  "contributors": [
+    {
+      "name": "Ramón Calderón",
+      "email": "contact@rcalderon.es"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,12 +18,14 @@
     "test": "node_modules/.bin/mocha"
   },
   "devDependencies": {
-    "mocha":     "2.0.1",
-    "request":   "2.47.0",
+    "mocha": "2.0.1",
+    "request": "2.47.0",
     "expect.js": "^0.3.1"
   },
   "dependencies": {
     "express": "4.13.0",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
     "sequelize": "3.3.2"
   }
 }

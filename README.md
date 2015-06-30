@@ -1,5 +1,20 @@
 # Dashboard
 
+## Install
+
+Create database:
+
+    sudo -u postgres createuser -P dashboard
+    sudo -u postgres createdb dashboard -O dashboard
+
+Use `123` as user password. The `postgresql` package needs to be installed first.
+
+## Run
+
+    node index.js
+
+The server is at `http://127.0.0.1:3000/`
+
 ## Issues
 
 Let us know your suggestions and bugs found to improve Dashboard [here!](https://github.com/h4ckademy/dashboard_back/issues)!
