@@ -26,6 +26,11 @@ describe('Dashboard', function() {
     }).not.to.throwException();
     done();
   });
+  /*
+  it("can", function(done){
+
+    done();
+  });*/
 
   after(function() {});
 });
