@@ -2,16 +2,18 @@
 
 ## Install
 
+Install 'postgresql' on your system.
+
 Create database:
 
     sudo -u postgres createuser -P dashboard
     sudo -u postgres createdb dashboard -O dashboard
 
-Use `123` as user password. The `postgresql` package needs to be installed first.
+Use `123` as user password. 
 
 ## Run
 
-    node index.js
+    node ./
 
 The server is at `http://127.0.0.1:3000/`
 
