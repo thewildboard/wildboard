@@ -9,7 +9,15 @@ Create database:
     sudo -u postgres createuser -P dashboard
     sudo -u postgres createdb dashboard -O dashboard
 
-Use `123` as user password. 
+Use `123` as user password.
+
+Generate self-signed server certificates:
+
+    mkdir ssl && cd ssl
+    openssl genrsa -out server-key.pem 2048
+    openssl req -new -sha256 -key server-key.pem -out server-csr.pem
+    openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
+    rm server-csr.pem
 
 ## Run
 
