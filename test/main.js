@@ -7,6 +7,9 @@ var Core = require('../lib/core.js');
 describe('Dashboard', function() {
   before(function(done) {
     done();
+    var fakeCore = {
+      log: function(msg){},
+    }
   });
 
   it('can be required', function(done) {
@@ -26,11 +29,12 @@ describe('Dashboard', function() {
     }).not.to.throwException();
     done();
   });
-  /*
-  it("can", function(done){
-
+  it("can connect to db", function(done){
+    expect(function() {
+      var db = require("../lib/db.js")(fakeCore, 5432);
+    }).not.to.throwException();
     done();
-  });*/
+  });
 
   after(function() {});
 });
