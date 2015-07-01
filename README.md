@@ -2,14 +2,13 @@
 
 ## Install
 
-Install 'postgresql' on your system.
+Install `mongodb` on your system:
 
-Create database:
+    sudo apt-get install mongodb
 
-    sudo -u postgres createuser -P dashboard
-    sudo -u postgres createdb dashboard -O dashboard
+Install dependencies:
 
-Use `123` as user password.
+    npm install
 
 Generate self-signed server certificates:
 
@@ -23,7 +22,7 @@ Generate self-signed server certificates:
 
     node ./
 
-The server is at `http://127.0.0.1:3000/`
+The server is at `https://localhost:3000/`
 
 ##Documentation
 
