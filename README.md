@@ -2,11 +2,11 @@
 
 ## Install
 
-Install `mongodb` on your system:
+Install Node.js and MongoDB on your system. For Linux machines it'd be something like this:
 
-    sudo apt-get install mongodb
+    sudo apt-get install node mongodb
 
-Install dependencies:
+Install project dependencies:
 
     npm install
 
@@ -18,11 +18,19 @@ Generate self-signed server certificates:
     openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
     rm server-csr.pem
 
+
 ## Run
+
+To run the application:
 
     node ./
 
 The server is at `https://localhost:3000/`
+
+To run the tests:
+
+    npm test
+
 
 ##Documentation
 
