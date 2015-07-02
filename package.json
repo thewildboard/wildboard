@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "bcryptjs": "^2.1.0",
-    "mongo-relation": "^0.5.4",
     "mongoose": "^4.0.6",
+    "mongoose-relationship": "^0.1.4",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
     "restify": "3.0.3",
