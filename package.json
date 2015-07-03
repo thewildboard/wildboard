@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.1.0",
+    "client-sessions": "^0.7.0",
     "mongoose": "^4.0.6",
     "mongoose-relationship": "^0.1.4",
     "passport": "^0.2.2",
