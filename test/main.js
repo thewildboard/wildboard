@@ -4,9 +4,13 @@ var request = require('request'),
 
 var Core = require('../lib/core.js');
 
+request = request.defaults({
+  strictSSL: false  // Accept self signed certificates
+});
+
 describe('Dashboard', function() {
   before(function(done) {
-    core = Core("test");
+    core = Core('test');
     done();
   });
 
@@ -20,19 +24,39 @@ describe('Dashboard', function() {
     done();
   });
 
-  it('can be closed', function(done) {
+  it('can connect to db', function(done) {
     expect(function() {
+      require('../lib/db.js')(core);
+    }).not.to.throwException();
+    done();
+  });
+
+  it('can get a page', function(done) {
+    request({
+      url: 'https://localhost:3000/chicken'
+    }, function(err, res, body){
+      expect(!err && res.statusCode === 200).to.be(true);
+      done();
+    });
+  });
+
+  it('can create a new user', function(done) {
+    request.post({
+      url: 'https://localhost:3000/signup',
+      form: {
+        username: 'johndoe',
+        email: 'johndoe@whatever.com',
+        password: '123'
+      }
+    }, function(err, res, body){
+      expect(!err && res.statusCode === 201).to.be(true);
+      done();
+    });
+  });
+
+  after(function() {
+    require('../lib/models/user').remove({}, function() {
       core.close();
-    }).not.to.throwException();
-    done();
+    });
   });
-
-  it("can connect to db", function(done){
-    expect(function() {
-      require("../lib/db.js")(core);
-    }).not.to.throwException();
-    done();
-  });
-
-  after(function() {});
 });
