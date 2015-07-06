@@ -8,30 +8,29 @@ request = request.defaults({
   strictSSL: false  // Accept self signed certificates
 });
 
-describe('Dashboard', function() {
-  before(function(done) {
-    core = Core('test');
-    done();
-  });
+var core;
 
-  it('can be required', function(done) {
-    expect(Core).not.to.be(undefined);
-    done();
-  });
+before(function(done) {
+  core = Core('test');
+  done();
+});
 
+after(function() {
+  core.close();
+});
+
+describe('Core', function() {
   it('can be started', function(done) {
-    expect(core).not.to.be(null);
+    expect(core.server).not.to.be(null);
+    done();
+  })
+
+  it('can connect to database', function(done) {
+    expect(core.db).not.to.be(null);
     done();
   });
 
-  it('can connect to db', function(done) {
-    expect(function() {
-      require('../lib/db.js')(core);
-    }).not.to.throwException();
-    done();
-  });
-
-  it('can get a page', function(done) {
+  it('can serve a page', function(done) {
     request({
       url: 'https://localhost:3000/chicken'
     }, function(err, res, body){
@@ -39,8 +38,10 @@ describe('Dashboard', function() {
       done();
     });
   });
+});
 
-  it('can create a new user', function(done) {
+describe('User', function() {
+  it('can be created', function(done) {
     request.post({
       url: 'https://localhost:3000/signup',
       form: {
@@ -48,15 +49,126 @@ describe('Dashboard', function() {
         email: 'johndoe@whatever.com',
         password: '123'
       }
-    }, function(err, res, body){
-      expect(!err && res.statusCode === 201).to.be(true);
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(201);
+      done();
+    });
+  });
+
+  it('can\'t be created if it already exists', function(done) {
+    request.post({
+      url: 'https://localhost:3000/signup',
+      form: {
+        username: 'johndoe',
+        email: 'johndoe@whatever.com',
+        password: '123'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(400);
+      done();
+    });
+  });
+
+  it('can\'t be created without username', function(done) {
+    request.post({
+      url: 'https://localhost:3000/signup',
+      form: {
+        email: 'johndoe2@whatever.com',
+        password: '123'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(400);
+      done();
+    });
+  });
+
+  it('can\'t be created without email', function(done) {
+    request.post({
+      url: 'https://localhost:3000/signup',
+      form: {
+        username: 'johndoe2',
+        password: '123'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(400);
+      done();
+    });
+  });
+
+  it('can\'t be created without password', function(done) {
+    request.post({
+      url: 'https://localhost:3000/signup',
+      form: {
+        email: 'johndoe2@whatever.com',
+        username: 'johndoe2'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(400);
+      done();
+    });
+  });
+
+  it('can log in', function(done) {
+    request.post({
+      url: 'https://localhost:3000/login',
+      form: {
+        username: 'johndoe',
+        password: '123'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(200);
+      done();
+    });
+  });
+
+  it('can\'t log in if it doesn\'t exist', function(done) {
+    request.post({
+      url: 'https://localhost:3000/login',
+      form: {
+        username: 'notjohndoe',
+        password: '123'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(401);
+      done();
+    });
+  });
+
+  it('can\'t log in with a wrong password', function(done) {
+    request.post({
+      url: 'https://localhost:3000/login',
+      form: {
+        username: 'johndoe',
+        password: '456'
+      }
+    }, function(err, res, body) {
+      expect(res.statusCode).to.be(401);
       done();
     });
   });
 
   after(function() {
-    require('../lib/models/user').remove({}, function() {
-      core.close();
-    });
+    require('../lib/models/user').remove({}, function() {});
+  });
+});
+
+describe('Board', function() {
+  it('can be created');
+  it('can\'t be created without logging in first');
+  it('can\'t be created without a name');
+
+  after(function() {
+    require('../lib/models/board').remove({}, function() {});
+  });
+});
+
+describe('Widget', function() {
+  it('can be created');
+  it('can\'t be created without logging in first');
+  it('can\'t be created without a name');
+  it('can\'t be created without an associated board');
+
+  after(function() {
+    require('../lib/models/widget').remove({}, function() {});
   });
 });
