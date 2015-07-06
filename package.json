@@ -18,7 +18,7 @@
     "test": "node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "mocha": "2.0.1",
+    "mocha": "2.2.5",
     "request": "2.47.0",
     "expect.js": "^0.3.1"
   },
