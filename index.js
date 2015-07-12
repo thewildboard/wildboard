@@ -3,9 +3,16 @@ Core = require('./lib/core.js');
 var args = process.argv.slice(2);
 
 var port;
-if(args[0] == "--port")
-{
-  port = args[1];
+var envelopment = "development";
+
+for (var i = 0; i < args.length; i++) {
+  if (args[i] == "--port" || args[i] == "-p") {
+    port = args[i+1];
+    i++;
+  } else if (args[i] == "--env" || args[i] == "-e") {
+    envelopment = args[i+1];
+    i++;
+  }
 }
 
-Core("development", port);
+Core(envelopment, port);
