@@ -1,34 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Wildboard</title>
 
-  <!-- FOR ANGULAR ROUTING -->
-  <base href="/">
-  
   <!-- CSS -->
   <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- JS / LIBS -->
-  <script src="assets/libs/angular/angular.js"></script>
-  <script src="assets/libs/angular-route/angular-route.min.js"></script>
-  <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
 
-  <!-- APP -->
-  <script src="app/controllers/mainCtrl.js"></script>
-  <script src="app/app.routes.js"></script>
-  <script src="app/app.js"></script>
 
 </head>
-<body class="container" ng-app="myApp" ng-controller="mainController as main">
+<body class="container" ng-app="dashboardApp">
 
-  <div class="jumbotron text-center">
+  <div class="header">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#/">dashboard</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#/">Home</a></li>
+          <li><a ng-href="#/about">About</a></li>
+          <li><a ng-href="#/login">Login</a></li>
+          <li><a ng-href="#/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="jumbotron text-center" ng-controller="mainController as main">
     <h1>{{ main.message }}</h1>
   </div>
-  
-  <div ng-view></div>
 
+  <div class="col-lg-12">
+    <div ng-view></div>
+    <div ui-view></div>
+  </div>
+
+  <script src="assets/libs/jquery/dist/jquery.js"></script>
+  <script src="assets/libs/angular/angular.js"></script>
+  <script src="assets/libs/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="assets/libs/angular-animate/angular-animate.js"></script>
+  <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
+  <script src="assets/libs/angular-resource/angular-resource.js"></script>
+  <script src="assets/libs/angular-route/angular-route.js"></script>
+  <script src="assets/libs/angular-sanitize/angular-sanitize.js"></script>
+  <script src="assets/libs/ngstorage/ngStorage.js"></script>
+
+  <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="assets/libs/satellizer/satellizer.js"></script>
+
+  <!-- APP -->
+
+
+  <script src="app/app.js"></script>
+  <script src="app/routes.js"></script>
+  <script src="app/controllers/mainCtrl.js"></script>
+  <script src="app/controllers/aboutCtrl.js"></script>
+  <script src="app/controllers/login/index.js"></script>
 </body>
 </html>
