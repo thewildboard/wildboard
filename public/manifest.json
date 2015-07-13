@@ -1,0 +1,29 @@
+{
+    "provider": {
+        "name": "dokify",
+        "url": "https://dokify.net"
+    },
+    "sources": [
+        {
+            "id": "uploaded-files",
+            "description": "The amount of files uploaded in the latest 24 hours",
+            "url": "https://dokify.net/api/files?count=true&tf=24h",
+            "type": "number",
+            "updateRate": "24h"
+        },
+        {
+            "name": "working-employees",
+            "description": "The amount of employee who has done any job in the latest 24 hours",
+            "url": "https://dokify.net/api/employees?count=true&workplace=24h",
+            "type": "number",
+            "updateRate": "24h"
+        } 
+    ],
+    "auth":{
+        "type": "oauth2",
+        "oauth2": {
+            "authorization_url": "https://dokify.net/oauth",
+            "token_url": "https://dokify.net/oauth/access_token"
+        }
+    }
+}

@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    manifests: ["localhost:3000/manifest.json"],
+    manifests: ["https://localhost:8080/manifest.json"],
 
     serveme: {
       secure: true,
@@ -11,7 +11,7 @@ module.exports = {
   },
 
   test: {
-    manifests: ["localhost:3000/manifest.json"],
+    manifests: ["https://localhost:8080/manifest.json"],
 
     serveme: {
       log: false,
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   production: {
-    manifests: ["localhost:3000/manifest.json"],
+    manifests: ["https://localhost:8080/manifest.json"],
 
     serveme: {
       log: false,
