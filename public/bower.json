@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/h4ckademy/dashboard_back",
+  "authors": [
+    "guardabrazo <federico.guardabrazo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.2",
+    "angular-route": "~1.4.2",
+    "angular-animate": "~1.4.2"
+  }
+}
