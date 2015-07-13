@@ -6,6 +6,7 @@ module.exports = {
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
+      home: "app/views/index.html"
     }
   },
 
@@ -17,6 +18,7 @@ module.exports = {
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
+      home: "app/views/index.html"
     }
   },
 
@@ -29,6 +31,8 @@ module.exports = {
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
+      home: "app/views/index.html"
     }
   }
+
 };
