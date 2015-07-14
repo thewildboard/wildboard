@@ -51,9 +51,9 @@ var results = core.call('serverSetup', data);
 
 ## Issues
 
-Let us know your suggestions and bugs found to improve Dashboard [here!](https://github.com/h4ckademy/dashboard_back/issues)!
+Let us know your suggestions and bugs found to improve Dashboard [here!](https://github.com/thewildboard/wildboard/issues)!
 
-[https://github.com/h4ckademy/dashboard_back/issues](https://github.com/h4ckademy/dashboard_back/issues)
+[https://github.com/thewildboard/wildboard/issues](https://github.com/thewildboard/wildboard/issues)
 
 ## License
 
