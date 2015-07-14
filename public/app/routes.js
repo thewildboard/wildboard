@@ -6,7 +6,7 @@ angular.module("dashboardApp")
     $authProvider.loginUrl = "https://localhost:3000/login";
     $authProvider.signupUrl = "https://localhost:3000/signup";
     $authProvider.tokenName = "success";
-    $authProvider.tokenPrefix = "";
+    $authProvider.tokenPrefix = "dashboard";
 
 
     $stateProvider
@@ -30,9 +30,12 @@ angular.module("dashboardApp")
         })
         .state("about", {
             url: "/about",
-            emplateUrl: 'app/views/pages/about.html',
+            templateUrl: 'app/views/pages/about.html',
             controller: 'aboutCtrl',
             controllerAs: 'about'
+        })
+        .state("otherwise", {
+          url : '/'
         });
       //$locationProvider.html5Mode(true);
 });
