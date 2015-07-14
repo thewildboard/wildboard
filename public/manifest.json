@@ -1,4 +1,6 @@
 {
+    "updateRate": "00 00 00 * * *",
+
     "provider": {
         "name": "dokify",
         "url": "https://dokify.net"
