@@ -1,0 +1,10 @@
+<p>This is the signup view.</p>
+
+
+<!-- views/login.html -->
+<form ng-submit="signup.signup()" method="post">
+    <input type="text" ng-model="signup.username" placeholder="Username..."/>
+    <input type="email" ng-model="signup.email" placeholder="Introduce tu email"/>
+    <input type="password" ng-model="signup.password" placeholder="Password"/>
+    <button type="submit">Registrarse</button>
+</form>

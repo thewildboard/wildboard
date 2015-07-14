@@ -22,6 +22,12 @@ angular.module("dashboardApp")
             controller: 'LoginIndexCtrl',
             controllerAs: 'login'
         })
+        .state("signup", {
+            url: "/signup",
+            templateUrl: 'app/views/signup/index.html',
+            controller: 'SignupIndexCtrl',
+            controllerAs: 'signup'
+        })
         .state("about", {
             url: "/about",
             emplateUrl: 'app/views/pages/about.html',
