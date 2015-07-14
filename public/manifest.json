@@ -7,7 +7,7 @@
     },
     "sources": [
         {
-            "id": "uploaded-files",
+            "name": "uploaded-files",
             "description": "The amount of files uploaded in the latest 24 hours",
             "url": "https://dokify.net/api/files?count=true&tf=24h",
             "type": "number",
