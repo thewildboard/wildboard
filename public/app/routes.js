@@ -5,7 +5,7 @@ angular.module("dashboardApp")
     // Parametros de configuración
     $authProvider.loginUrl = "https://localhost:3000/login";
     $authProvider.signupUrl = "https://localhost:3000/signup";
-    $authProvider.tokenName = "success";
+    $authProvider.tokenName = "message";
     $authProvider.tokenPrefix = "dashboard";
     //$urlRouterProvider.otherwise('/');
 
