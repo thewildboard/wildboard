@@ -11,14 +11,14 @@
             "description": "The amount of files uploaded in the latest 24 hours",
             "url": "https://dokify.net/api/files?count=true&tf=24h",
             "type": "number",
-            "updateRate": "24h"
+            "updateRate": "00 00 00 * * *"
         },
         {
             "name": "working-employees",
             "description": "The amount of employee who has done any job in the latest 24 hours",
             "url": "https://dokify.net/api/employees?count=true&workplace=24h",
             "type": "number",
-            "updateRate": "24h"
+            "updateRate": "00 00 00 * * *"
         } 
     ],
     "auth":{
