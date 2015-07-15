@@ -1,0 +1,29 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/h4ckademy/dashboard_back",
+  "authors": [
+    "guardabrazo <federico.guardabrazo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.2",
+    "angular-route": "~1.4.2",
+    "angular-animate": "~1.4.2",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.2",
+    "angular-sanitize": "~1.4.2",
+    "bootstrap-sass-official": "~3.3.5",
+    "ngstorage": "~0.3.7",
+    "angular-cookies": "~1.4.2",
+    "satellizer": "~0.11.2"
+  }
+}
