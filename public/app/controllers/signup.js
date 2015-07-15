@@ -8,21 +8,16 @@
  * Controller of the dashboardApp
  */
 angular.module("dashboardApp")
-  .controller('SignupIndexCtrl', function ($location, $scope, $auth) {
+  .controller('SignupIndexCtrl', function ($rootScope, $location, $scope, $auth, Authentication) {
     var vm = this;
 
-    console.log(this, $scope);
-
     this.signup = function(){
-        $auth.signup({
-            username: vm.username,
-            password: vm.password,
-            email : vm.email
+        Authentication.signup(vm)
+        .then(function(data){
+            $location.path("/about")
         })
-        .then(function(){
-            $location.path("/")
-        })
-        .catch(function(response){
+        .catch(function(error){
+          $scope.message = error.message;
         });
     };
 
