@@ -7,11 +7,13 @@ var envelopment = "development";
 
 for (var i = 0; i < args.length; i++) {
   if (args[i] == "--port" || args[i] == "-p") {
-    port = args[i+1];
+    //port command
     i++;
+    port = args[i];
   } else if (args[i] == "--env" || args[i] == "-e") {
-    envelopment = args[i+1];
+    //environment command
     i++;
+    envelopment = args[i];
   }
 }
 

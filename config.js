@@ -1,5 +1,5 @@
 module.exports = {
-  development: {
+  default: {
     manifests: ["https://localhost:8080/manifest.json"],
 
     serveme: {
@@ -11,29 +11,19 @@ module.exports = {
     }
   },
 
-  test: {
-    manifests: ["https://localhost:8080/manifest.json"],
+  development: {
+  },
 
+  test: {
     serveme: {
-      log: false,
-      debug: true,
-      secure: true,
-      key: "./ssl/server-key.pem",
-      cert: "./ssl/server-cert.pem",
-      home: "app/views/index.html"
+      log: false
     }
   },
 
   production: {
-    manifests: ["https://localhost:8080/manifest.json"],
-
     serveme: {
       log: false,
-      debug: false,
-      secure: true,
-      key: "./ssl/server-key.pem",
-      cert: "./ssl/server-cert.pem",
-      home: "app/views/index.html"
+      debug: false
     }
   }
 
