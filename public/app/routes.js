@@ -19,6 +19,16 @@ angular.module("dashboardApp")
       return deferred.promise;
     }];
 
+    var no_authenticated = ['$q', '$location', '$auth', function($q, $location, $auth) {
+      var deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        $location.path('/home');
+      } else {
+        deferred.resolve();
+      }
+      return deferred.promise;
+    }];
+
     $stateProvider
         .state("home", {
             url: "/",
@@ -30,13 +40,19 @@ angular.module("dashboardApp")
             url: "/login",
             templateUrl: 'app/views/login/index.html',
             controller: 'LoginIndexCtrl',
-            controllerAs: 'login'
+            controllerAs: 'login',
+            resolve : {
+              authenticated : no_authenticated
+            }
         })
         .state("signup", {
             url: "/signup",
             templateUrl: 'app/views/signup/index.html',
             controller: 'SignupIndexCtrl',
-            controllerAs: 'signup'
+            controllerAs: 'signup',
+            resolve : {
+              authenticated : no_authenticated
+            }
         })
         .state("logout", {
             controller: 'LogoutCtrl',

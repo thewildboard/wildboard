@@ -3,6 +3,7 @@ module.exports = {
     manifests: ["https://localhost:8080/manifest.json"],
 
     serveme: {
+      debug: true,
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
@@ -15,6 +16,7 @@ module.exports = {
 
     serveme: {
       log: false,
+      debug: true,
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
@@ -27,7 +29,7 @@ module.exports = {
 
     serveme: {
       log: false,
-      cache: true,
+      debug: false,
       secure: true,
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem",
