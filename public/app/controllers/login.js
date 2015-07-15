@@ -26,7 +26,9 @@ angular.module("dashboardApp")
         $location.path('/about');
       })
       .catch(function(error){
-        $scope.message = error.message;
+        ctrl.username = '';
+        ctrl.password = '';
+        ctrl.message = error.data.message;
       });
     };
 
