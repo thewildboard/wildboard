@@ -49,12 +49,12 @@
 </div>
 
   <div class="jumbotron text-center" >
-    <h1>{{ main.message }}</h1>
+    <h1 ng-text="{{main.message}}"></h1>
   </div>
 </div>
 
   <div class="col-lg-12">
-    <div ng-view></div>
+
     <div ui-view></div>
   </div>
 
@@ -88,6 +88,7 @@
   <script src="app/views/directives/widgetBody.js"></script>
   <script src="app/views/directives/firstWidget.js"></script>
   <script src="app/views/directives/secondWidget.js"></script>
+  <script src="app/views/directives/ngText.js"></script>
 
   <script src="app/services/Authentication.js"></script>
 
