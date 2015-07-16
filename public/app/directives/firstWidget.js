@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('dashboardApp')
   .directive('firstWidget', function() {
     return {
