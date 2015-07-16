@@ -1,25 +1,31 @@
 {
     "updateRate": "00 00 00 * * *",
-
     "provider": {
         "name": "dokify",
         "url": "https://dokify.net"
     },
     "sources": [
         {
-            "name": "uploaded-files",
-            "description": "The amount of files uploaded in the latest 24 hours",
-            "url": "https://dokify.net/api/files?count=true&tf=24h",
+            "id": "total-checkins-24hours",
+            "description": "The amount of checkins made in the last 24hours",
+            "url": "https://dokify.net/api/checkin?interval=P1D&count=total",
             "type": "number",
-            "updateRate": "00 00 00 * * *"
+            "update_rate": "00 00 00 * * *"
         },
         {
-            "name": "working-employees",
-            "description": "The amount of employee who has done any job in the latest 24 hours",
-            "url": "https://dokify.net/api/employees?count=true&workplace=24h",
+            "id": "total-valid-checkins-24hours",
+            "description": "The amount of valid checkins made in the last 24hours",
+            "url": "https://dokify.net/api/checkin?interval=P1D&count=valids",
             "type": "number",
-            "updateRate": "00 00 00 * * *"
-        } 
+            "update_rate": "00 00 00 * * *"
+        },
+        {
+            "id": "total-wrong-checkins-24hours",
+            "description": "The amount of wrong checkins made in the last 24hours",
+            "url": "https://dokify.net/api/checkin?interval=P1D&count=wrongs",
+            "type": "number",
+            "update_rate": "00 00 00 * * *"
+        }
     ],
     "auth":{
         "type": "oauth2",
