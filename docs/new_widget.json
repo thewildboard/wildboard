@@ -4,10 +4,12 @@
     "color": "black"
   },
   "identifier": {
-    "provider": {
-      "name": "dokify",
-      "token": "yFJfjy54iuTWE52",
-      "source_id": 0
+    "source": {
+      "id": 0,
+      "provider": {
+        "name": "dokify",
+        "token": "yFJfjy54iuTWE52",
+      }
     },
 
     "frequency": null,
