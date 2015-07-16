@@ -1,9 +1,32 @@
-<p ng-show="login.message">{{login.message}}</p>
-
-<button ng-click="authenticate('google')">Sign in with Google</button>
-<!-- views/login.html -->
-<form ng-submit="login.login()" method="post">
-    <input type="text" ng-model="login.username"/>
-    <input type="password" ng-model="login.password"/>
-    <button type="submit">Autenticarse</button>
-</form>
+<div class="container" style="max-width: 350px">
+  <h4 ng-show="login.message" style="color:red;">{{login.message}}</h4>
+  <div class="row">
+    <div class="center-form panel">
+      <div class="panel-body">
+        <h2 class="text-center">Log in</h2>
+        <form method="post" ng-submit="login.login()" name="loginForm">
+          <div class="form-group has-feedback">
+            <input class="form-control input" type="text" name="text" ng-model="login.username" placeholder="Username" required autofocus>
+            <span class="ion-at form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input class="form-control input" type="password" name="password" ng-model="login.password" placeholder="Password" required>
+            <span class="ion-key form-control-feedback"></span>
+          </div>
+          <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn btn-block btn-success">Log in</button>
+          <br/>
+          <p class="text-center text-muted">
+            <small>Don't have an account yet? <a ui-sref="signup">Sign up</a></small>
+          </p>
+          <div class="signup-or-separator">
+            <h6 class="text">or</h6>
+            <hr>
+          </div>
+        </form>
+        <button class="btn  btn-block btn-social btn-google" ng-click="authenticate('google')">
+          <span class="fa fa-google"></span>Sign in with Google
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
