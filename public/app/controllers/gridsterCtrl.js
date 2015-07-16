@@ -10,7 +10,7 @@ angular.module('dashboardApp')
     $scope.addWidget = function(type) {
       var newWidget = { sizeX: 2, sizeY: 2, row: 0, col: 0, template: "<" + type + "-widget></" + type + "-widget>" };
       $scope.standardItems.push(newWidget);
-      checkPositions();
+      //checkPositions();
     };
 
     $scope.deleteWidget = function($index) {
@@ -78,5 +78,5 @@ angular.module('dashboardApp')
     //     positionsArray.push([item.row, item.col]);
     //   });
     //   console.log(positionsArray);
-    // };   
+    // };
 });

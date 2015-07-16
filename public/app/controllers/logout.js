@@ -12,7 +12,9 @@ angular.module("dashboardApp")
   .controller('LogoutCtrl', function ($rootScope, $location, $scope, $auth, $state, $q, Authentication) {
     var ctrl = this;
     this.logout = function(){
-      Authentication.logout();
+      Authentication.logout().then(function(){
+        $location.path('/login');
+      });
     };
 
     this.awesomeThings = [

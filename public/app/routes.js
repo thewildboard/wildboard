@@ -34,7 +34,10 @@ angular.module("dashboardApp")
             url: "/",
             templateUrl: "app/views/pages/home.html",
             controller: "mainController",
-            controllerAs: "main"
+            controllerAs: "main",
+            resolve : {
+              authenticated : authenticated
+            }
         })
         .state("login", {
             url: "/login",
@@ -58,7 +61,7 @@ angular.module("dashboardApp")
             controller: 'LogoutCtrl',
             controllerAs: 'logout'
         })
-        .state("about", {
+        /*.state("about", {
             url: "/about",
             templateUrl: 'app/views/pages/about.html',
             controller: 'aboutCtrl',
@@ -66,7 +69,7 @@ angular.module("dashboardApp")
             resolve : {
               authenticated : authenticated
             }
-        })
+        })*/
         .state("otherwise", {
           url : '/'
         });

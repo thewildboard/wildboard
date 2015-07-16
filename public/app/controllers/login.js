@@ -15,7 +15,7 @@ angular.module("dashboardApp")
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
       .then(function(data){
-        $location.path('/about');
+        $location.path('/');
       }
       );
     };
@@ -23,7 +23,7 @@ angular.module("dashboardApp")
     this.login = function(){
       Authentication.login(ctrl)
       .then(function(data){
-        $location.path('/about');
+        $location.path('/');
       })
       .catch(function(error){
         ctrl.username = '';
