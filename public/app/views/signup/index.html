@@ -1,10 +1,36 @@
-<p>This is the signup view.</p>
+<div class="container" style="max-width: 350px">
+  <div class="row">
+    <div class="center-form panel">
+      <div class="panel-body">
+        <h2 class="text-center">Sign up</h2>
+        <form method="post" ng-submit="signup.signup()" name="signupForm">
+          <div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.displayName.$invalid && signupForm.displayName.$dirty }">
+            <input class="form-control input" type="text" name="displayName" ng-model="signup.username" placeholder="Name" required autofocus>
+            <span class="ion-person form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.email.$invalid && signupForm.email.$dirty }">
+            <input class="form-control input" type="email" id="email" name="email" ng-model="signup.email" placeholder="Email" required>
+            <span class="ion-at form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.password.$invalid && signupForm.password.$dirty }">
+            <input password-strength class="form-control input" type="password" name="password" ng-model="signup.password" placeholder="Password" required>
+            <span class="ion-key form-control-feedback"></span>
+          </div>
 
+          <div class="form-group has-feedback" ng-class="{ 'has-error' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$dirty }">
+            <input class="form-control input" type="password" name="confirmPassword" ng-model="signup.confirmPassword" placeholder="Confirm Password" required password-verify="signup.password" >
+            <span class="ion-key form-control-feedback"></span>
+            <div class="help-block text-danger" ng-show="signupForm.confirmPassword.$error.passwordVerify">
+                Password must match.!
+            </div>
+          </div>
 
-<!-- views/login.html -->
-<form ng-submit="signup.signup()" method="post">
-    <input type="text" ng-model="signup.username" placeholder="Username..."/>
-    <input type="email" ng-model="signup.email" placeholder="Introduce tu email"/>
-    <input type="password" ng-model="signup.password" placeholder="Password"/>
-    <button type="submit">Registrarse</button>
-</form>
+          <!--<p class="text-center text-muted"><small>By clicking on Sign up, you agree to <a href="#">terms & conditions</a> and <a href="#">privacy policy</a></small></p>-->
+          <button type="submit" ng-disabled="signupForm.$invalid" class="btn btn btn-block btn-primary">Sign up</button>
+          <br/>
+          <p class="text-center text-muted">Already have an account? <a ui-sref="login">Log in now</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

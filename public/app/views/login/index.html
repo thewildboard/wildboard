@@ -13,11 +13,9 @@
             <input class="form-control input" type="password" name="password" ng-model="login.password" placeholder="Password" required>
             <span class="ion-key form-control-feedback"></span>
           </div>
-          <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn btn-block btn-success">Log in</button>
+          <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn btn-block btn-primary">Log in</button>
           <br/>
-          <p class="text-center text-muted">
-            <small>Don't have an account yet? <a ui-sref="signup">Sign up</a></small>
-          </p>
+          <p class="text-center text-muted">Don't have an account yet? <a ui-sref="signup">Sign up</a></p>
           <div class="signup-or-separator">
             <h6 class="text">or</h6>
             <hr>
