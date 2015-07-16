@@ -1,0 +1,17 @@
+"widget": {
+  "name": "myWidget",
+  "style": {
+    "color": "black"
+  },
+  "identifier": {
+    "provider": {
+      "name": "dokify",
+      "token": "yFJfjy54iuTWE52",
+      "source_id": 0
+    },
+
+    "frequency": null,
+    "from": "Date",
+    "to": "Date"
+  }
+}
