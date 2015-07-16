@@ -70,4 +70,6 @@ angular.module("dashboardApp")
         .state("otherwise", {
           url : '/'
         });
+
+    $locationProvider.html5Mode(true);
 });

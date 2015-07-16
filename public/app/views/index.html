@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <title>Wildboard</title>
 
+  <!-- FOR ANGULAR ROUTING -->
+  <base href="/"> 
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <link rel="stylesheet" href="assets/libs/angular-gridster/dist/angular-gridster.min.css"/>
 
-
   <!-- JS / LIBS -->
 
 
 </head>
 <body class="container" ng-app="dashboardApp">
-
 
 <div ng-controller="mainController as main">
   <div class="header">
@@ -53,7 +54,7 @@
   </div>
 </div>
 
-  <div class="col-lg-12">
+  <div>
     <div ng-view></div>
     <div ui-view></div>
   </div>
@@ -77,6 +78,8 @@
   <!-- APP -->
   <script src="app/app.js"></script>
   <script src="app/routes.js"></script>
+
+  <!-- CONTROLLERS -->
   <script src="app/controllers/mainCtrl.js"></script>
   <script src="app/controllers/aboutCtrl.js"></script>
   <script src="app/controllers/login.js"></script>
@@ -84,12 +87,13 @@
   <script src="app/controllers/logout.js"></script>
   <script src="app/controllers/gridsterCtrl.js"></script>
 
-  <!-- DIRECTIVES -->
-  <script src="app/views/directives/widgetBody.js"></script>
-  <script src="app/views/directives/firstWidget.js"></script>
-  <script src="app/views/directives/secondWidget.js"></script>
-
+  <!-- SERVICES -->
   <script src="app/services/Authentication.js"></script>
+  
+  <!-- DIRECTIVES -->
+  <script src="app/directives/widgetBody.js"></script>
+  <script src="app/directives/firstWidget.js"></script>
+  <script src="app/directives/secondWidget.js"></script>
 
 </body>
 </html>
