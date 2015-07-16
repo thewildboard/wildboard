@@ -1,1 +1,24 @@
-Home Page!
+<div ng-controller="gridsterCtrl as gridster">
+
+  <!-- DROPDOWN -->
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Add Widget
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a ng-click="addWidget('first')">First Widget</a></li>
+      <li><a ng-click="addWidget('second')">Second Widget</a></li>
+    </ul>
+  </div>
+
+  <!-- GRIDSTER -->
+  <div gridster="gridster.gridsterOpts">
+    <ul>
+        <li gridster-item="item" ng-repeat="item in standardItems" style="background-color: #f1f1f1">
+          <widget-body></widget-body>
+        </li>
+    </ul>
+  </div>
+
+</div>

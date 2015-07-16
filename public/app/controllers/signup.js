@@ -9,14 +9,17 @@
  */
 angular.module("dashboardApp")
   .controller('SignupIndexCtrl', function ($rootScope, $location, $scope, $auth, Authentication) {
-    var vm = this;
+    var ctrl = this;
 
     this.signup = function(){
-        Authentication.signup(vm)
+        Authentication.signup(ctrl)
         .then(function(data){
             $location.path("/about")
         })
         .catch(function(error){
+          ctrl.username = '';
+          ctrl.password = '';
+          ctrl.email = '';
           $scope.message = error.message;
         });
     };

@@ -8,6 +8,6 @@ angular.module("dashboardApp")
   };
   var vm = this;
 
-  vm.message = "Test Message!";
+  vm.message = "The Wildboard";
 
 });
