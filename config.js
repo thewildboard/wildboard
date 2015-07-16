@@ -1,6 +1,6 @@
 module.exports = {
   default: {
-    manifests: ["https://localhost:8080/manifest.json"],
+    manifests: ["https://dokify.net/wb/manifest.json"],
 
     serveme: {
       debug: true,

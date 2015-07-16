@@ -3,6 +3,12 @@
   "style": {
     "color": "black"
   },
+  "position": {
+    "row": 0, 
+    "col": 0, 
+    "width": 2,
+    "height": 2
+  },
   "identifier": {
     "source": {
       "id": 0,
@@ -11,7 +17,6 @@
         "token": "yFJfjy54iuTWE52",
       }
     },
-
     "frequency": null,
     "from": "Date",
     "to": "Date"
