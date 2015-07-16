@@ -1,6 +1,6 @@
 'use strict';
 
-angular
+var app = angular
 .module("dashboardApp", [
   'ngAnimate',
   'ngCookies',
@@ -8,7 +8,9 @@ angular
   "ngRoute",
   'ngSanitize',
   'satellizer',
-  'ui.router'
+  'ui.router',
+  'gridster'
+
 ])
 .config(function($authProvider) {
 
