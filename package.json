@@ -22,7 +22,7 @@
     "expect.js": "^0.3.1"
   },
   "dependencies": {
-    "serve-me": "0.7.5c",
+    "serve-me": "0.7.6",
     "bcryptjs": "^2.1.0",
     "client-sessions": "^0.7.0",
     "mongoose": "^4.0.6",
