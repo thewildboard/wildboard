@@ -1,5 +1,11 @@
+# WildBoard
+##### An open source, api-ready dashboard for you app
+
+![wildboard](https://raw.githubusercontent.com/thewildboard/wildboard/master/docs/logos/logo.png)
+
 [![Build Status](https://travis-ci.org/thewildboard/wildboard.svg)](https://travis-ci.org/thewildboard/wildboard)
-# Dashboard
+
+----
 
 ## Install
 
@@ -35,24 +41,11 @@ To run the tests:
 
 ##Documentation
 
-###Events (Internal use)
-To add dinamic functionality we have created events on the project. These events supports more than one callback
-The core includes the functions on and call, and they should be used like this:
-```javascript
-core.on('serverSetup', function(data){
-    //'data' contains the possible attributes that will come from the event.
-    //Anything can be returned, and it will be received as an array of results.
-    return ""; 
-});
-
-//To call an event just use the function 'call' and pass the attributes you want.
-var results = core.call('serverSetup', data);
-//results contains all the results from the events inside an array.
-```
+[https://github.com/thewildboard/wildboard/blob/master/docs/README.md](https://github.com/thewildboard/wildboard/blob/master/docs/README.md)
 
 ## Issues
 
-Let us know your suggestions and bugs found to improve Dashboard [here!](https://github.com/thewildboard/wildboard/issues)!
+WildBoard is currently in heavy development, if you want to help let us know your suggestions and bugs found [here!](https://github.com/thewildboard/wildboard/issues)!
 
 [https://github.com/thewildboard/wildboard/issues](https://github.com/thewildboard/wildboard/issues)
 
