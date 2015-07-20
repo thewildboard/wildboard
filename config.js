@@ -4,6 +4,7 @@ module.exports = {
 
     port: 3000,
 
+    secure: true,
     express: {
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem"
@@ -18,6 +19,7 @@ module.exports = {
   },
 
   test: {
+    secure: false
   },
 
   production: {
