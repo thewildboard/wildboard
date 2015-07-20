@@ -3,4 +3,4 @@ node_js:
   - '0.10'
 before_install:
   - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'serveMe' ]; then cd .. && eval "mv $currentfolder serveMe" && cd serveMe; fi
+  - if [ "$currentfolder" != 'wildboard' ]; then cd .. && eval "mv $currentfolder wildboard" && cd wildboard; fi
