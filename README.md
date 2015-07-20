@@ -1,5 +1,11 @@
+# WildBoard
+##### An open source, api-ready dashboard for you app
+
+![wildboard](https://raw.githubusercontent.com/thewildboard/wildboard/master/docs/logos/logo.png)
+
 [![Build Status](https://travis-ci.org/thewildboard/wildboard.svg)](https://travis-ci.org/thewildboard/wildboard)
-# Dashboard
+
+----
 
 ## Install
 
@@ -52,7 +58,7 @@ var results = core.call('serverSetup', data);
 
 ## Issues
 
-Let us know your suggestions and bugs found to improve Dashboard [here!](https://github.com/thewildboard/wildboard/issues)!
+WildBoard is currently in heavy development, if you want to help let us know your suggestions and bugs found [here!](https://github.com/thewildboard/wildboard/issues)!
 
 [https://github.com/thewildboard/wildboard/issues](https://github.com/thewildboard/wildboard/issues)
 
