@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '0.10'
+  - '0.12.7'
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'wildboard' ]; then cd .. && eval "mv $currentfolder wildboard" && cd wildboard; fi
