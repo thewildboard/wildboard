@@ -2,12 +2,15 @@ module.exports = {
   default: {
     manifests: ["https://dokify.net/wb/manifest.json"],
 
-    serveme: {
-      debug: true,
-      secure: true,
+    port: 3000,
+
+    express: {
       key: "./ssl/server-key.pem",
-      cert: "./ssl/server-cert.pem",
-      home: "app/views/index.html"
+      cert: "./ssl/server-cert.pem"
+    },
+
+    server: {
+      index: "app/views/index.html"
     }
   },
 
@@ -15,16 +18,10 @@ module.exports = {
   },
 
   test: {
-    serveme: {
-      log: false
-    }
   },
 
   production: {
-    serveme: {
-      log: false,
-      debug: false
-    }
+    port: 80,
   }
 
 };
