@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thewildboard/wildboard.svg)](https://travis-ci.org/thewildboard/wildboard)
 # Dashboard
 
 ## Install
