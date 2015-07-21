@@ -1,0 +1,59 @@
+/**
+ * Api Reference Examples
+ *-----------------
+ *
+ * GET /api/boards/:id/widgets
+ *-----------------
+ * => Returns all the widgets from a board
+**/
+
+//Returns
+[{
+  "name": "Widget_Name",
+  "id": "...",
+  "position": {
+    "col": 0,
+    "row": 0,
+    "width": 1,
+    "height":1
+  },
+  "indicator": {
+    "source": {
+      "provider": {
+        "name": "provider_name",
+        "token": "..."
+      },
+      "id": source_index
+    }
+  }
+}]
+
+
+/**
+ * Api Reference Examples
+ *-----------------
+ *
+ * POST /api/boards/:id/widgets
+ *-----------------
+ * => Creates a new widget
+**/
+
+{
+  "name": "Widget_Name",
+  "id": "...",
+  "position": {
+    "col": 0,
+    "row": 0,
+    "width": 1,
+    "height":1
+  },
+  "indicator": {
+    "source": {
+      "provider": {
+        "name": "provider_name",
+        "token": "..."
+      },
+      "id": source_index
+    }
+  }
+}
