@@ -23,7 +23,7 @@
         "name": "provider_name",
         "token": "..."
       },
-      "id": source_index
+      "id": "source_index"
     }
   }
 }]
@@ -53,7 +53,7 @@
         "name": "provider_name",
         "token": "..."
       },
-      "id": source_index
+      "id": "source_index"
     }
   }
 }
