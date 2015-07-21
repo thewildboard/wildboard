@@ -1,0 +1,20 @@
+---
+- name: SSL | Creates ssl directory
+  file: path=/vagrant/ssl state=directory mode=0777
+  register: cert
+
+- name: SSL | generate key
+  command: openssl genrsa -out /vagrant/ssl/server-key.pem 2048
+  when: cert.changed
+
+- name: SSL | generate csr
+  command: openssl req -new -sha256 -key /vagrant/ssl/server-key.pem -subj "/C=ES/ST=Madrid/L=Madrid/O=ES=localhost" -days 3650 -out /vagrant/ssl/server-csr.pem
+  when: cert.changed
+
+- name: SSL | sign certificate
+  command: openssl x509 -req -in /vagrant/ssl/server-csr.pem -signkey /vagrant/ssl/server-key.pem -out /vagrant/ssl/server-cert.pem
+  when: cert.changed
+
+- name: SSL | clean files
+  command: rm /vagrant/ssl/server-csr.pem
+  when: cert.changed

@@ -1,0 +1,11 @@
+- hosts: all
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - { role: apt }
+    - { role: node }
+    - { role: packages }
+    - { role: ssl }
+    - { role: nginx }
+    - { role: files }
