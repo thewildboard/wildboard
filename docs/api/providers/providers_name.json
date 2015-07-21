@@ -1,0 +1,26 @@
+/**
+ * Api Reference Examples
+ *-----------------
+ *
+ * GET /api/boards/:id/widgets
+ *-----------------
+ * => Returns a provider info
+ **/
+
+//Returns
+{
+  "name": "provider_name",
+  "url": "provider_url",
+  "sources": [{
+    "id": "total-wrong-checkins-24hours",
+    "description": "The amount of wrong checkins made in the last 24hours",
+    "type": "number"
+  }],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": {
+      "authorization_url": "auth_url",
+      "token_url": "token_url"
+    }
+  }
+}

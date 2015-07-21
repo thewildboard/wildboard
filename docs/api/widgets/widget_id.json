@@ -6,11 +6,13 @@
  *-----------------
  * => Returns a widget by an id (especified in the query)
 **/
+TODO: Implement data queries
 
 //Returns
 {
   "name": "Widget_Name",
-  "id": "...",
+  "id": "...", //widget id
+  "board": "...", //board id
   "position": {
     "col": 0,
     "row": 0,

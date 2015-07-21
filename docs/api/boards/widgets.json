@@ -7,7 +7,7 @@
  * => Returns all the widgets from a board
 **/
 
-//Returns
+//Returns an array of widgets
 [{
   "name": "Widget_Name",
   "id": "...",
@@ -35,7 +35,7 @@
  *
  * POST /api/boards/:id/widgets
  *-----------------
- * => Creates a new widget
+ * => Creates a new widget on the board :id
 **/
 
 {
@@ -57,3 +57,5 @@
     }
   }
 }
+
+//Returns the widget created
