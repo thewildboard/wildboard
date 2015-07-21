@@ -1,3 +1,4 @@
+'use strict';
 angular.module('dashboardApp')
   .directive("passwordVerify", function() {
      return {
