@@ -8,6 +8,6 @@
 **/
 
 {
-    "name": String //Board name
-    "owner": "me" //'me' will make the user the owner
+    "name": "board_name"
+    "owner": "me"
 }
