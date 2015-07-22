@@ -7,7 +7,7 @@
     - python-software-properties
 
 - name: Node.js | Add the node.js PPA
-  action: command add-apt-repository -y ppa:chris-lea/node.js creates=/etc/apt/sources.list.d/chris-lea-node_js-precise.list
+  apt_repository: repo='ppa:chris-lea/node.js'
   tags: nodejs
 
 - name: Node.js | Update the apt cache for the new repository
