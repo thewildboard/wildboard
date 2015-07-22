@@ -1,6 +1,6 @@
 module.exports = {
   default: {
-    manifests: [],
+    manifests: ["https://localhost:3000/manifest.json"],
 
     port: 3000,
 
@@ -12,7 +12,6 @@ module.exports = {
       cert: "./ssl/server-cert.pem"
     },
     
-
     server: {
       index: "app/views/index.html"
     }
