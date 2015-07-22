@@ -3,8 +3,8 @@ angular.module("dashboardApp")
 
 .config(function($routeProvider, $authProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
     // Parametros de configuración
-    $authProvider.loginUrl = "https://localhost:3000/login";
-    $authProvider.signupUrl = "https://localhost:3000/signup";
+    $authProvider.loginUrl = "https://localhost:3000/api/login";
+    $authProvider.signupUrl = "https://localhost:3000/api/signup";
     $authProvider.tokenName = "message";
     $authProvider.tokenPrefix = "dashboard";
     //$urlRouterProvider.otherwise('/');
@@ -61,15 +61,6 @@ angular.module("dashboardApp")
             controller: 'LogoutCtrl',
             controllerAs: 'logout'
         })
-        /*.state("about", {
-            url: "/about",
-            templateUrl: 'app/views/pages/about.html',
-            controller: 'aboutCtrl',
-            controllerAs: 'about',
-            resolve : {
-              authenticated : authenticated
-            }
-        })*/
         .state("otherwise", {
           url : '/'
         });

@@ -9,7 +9,8 @@ var app = angular
   'ngSanitize',
   'satellizer',
   'ui.router',
-  'gridster'
+  'gridster',
+  'ui.bootstrap'
 
 ])
 .config(function($authProvider) {

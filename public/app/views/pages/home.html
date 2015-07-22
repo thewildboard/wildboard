@@ -1,24 +1,32 @@
-<div ng-controller="gridsterCtrl as gridster">
+<div ng-controller="dashboardCtrl as dashboard">
 
-  <!-- DROPDOWN -->
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Add Widget
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a ng-click="addWidget('first')">First Widget</a></li>
-      <li><a ng-click="addWidget('second')">Second Widget</a></li>
-    </ul>
+  <div class="container">
+    <div class="col-md-6">
+      <button ng-click="toggleModal()" class="btn btn-default">Create Dashboard</button>
+      <create-dashboard title="Create Dashboard" visible="showModal">
+        <form role="form" ng-submit="dashboard.createDashboard()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input ng-model="dashboard.name" type="text" class="form-control" placeholder="Dashboard name" />
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </create-dashboard>
+      <div ng-show="dashboard.no_dashboard">
+        No existe ningun dashboard asociado a esta cuenta, por favor cree uno nuevo
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <select ng-model="item" id="dashboard_selected_list" ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="dashboard.showDashboard()">
+        <option value="" disabled selected>Select your option</option>
+      </select>
+    </div>
+
   </div>
 
-  <!-- GRIDSTER -->
-  <div gridster="gridster.gridsterOpts">
-    <ul>
-        <li gridster-item="item" ng-repeat="item in standardItems" style="background-color: #f1f1f1">
-          <widget-body></widget-body>
-        </li>
-    </ul>
-  </div>
+  <dashboard>
+  </dashboard>
+
 
 </div>
