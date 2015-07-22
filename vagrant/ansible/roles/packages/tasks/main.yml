@@ -1,0 +1,5 @@
+---
+- name: Install system packages
+  action: apt pkg={{item}} state=installed
+  with_items:
+  - mongodb

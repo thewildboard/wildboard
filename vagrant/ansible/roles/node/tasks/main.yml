@@ -1,0 +1,21 @@
+---
+- name: Node.js | Package prerequisites for node.js
+  action: apt pkg={{ item }} state=installed
+  tags: nodejs
+  with_items:
+    - software-properties-common
+    - python-software-properties
+
+- name: Node.js | Add the node.js PPA
+  apt_repository: repo='ppa:chris-lea/node.js'
+  tags: nodejs
+
+- name: Node.js | Update the apt cache for the new repository
+  action: apt update-cache=yes
+  tags: nodejs
+
+- name: Node.js | Install nodejs and npm
+  action: apt pkg={{ item }} state=installed
+  tags: nodejs
+  with_items:
+    - nodejs

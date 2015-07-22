@@ -19,6 +19,7 @@ npm-debug.log.*
 *.pem
 connect.sh
 password*
+config.js
 
 public/public.zip
 public/assets/libs
