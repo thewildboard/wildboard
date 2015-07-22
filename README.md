@@ -25,6 +25,12 @@ Generate self-signed server certificates:
     openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
     rm server-csr.pem
 
+Generate the config and modify it to your requirements:
+    
+    node ./ -g config
+
+The file config.js will be created on the main folder.
+
 
 ## Run
 

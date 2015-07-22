@@ -6,3 +6,6 @@ node_js:
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'wildboard' ]; then cd .. && eval "mv $currentfolder wildboard" && cd wildboard; fi
+install:
+  - npm install
+  - node ./ -g config

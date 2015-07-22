@@ -1,37 +1,8 @@
 {
     "refresh_rate": "00 00 00 * * *",
     "provider": {
-        "name": "dokify",
-        "url": "https://dokify.net"
+        "name": "localManifest",
+        "url": ""
     },
-    "sources": [
-        {
-            "id": "total-checkins-24hours",
-            "description": "The amount of checkins made in the last 24hours",
-            "url": "https://dokify.net/api/checkin?interval=P1D&count=total",
-            "type": "number",
-            "refresh_rate": "00 00 00 * * *"
-        },
-        {
-            "id": "total-valid-checkins-24hours",
-            "description": "The amount of valid checkins made in the last 24hours",
-            "url": "https://dokify.net/api/checkin?interval=P1D&count=valids",
-            "type": "number",
-            "refresh_rate": "00 00 00 * * *"
-        },
-        {
-            "id": "total-wrong-checkins-24hours",
-            "description": "The amount of wrong checkins made in the last 24hours",
-            "url": "https://dokify.net/api/checkin?interval=P1D&count=wrongs",
-            "type": "number",
-            "refresh_rate": "00 00 00 * * *"
-        }
-    ],
-    "auth":{
-        "type": "oauth2",
-        "oauth2": {
-            "authorization_url": "https://dokify.net/oauth",
-            "token_url": "https://dokify.net/oauth/access_token"
-        }
-    }
+    "sources": []
 }
