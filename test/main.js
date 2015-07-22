@@ -10,11 +10,11 @@ request = request.defaults({
 
 var core;
 
-beforeEach(function (done) {
+before(function (done) {
   core = Core('test', undefined, done);
 });
 
-afterEach(function() {
+after(function() {
   core.close();
 });
 
