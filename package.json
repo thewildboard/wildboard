@@ -28,6 +28,7 @@
     "client-sessions": "^0.7.0",
     "cron": "1.0.9",
     "express": "^4.13.1",
+    "fs-extra": "^0.22.1",
     "mongoose": "^4.0.6",
     "mongoose-relationship": "^0.1.4",
     "multer": "^1.0.1",
