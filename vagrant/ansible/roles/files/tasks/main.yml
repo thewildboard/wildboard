@@ -1,0 +1,3 @@
+- name: Set profile
+  copy: src=.profile dest=/home/vagrant/ mode=0644
+  ignore_errors: True

@@ -1,0 +1,3 @@
+---
+- name: Update the apt cache for new repositories
+  action: apt update-cache=yes
