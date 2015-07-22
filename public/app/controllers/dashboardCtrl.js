@@ -1,32 +1,38 @@
 'use strict';
 angular.module('dashboardApp')
-.controller('dashboardCtrl', function ($scope, $http, DashboardActions) {
+.controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets) {
   var controller = this;
   controller.dashboard_selected = null;
   controller.dashboardList = [];
+  controller.widget_list = [];
   controller.dashboardSelected = null;
   $scope.showModal = false;
+
+  var init = function(){
+    controller.dashboard_list();
+  };
 
   $scope.toggleModal = function(){
     $scope.showModal = !$scope.showModal;
   };
 
-  DashboardActions.dashboardList()
-  .success(function(data){
-    controller.dashboardList = data;
-    controller.no_dashboard = false;
-  })
-  .error(function(a, b, c){
-    console.log(a, b, c);
-    controller.no_dashboard = true;
-  });;
+  controller.dashboard_list = function(){
+    DashboardActions.dashboardList()
+    .then(function(result){
+      controller.dashboardList = result.data;
+      controller.no_dashboard = false;
+    })
+    .catch(function(error){
+      controller.no_dashboard = true;
+    });
+  };
 
-  controller.showDashboard = function(){
+  $scope.showDashboard = function(){
     controller.dashboard_selected = true;
     controller.dashboardSelected = $scope.item;
   };
 
-  controller.createDashboard = function(){
+  $scope.createDashboard = function(){
     DashboardActions.dashboardCreate({
       name : controller.name,
       owner : 'me'
@@ -42,11 +48,12 @@ angular.module('dashboardApp')
     });
   };
 
-
   var changeValue = function(data){
     controller.dashboardSelected = data;
     $scope.item = data;
-    controller.showDashboard();
+    $scope.showDashboard();
   };
+
+  init();
 
 });

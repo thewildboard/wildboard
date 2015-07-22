@@ -9,7 +9,7 @@
  */
 
 angular.module("dashboardApp")
-  .controller('LogoutCtrl', function ($rootScope, $location, $scope, $auth, $state, $q, Authentication) {
+  .controller('LogoutCtrl', function ($location, Authentication) {
     var ctrl = this;
     this.logout = function(){
       Authentication.logout().then(function(){
