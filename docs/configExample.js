@@ -6,12 +6,12 @@ module.exports = {
 
     secure: true,
     
-    /** Https
+    // Https
     express: {
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem"
     },
-    **/
+    
 
     server: {
       index: "app/views/index.html"
