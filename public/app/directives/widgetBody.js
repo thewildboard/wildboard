@@ -1,5 +1,6 @@
 "use strict";
-app.directive('widgetBody', ['$compile',
+angular.module('dashboardApp')
+.directive('widgetBody', ['$compile',
   function($compile) {
     return {
       templateUrl: 'app/views/directives/widgetBody.html',

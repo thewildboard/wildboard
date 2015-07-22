@@ -4,7 +4,7 @@
     <div class="col-md-6">
       <button ng-click="toggleModal()" class="btn btn-default">Create Dashboard</button>
       <create-dashboard title="Create Dashboard" visible="showModal">
-        <form role="form" ng-submit="dashboard.createDashboard()">
+        <form role="form" ng-submit="createDashboard()">
           <div class="form-group">
             <label for="name">Name</label>
             <input ng-model="dashboard.name" type="text" class="form-control" placeholder="Dashboard name" />
@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-md-6">
-      <select ng-model="item" id="dashboard_selected_list" ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="dashboard.showDashboard()">
+      <select ng-model="item" id="dashboard_selected_list" ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
         <option value="" disabled selected>Select your option</option>
       </select>
     </div>

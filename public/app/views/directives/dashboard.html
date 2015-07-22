@@ -1,18 +1,32 @@
-<div ng-controller="gridsterCtrl as gridster" ng-show="dashboard.dashboard_selected">
+<div ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
   <h3>{{dashboard.dashboardSelected.name}}</h3>
   <!-- DROPDOWN -->
-  <div class="dropdown">
+
+  <div>
+    <select ng-model="source_selected" ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list" ng-change="addWidget()">
+      <option value="" disabled selected>Create new widget</option>
+    </select>
+  </div>
+
+
+
+
+  <!-- <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       Add Widget
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a ng-click="addWidget('first')">First Widget</a></li>
-      <li><a ng-click="addWidget('second')">Second Widget</a></li>
-    </ul>
-  </div>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" ng-model="source_selected">
+      <li ng-repeat="source in gridster.source_list"><a ng-click="addWidget()">{{source.id}}</a></li>
+  </ul>
+</div> -->
 
+
+<br/>
   <!-- GRIDSTER -->
+
+
+
   <div gridster="gridster.gridsterOpts">
     <ul>
         <li gridster-item="item" ng-repeat="item in standardItems" style="background-color: #f1f1f1">
@@ -20,4 +34,5 @@
         </li>
     </ul>
   </div>
+
 </div>
