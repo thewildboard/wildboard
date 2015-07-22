@@ -1,0 +1,13 @@
+/**
+ * Api Reference Examples
+ *-----------------
+ *
+ * POST /api/boards
+ *-----------------
+ * => Creates a new board
+**/
+
+{
+    "name": "board_name",
+    "owner": "me"
+}
