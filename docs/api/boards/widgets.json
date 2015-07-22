@@ -23,7 +23,7 @@
         "name": "provider_name",
         "token": "..."
       },
-      "id": "source_index"
+      "id": "source_id"
     }
   }
 }]
@@ -51,9 +51,9 @@
     "source": {
       "provider": {
         "name": "provider_name",
-        "token": "..."
+        "access_token": "..."
       },
-      "id": "source_index"
+      "id": "source_id"
     }
   }
 }
