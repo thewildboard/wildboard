@@ -15,7 +15,7 @@
     "url": "https://github.com/h4ckademy"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
     "mocha": "2.2.5",

@@ -10,9 +10,8 @@ request = request.defaults({
 
 var core;
 
-before(function(done) {
-  core = Core('test');
-  done();
+before(function (done) {
+  core = Core('test', undefined, done);
 });
 
 after(function() {
