@@ -11,8 +11,11 @@ var app = angular
   'ui.router',
   'gridster',
   'ui.bootstrap'
-
 ])
+.constant('MY_CONFIG', {
+  url : 'https://localhost',
+  port : '3000'
+})
 .config(function($authProvider) {
 
 

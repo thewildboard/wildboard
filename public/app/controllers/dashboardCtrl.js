@@ -1,6 +1,6 @@
 'use strict';
 angular.module('dashboardApp')
-.controller('dashboardCtrl', function ($scope, $http, DashboardList) {
+.controller('dashboardCtrl', function ($scope, $http, DashboardActions) {
   var controller = this;
   controller.dashboard_selected = null;
   controller.dashboardList = [];
@@ -11,7 +11,7 @@ angular.module('dashboardApp')
     $scope.showModal = !$scope.showModal;
   };
 
-  DashboardList.dashboardList()
+  DashboardActions.dashboardList()
   .success(function(data){
     controller.dashboardList = data;
     controller.no_dashboard = false;
@@ -27,7 +27,7 @@ angular.module('dashboardApp')
   };
 
   controller.createDashboard = function(){
-    $http.post('https://localhost:3000/api/boards', {
+    DashboardActions.dashboardCreate({
       name : controller.name,
       owner : 'me'
     })

@@ -1,10 +1,10 @@
 'use strict';
 angular.module("dashboardApp")
 
-.config(function($routeProvider, $authProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
+.config(function(MY_CONFIG, $routeProvider, $authProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
     // Parametros de configuración
-    $authProvider.loginUrl = "https://localhost:3000/api/login";
-    $authProvider.signupUrl = "https://localhost:3000/api/signup";
+    $authProvider.loginUrl = MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/login';
+    $authProvider.signupUrl = MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/signup';
     $authProvider.tokenName = "message";
     $authProvider.tokenPrefix = "dashboard";
     //$urlRouterProvider.otherwise('/');
