@@ -1,6 +1,6 @@
 'use strict';
 angular.module('dashboardApp')
-  .controller('gridsterCtrl', function($rootScope, $scope, DashboardList) {
+  .controller('gridsterCtrl', function($rootScope, $scope) {
     var vm = this;
     $scope.standardItems = [
       // { sizeX: 2, sizeY: 2, row: 0, col: 0, template: "<first-widget></first-widget>" },
