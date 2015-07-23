@@ -14,7 +14,9 @@ angular.module("dashboardApp")
     this.signup = function(){
         Authentication.signup(ctrl)
         .then(function(data){
-            $location.path("/")
+            Authentication.login(ctrl).then(function(){
+              $location.path("/")
+            });
         })
         .catch(function(error){
           ctrl.username = '';
