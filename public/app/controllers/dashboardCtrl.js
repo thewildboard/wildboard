@@ -13,14 +13,17 @@ angular.module('dashboardApp')
   };
 
   $scope.toggleModal = function(){
+    controller.name = '';
     $scope.showModal = !$scope.showModal;
+
   };
 
   controller.dashboard_list = function(){
     DashboardActions.dashboardList()
     .then(function(result){
       controller.dashboardList = result.data;
-      controller.no_dashboard = false;
+      controller.no_dashboard = controller.dashboardList.length <=0 ? true: false;
+
     })
     .catch(function(error){
       controller.no_dashboard = true;
@@ -30,6 +33,27 @@ angular.module('dashboardApp')
   $scope.showDashboard = function(){
     controller.dashboard_selected = true;
     controller.dashboardSelected = $scope.item;
+    controller.widget_list = [];
+
+ //Load the dashboards' wodgets
+    Widgets.get(controller.dashboardSelected.id)
+    .success(function(result){
+      var i = 0;
+      var current_list = result;
+      var current;
+      for(i; i < current_list.length; i += 1){
+        current = current_list[i];
+        controller.widget_list.push({
+          sizeX : current.position.width,
+          sizeY : current.position.height,
+          col : current.position.col,
+          row : current.position.row,
+          name : current.name,
+          template : '<first-widget></first-widget>'
+        });
+      }
+    });
+
   };
 
   $scope.createDashboard = function(){
