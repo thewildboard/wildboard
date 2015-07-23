@@ -9,6 +9,7 @@ angular.module('dashboardApp')
     /**
     This funcion is used to list all the sources and the providers this osources belong
     */
+
     $scope.toggleModal = function(){
       controller.widget_name = '';
       $scope.showModal = !$scope.showModal;
@@ -35,16 +36,56 @@ angular.module('dashboardApp')
       };
 
 
+
+
       Widgets.create(data, $scope.dashboard.dashboardSelected.id)
-      .success(function(result){
-        $scope.dashboard.widget_list.push(result);
+      .then(function(result){
+        var data = {
+          sizeX : result.data.position.width,
+          sizeY : result.data.position.height,
+          col : result.data.position.col,
+          row : result.data.position.row,
+          data : result.data,
+          template : '<first-widget></first-widget>'
+        };
+        $scope.dashboard.widget_list.push(data);
         $scope.toggleModal();
         controller.widget_name = '';
+
+        controller.updatePluginsPosition();
+
       })
-      .error(function(err){
+      .catch(function(err){
 
       });
 
+    };
+
+    var does_not_have_same_position = function(current){
+      var json = current.data;
+      return json.position.col !== current.col ||
+         json.position.row !== current.row ||
+         json.position.width !== current.sizeX||
+         json.position.height !== current.sizeY;
+    }
+
+    controller.updatePluginsPosition = function(){
+      var i = 0;
+      var elements = $scope.dashboard.widget_list;
+      var length = elements.length;
+      var current;
+      var json;
+      for (i; i < length; i += 1){
+        current = elements[i];
+        json = current.data;
+        if(does_not_have_same_position(current)){
+          json.position.col = current.col;
+          json.position.row = current.row;
+          json.position.width = current.sizeX;
+          json.position.height = current.sizeY;
+          //Widgets.update(json, $scope.dashboard.dashboardSelected);
+        }
+      }
     };
 
     controller.provider_list = function(){
@@ -74,20 +115,6 @@ angular.module('dashboardApp')
     }
 
 
-    $scope.standardItems = [
-      // { sizeX: 2, sizeY: 2, row: 0, col: 0, template: "<first-widget></first-widget>" },
-      // { sizeX: 2, sizeY: 2, row: 0, col: 2, template: "<first-widget></first-widget>" },
-    ];
-
-    /*$scope.addWidget = function(type) {
-      var newWidget = { sizeX: 2, sizeY: 2, row: 0, col: 0, template: "<" + type + "-widget></" + type + "-widget>" };
-      $scope.standardItems.push(newWidget);
-      //checkPositions();
-    };
-
-    $scope.deleteWidget = function($index) {
-      $scope.standardItems.splice($index, 1);
-    };*/
 
     controller.gridsterOpts = {
       columns: 6, // the width of the grid, in columns
@@ -120,7 +147,10 @@ angular.module('dashboardApp')
   			//handle: '.my-class', // optional selector for resize handle
          start: function (event, $element, widget) { }, // optional callback fired when drag is started,
          drag: function (event, $element, widget) { }, // optional callback fired when item is moved,
-         stop: function (event, $element, widget) { } // optional callback fired when item is finished dragging
+         stop: function (event, $element, widget) {
+           controller.updatePluginsPosition();
+           // en esta parte solo me muestra el actual cambiado, posiciones, pero tengo que cambiar otra cosa
+         } // optional callback fired when item is finished dragging
       }
     };
 

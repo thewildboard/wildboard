@@ -13,6 +13,17 @@ angular.module('dashboardApp')
         MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets',
         data
       );
+    },
+    update : function(data, dashboard_id){
+      return $http.put(
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets/' + data.id,
+        data
+      );
+    },
+    delete : function(widget_id, dashboard_id){
+      return $http.delete(
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets/' + widget_id
+      );
     }
   };
   return myObject;
