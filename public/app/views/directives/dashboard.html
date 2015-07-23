@@ -1,13 +1,48 @@
-<div ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
-  <h3>{{dashboard.dashboardSelected.name}}</h3>
+<div class="container-fluid" ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
+  <h3>{{dashboardSelected.name}}</h3>
   <!-- DROPDOWN -->
 
-  <div>
-    <select ng-model="source_selected" ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list" ng-change="addWidget()">
-      <option value="" disabled selected>Create new widget</option>
-    </select>
-  </div>
 
+  <div>
+    <button ng-click="toggleModal()" class="btn btn-default">Create new widget</button>
+    <create-dashboard title="Create new widget" visible="showModal">
+
+      <form role="form" ng-submit="createWidget()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input ng-model="gridster.widget_name" type="text" class="form-control" placeholder="Widget name" required/>
+        </div>
+
+        <div>
+          <label for="source">Source</label>
+          <br>
+          <select ng-model="gridster.source_selected"
+          ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list">
+          </select>
+        </div>
+
+        <div>
+          <label for="source">Size</label>
+          <br>
+          <select ng-model="gridster.size_type">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="big">Big</option>
+          </select>
+        </div>
+
+      <br>
+      <div class="text-right">
+        <button type="button" class="btn btn-default" ng-click="toggleModal()">Cancel</button>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+      </form>
+
+    </create-dashboard>
+    <div ng-show="no_dashboard">
+      No existe ningun dashboard asociado a esta cuenta, por favor cree uno nuevo
+    </div>
+  </div>
 
 <br/>
   <!-- GRIDSTER -->

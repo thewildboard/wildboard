@@ -13,7 +13,9 @@ angular.module('dashboardApp')
   };
 
   $scope.toggleModal = function(){
+    controller.name = '';
     $scope.showModal = !$scope.showModal;
+
   };
 
   controller.dashboard_list = function(){
@@ -21,6 +23,7 @@ angular.module('dashboardApp')
     .then(function(result){
       controller.dashboardList = result.data;
       controller.no_dashboard = controller.dashboardList.length <=0 ? true: false;
+
     })
     .catch(function(error){
       controller.no_dashboard = true;
