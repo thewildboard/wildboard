@@ -9,27 +9,14 @@
   </div>
 
 
-
-
-  <!-- <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Add Widget
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" ng-model="source_selected">
-      <li ng-repeat="source in gridster.source_list"><a ng-click="addWidget()">{{source.id}}</a></li>
-  </ul>
-</div> -->
-
-
 <br/>
   <!-- GRIDSTER -->
 
 
 
-  <div gridster="gridster.gridsterOpts">
+  <div  gridster="gridster.gridsterOpts">
     <ul>
-        <li gridster-item="item" ng-repeat="item in standardItems" style="background-color: #f1f1f1">
+        <li ng-model="item" gridster-item="item" ng-repeat="item in dashboard.widget_list" style="background-color: #f1f1f1">
           <widget-body></widget-body>
         </li>
     </ul>
