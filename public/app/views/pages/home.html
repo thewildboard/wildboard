@@ -1,8 +1,38 @@
 <div ng-controller="dashboardCtrl as dashboard">
 
-  <div class="container-fluid">
 
-      <button ng-click="toggleModal()" class="btn btn-default">Create Dashboard</button>
+    <div class="header">
+    <div class="navbar navbar-default" role="navigation">
+      <div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <img src="assets/images/add_dashboard.png" alt="Description" ng-click="toggleModal()"/>
+            </a>
+            <a class="navbar-brand">
+            <select ng-model="item" id="dashboard_selected_list" class="form-control"
+          ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
+            <option value="" disabled selected>Select your option</option>
+          </select>
+</a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-controller="LogoutCtrl as logout"><a ng-show="isAuthenticated()" ui-sref-active="active" ng-click="logout.logout()">logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="container-fluid">
       <create-dashboard title="Create Dashboard" visible="showModal">
         <form role="form" ng-submit="createDashboard()">
           <div class="form-group">
@@ -21,9 +51,7 @@
 
 
 
-      <select ng-model="item" id="dashboard_selected_list" ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
-        <option value="" disabled selected>Select your option</option>
-      </select>
+
 
 
   </div>

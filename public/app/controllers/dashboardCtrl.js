@@ -48,8 +48,8 @@ angular.module('dashboardApp')
           sizeY : current.position.height,
           col : current.position.col,
           row : current.position.row,
-          name : current.name,
-          template : '<first-widget></first-widget>'
+          template : '<first-widget></first-widget>',
+          data : current
         });
       }
     });
