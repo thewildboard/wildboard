@@ -122,8 +122,8 @@ angular.module('dashboardApp')
       floating: true, // whether to automatically float items up so they stack (you can temporarily disable if you are adding unsorted items with ng-repeat)
       swapping: true, // whether or not to have items switch places instead of push down if they are the same size
       width: 'auto', // width of the grid. "auto" will expand the grid to its parent container
-      colWidth: 250, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
-      rowHeight: 100, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
+      colWidth: 270, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
+      rowHeight: 125, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
       margins: [10, 10], // the pixel distance between each widget
       outerMargin: true,
       mobileModeEnabled: false, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
@@ -149,6 +149,7 @@ angular.module('dashboardApp')
          drag: function (event, $element, widget) { }, // optional callback fired when item is moved,
          stop: function (event, $element, widget) {
            controller.updatePluginsPosition();
+           console.log('new_positions')
            // en esta parte solo me muestra el actual cambiado, posiciones, pero tengo que cambiar otra cosa
          } // optional callback fired when item is finished dragging
       }
