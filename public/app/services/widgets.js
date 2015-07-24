@@ -8,21 +8,29 @@ angular.module('dashboardApp')
       return $http
       .get(MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets');
     },
-    create : function(data, dashboard_id){
+    create : function(values){
       return $http.post(
-        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets',
-        data
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + values.dashboard_id + '/widgets',
+        values.data
       );
     },
-    update : function(data, dashboard_id){
-      return $http.put(
-        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets/' + data.id,
-        data
+    update : function(values){
+      return $http(
+        {
+          method : 'PUT',
+          url : MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/widgets/' + values.widget_id,
+          data : values.data
+        }
       );
     },
-    delete : function(widget_id, dashboard_id){
+    delete : function(values){
       return $http.delete(
-        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id + '/widgets/' + widget_id
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + values.dashboard_id + '/widgets/' + valueswidget_id
+      );
+    },
+    getSelected : function(widget_id){
+      return $http.get(
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/widgets/' + widget_id
       );
     }
   };
