@@ -87,21 +87,43 @@ angular.module('dashboardApp')
 
     controller.updatePluginsPosition = function(){
       var i = 0;
-      var elements = $scope.dashboard.widget_list;
-      var length = elements.length;
+      var elements = $scope.dashboard.widget_object_list;
       var current;
       var json;
-      for (i; i < length; i += 1){
+      var current_id;
+
+      for (i in elements){
         current = elements[i];
-        json = current.data;
+        json = {};
         if(does_not_have_same_position(current)){
-          json.position.col = current.col;
-          json.position.row = current.row;
-          json.position.width = current.sizeX;
-          json.position.height = current.sizeY;
-          //Widgets.update( {data : json , widget_id : current.data.id} );
+          json.data = {};
+          json.data.name = current.data.name;
+          json.data.position = current.data.position;
+          json.data.position.col = current.col;
+          json.data.position.row = current.row;
+          json.data.position.width = current.sizeX;
+          json.data.position.height = current.sizeY;
+          Widgets.update( {data : json , widget_id : current.data.id} )
+          .then(function(){
+
+          })
+          .catch(function(){
+          });
         }
       }
+
+    };
+
+    controller.widget_delete = function(widget_id){
+      Widgets.delete(widget_id)
+      .then(function(result){
+        delete $scope.dashboard.widget_object_list[widget_id];
+        $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
+        controller.updatePluginsPosition();
+      })
+      .catch(function(err){
+
+      });
     };
 
     controller.provider_list = function(){

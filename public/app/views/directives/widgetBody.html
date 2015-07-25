@@ -1,8 +1,12 @@
-<div class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        {{item.data.name}}
-      </a>
+<div class="navbar navbar-default" role="navigation" ng-controller="gridsterCtrl as gridster">
+  <div class="col-xs-6">
+    {{item.data.name}}
+  </div>
+  <div class="dropdown  col-xs-6 text-right">
+    <div  class="glyphicon glyphicon-option-vertical dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
     </div>
-    <!--<img src="assets/images/delete_widget.png" alt="Description" ng-click="deleteWidget($index)"/>-->
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation"><a role="menuitem" ng-click="gridster.widget_delete(item.data.id)">Delete</a></li>
+    </ul>
+  </div>
 </div>
