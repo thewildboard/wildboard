@@ -6,7 +6,7 @@ angular.module('dashboardApp')
   controller.dashboardList = [];
   controller.widget_list = [];
   controller.widget_object_list = {};
-  controller.dashboardSelected = null;
+  controller.dashboardSelected = {};
   $scope.showModal = false;
 
   var init = function(){

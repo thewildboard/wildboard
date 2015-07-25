@@ -1,6 +1,62 @@
-/*body {
-  padding-top: 20px;
-}*/
+
+body{
+  background: #4d394b;
+  opacity: 0.8;
+}
+
+.main-nav{
+  position: fixed;
+  float: inherit;
+  width: 100% !important;
+  margin-left: -15px;
+}
+
+.notifications_banner {
+  background: none repeat scroll 0 0 #dfa941;
+  font-weight: 900;
+  color: #fff;
+  font-family: Lato,appleLogo,sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  padding: 5px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transition: all 0.1s ease 0s;
+  width: 100% !important;
+  cursor: pointer;
+  margin-left: -29px;
+  margin-top : 55px;
+  float: right;
+  position: fixed;
+}
+
+@media (min-width: 768px){
+  .body-container{
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 768px){
+  .body-container{
+    margin-top: 155px;
+  }
+}
+
+
+.gridster-loaded .gridster-preview-holder{
+  background-color: #337ab7 !important;
+}
+
+.dashboard-title{
+  font-family: Lucida Grande;
+    font-size: large;
+}
+
+
+
+#dropdownMainMenu{
+  margin-right: 15px;
+}
 
 
 .signup-or-separator {
