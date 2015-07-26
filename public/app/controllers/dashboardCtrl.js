@@ -23,7 +23,15 @@ angular.module('dashboardApp')
     DashboardActions.dashboardList()
     .then(function(result){
       controller.dashboardList = result.data;
-      controller.no_dashboard = controller.dashboardList.length <=0 ? true: false;
+      if ( result.data.length >= 1 ) {
+        controller.dashboardSelected = result.data[0];
+        $scope.item = controller.dashboardSelected;
+        controller.no_dashboard = false;
+        $scope.showDashboard();
+      }
+      else{
+        controller.no_dashboard = true;
+      }
 
     })
     .catch(function(error){
