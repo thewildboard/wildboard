@@ -19,19 +19,25 @@
   <!-- JS / LIBS -->
 
 
+
+
+
 </head>
 <body ng-app="dashboardApp">
 <div ng-controller="mainController as main" ng-hide="isAuthenticated()">
-  <div class="header">
-  <div class="navbar navbar-default main-nav" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/"  ng-text="Wildboard"></a>
-      </div>
-    </div>
-  </div>
-</div>
 
+  <div class="header">
+
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ng-text="Wildboard">
+          </a>
+        </div>
+      </div>
+    </nav>
+
+</div>
 </div>
     <div ui-view></div>
 
