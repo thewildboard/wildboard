@@ -1,10 +1,10 @@
 <div class="container" ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
-  <h3>{{dashboardSelected.name}}</h3>
+
   <!-- DROPDOWN -->
 
 
   <div >
-    <div ng-click="toggleModal()" class="add_new_widget  glyphicon glyphicon-plus"></div>
+    <div ng-click="toggleModal()" class="add_new_widget settings-icon glyphicon glyphicon-plus" role="button"></div>
 
     <create-dashboard title="Create new widget" visible="showModal">
 

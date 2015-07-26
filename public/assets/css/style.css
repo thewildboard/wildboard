@@ -75,7 +75,9 @@ azzul  rgba(40, 96, 144, 1)#286090
   color: gray;
   background: rgba(248,248,248,0.8);
 }
-
+.settings-icon{
+  background: transparent !important;
+}
 
 
 .notifications_banner {
@@ -97,16 +99,10 @@ azzul  rgba(40, 96, 144, 1)#286090
   position: fixed;
 }
 .add_new_widget{
-    background-color: rgba(77, 77, 77, 1);
-    border-radius: 34px;
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 15px;
-    position: fixed;
-    top: 50px;
-    z-index: 1050;
+  color: gray;
+  position: fixed;
+  top: 19px;
+  z-index: 1050;
 }
 
 .body-container{
