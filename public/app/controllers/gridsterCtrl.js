@@ -13,6 +13,7 @@ angular.module('dashboardApp')
     $scope.toggleModal = function(){
       controller.widget_name = '';
       $scope.showModal = !$scope.showModal;
+      controller.provider_list();
     };
 
     $scope.createWidget = function(){
@@ -52,7 +53,6 @@ angular.module('dashboardApp')
         controller.widget_name = '';
 
         controller.updatePluginsPosition();
-
 
         Widgets.getSelected(result.data.widgetId)
         .then(function(result){
@@ -128,8 +128,9 @@ angular.module('dashboardApp')
 
     controller.provider_list = function(){
       Providers.get()
-      .success(function(data){
+      .then(function(result){
         var i = 0;
+        var data = result.data;
         var length = data.length;
         var sources;
         var provider_list = [];
@@ -148,7 +149,8 @@ angular.module('dashboardApp')
         }
         controller.source_selected = controller.source_list[0]
       })
-      .error(function(err){
+      .catch(function(err){
+
       });
     }
 
@@ -160,9 +162,9 @@ angular.module('dashboardApp')
       floating: true, // whether to automatically float items up so they stack (you can temporarily disable if you are adding unsorted items with ng-repeat)
       swapping: true, // whether or not to have items switch places instead of push down if they are the same size
       width: 'auto', // width of the grid. "auto" will expand the grid to its parent container
-      colWidth: 270, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
-      rowHeight: 125, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
-      margins: [10, 10], // the pixel distance between each widget
+      colWidth: 350, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
+      rowHeight: 175, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
+      margins: [15, 15], // the pixel distance between each widget
       outerMargin: true,
       mobileModeEnabled: false, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
       isMobile: false, // stacks the grid items if true
@@ -191,7 +193,4 @@ angular.module('dashboardApp')
          } // optional callback fired when item is finished dragging
       }
     };
-
-
-    controller.provider_list();
 });

@@ -1,10 +1,11 @@
-<div class="container-fluid" ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
+<div class="container" ng-controller="gridsterCtrl as gridster" ng-if="dashboard.dashboard_selected">
   <h3>{{dashboardSelected.name}}</h3>
   <!-- DROPDOWN -->
 
 
-  <div>
-    <button ng-click="toggleModal()" class="btn btn-default">Create new widget</button>
+  <div >
+    <div ng-click="toggleModal()" class="add_new_widget  glyphicon glyphicon-plus"></div>
+
     <create-dashboard title="Create new widget" visible="showModal">
 
       <form role="form" ng-submit="createWidget()">
@@ -16,7 +17,7 @@
         <div>
           <label for="source">Source</label>
           <br>
-          <select ng-model="gridster.source_selected"
+          <select ng-model="gridster.source_selected" class="form-control"
           ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list">
           </select>
         </div>
@@ -24,7 +25,7 @@
         <div>
           <label for="source">Size</label>
           <br>
-          <select ng-model="gridster.size_type">
+          <select ng-model="gridster.size_type" class="form-control">
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="big">Big</option>
@@ -48,7 +49,7 @@
 
   <div  gridster="gridster.gridsterOpts">
     <ul>
-        <li ng-model="item" gridster-item="item" ng-repeat="item in dashboard.widget_list" style="background-color: #f1f1f1">
+        <li ng-model="item" gridster-item="item" ng-repeat="item in dashboard.widget_list" class="widget-body">
           <widget-body></widget-body>
         </li>
     </ul>
