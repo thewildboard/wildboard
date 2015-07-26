@@ -1,24 +1,20 @@
-<nav class="navbar navbar-widget" ng-controller="gridsterCtrl as gridster">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand">{{item.data.name}}</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a  class="dropdown-toggle glyphicon glyphicon-option-vertical" data-toggle="dropdown"
-          role="button" aria-haspopup="true" aria-expanded="false">
-          </a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li  role="presentation">
-              <a class="glyphicon glyphicon-remove" role="menuitem" ng-click="gridster.widget_delete(item.data.id)"> Delete</a>
-          </li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+<div class="widget-menu" ng-controller="gridsterCtrl as gridster">
+  <div class="widget-left-menu">
+    <p class="widget-title">{{item.data.name}}</p>
+  </div>
+  <div class="widget-right-menu">
+    <ul class="dropdown">
+    <span  class="dropdown-toggle glyphicon glyphicon-option-vertical button-style" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">
+    </span>
+    <ul class="dropdown-menu" role="menu">
+      <li  role="presentation">
+        <a class="glyphicon glyphicon-remove" role="menuitem" ng-click="gridster.widget_delete(item.data.id)"> Delete</a>
+      </li>
+      <li  role="presentation">
+        <a class="glyphicon glyphicon glyphicon-pencil" role="menuitem"> Edit</a>
+      </li>
+    </ul>
+  </ul>
+  </div>
+</div>

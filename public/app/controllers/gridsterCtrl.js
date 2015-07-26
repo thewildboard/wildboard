@@ -166,10 +166,10 @@ angular.module('dashboardApp')
       rowHeight: 175, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
       margins: [15, 15], // the pixel distance between each widget
       outerMargin: true,
-      mobileModeEnabled: false, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
-      isMobile: false, // stacks the grid items if true
-      mobileBreakPoint: 768, // if the screen is not wider that this, remove the grid layout and stack the items
       mobileModeEnabled: true, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
+      isMobile: false, // stacks the grid items if true
+      mobileBreakPoint: 500, // if the screen is not wider that this, remove the grid layout and stack the items
+
       minColumns: 1, // the minimum columns the grid must have
       minRows: 2, // the minimum height of the grid, in rows
       maxRows: 100,

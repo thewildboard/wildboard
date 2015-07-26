@@ -4,7 +4,9 @@
 
 
   <div >
-    <div ng-click="toggleModal()" class="add_new_widget settings-icon glyphicon glyphicon-plus" role="button"></div>
+    <a ng-click="toggleModal()" class="add_new_widget btn-lg settings-icon glyphicon glyphicon-plus"
+    role="button">
+    </a>
 
     <create-dashboard title="Create new widget" visible="showModal">
 
@@ -21,7 +23,7 @@
           ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list">
           </select>
         </div>
-
+      </br>
         <div>
           <label for="source">Size</label>
           <br>
@@ -35,7 +37,7 @@
       <br>
       <div class="text-right">
         <button type="button" class="btn btn-default" ng-click="toggleModal()">Cancel</button>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-info">Submit</button>
       </div>
       </form>
 

@@ -1,4 +1,37 @@
+.widget-menu{
+    background: #e7e7e7;
+    display: inline-block;
+    padding-top: 5px;
+    width: 100%;
+}
 
+.widget-right-menu{
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+}
+
+.widget-left-menu{
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+}
+.widget-title{
+  color: gray;
+  font-weight: bold;
+}
+
+
+.header-modalform{
+  background: none repeat scroll 0 0 #495565;
+  color : white;
+}
+.body-modalform{
+  background: none repeat scroll 0 0 #d9d9db;
+}
+.clode-modalform{
+  color : white;
+}
 
 body{
   background : url('../images/background.png');
@@ -38,6 +71,8 @@ body{
   font-size: 15px;
 }
 
+
+
 .navbar-widget .navbar-nav>li>a{
   line-height: 5px !important;
 }
@@ -61,22 +96,28 @@ azzul  rgba(40, 96, 144, 1)#286090
     appearance: none;
     color : white;
     background: rgba(77,77,77,0.6) url("../images/select.png") no-repeat 100% center;
+    height: 40px !important;
+    margin-left: 1px;
 
 }
 .dashboard-select > option{
   background: none repeat scroll 0 0 #f8f8f8;
-  border-radius: 2px;
-  color: black;
-  margin: 5px;
-  padding: 5px;
+  color: #555;
 }
 
 .dashboard-select > option:disabled{
-  color: gray;
-  background: rgba(248,248,248,0.8);
+  background: none repeat scroll 0 0 #f8f8f8;
+  color: rgb(180, 180, 180);
 }
 .settings-icon{
   background: transparent !important;
+  margin-left: 10px;
+}
+.button-style{
+  color: gray;
+    height: 25px;
+    text-align: center;
+    width: 25px;
 }
 
 
@@ -99,10 +140,14 @@ azzul  rgba(40, 96, 144, 1)#286090
   position: fixed;
 }
 .add_new_widget{
-  color: gray;
+  color: #777;
   position: fixed;
-  top: 19px;
+  top: 5px;
   z-index: 1050;
+}
+.add_new_widget:hover{
+  color: #333;
+  text-decoration:none;
 }
 
 .body-container{
@@ -114,7 +159,9 @@ azzul  rgba(40, 96, 144, 1)#286090
 }
 
 @media (max-width: 768px){
-
+  .navbar-nav{
+    overflow: hidden!important;
+  }
 
 }
 
