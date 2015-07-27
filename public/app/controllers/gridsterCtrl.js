@@ -163,7 +163,7 @@ angular.module('dashboardApp')
       swapping: true, // whether or not to have items switch places instead of push down if they are the same size
       width: 'auto', // width of the grid. "auto" will expand the grid to its parent container
       colWidth: 350, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
-      rowHeight: 175, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
+      rowHeight: 250, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
       margins: [15, 15], // the pixel distance between each widget
       outerMargin: true,
       mobileModeEnabled: true, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
