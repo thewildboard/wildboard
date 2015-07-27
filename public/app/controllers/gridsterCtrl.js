@@ -35,25 +35,38 @@ angular.module('dashboardApp')
         }
       };
 
-
-
-
-      Widgets.create(data, $scope.dashboard.dashboardSelected.id)
+      Widgets.create({ data : data, dashboard_id : $scope.dashboard.dashboardSelected.id })
       .then(function(result){
-        var data = {
-          sizeX : result.data.position.width,
-          sizeY : result.data.position.height,
-          col : result.data.position.col,
-          row : result.data.position.row,
-          data : result.data,
-          template : '<first-widget></first-widget>'
+        var data_value = {
+          sizeX : data.position.width,
+          sizeY : data.position.height,
+          col : data.position.col,
+          row : data.position.row,
+          data : {},
+          template : '<loading-value></loading-value>'
         };
-        $scope.dashboard.widget_list.push(data);
+        $scope.dashboard.widget_object_list[result.data.widgetId] = data_value;
+        $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
+
         $scope.toggleModal();
         controller.widget_name = '';
 
         controller.updatePluginsPosition();
 
+
+        Widgets.getSelected(result.data.widgetId)
+        .then(function(result){
+          var data = {
+            sizeX : result.data.position.width,
+            sizeY : result.data.position.height,
+            col : result.data.position.col,
+            row : result.data.position.row,
+            data : result.data,
+            template : '<first-widget></first-widget>'
+          };
+          $scope.dashboard.widget_object_list[result.data.id] = data;
+          $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
+        });
       })
       .catch(function(err){
 
@@ -63,6 +76,9 @@ angular.module('dashboardApp')
 
     var does_not_have_same_position = function(current){
       var json = current.data;
+      if(!json.position){
+        return false;
+      }
       return json.position.col !== current.col ||
          json.position.row !== current.row ||
          json.position.width !== current.sizeX||
@@ -83,7 +99,7 @@ angular.module('dashboardApp')
           json.position.row = current.row;
           json.position.width = current.sizeX;
           json.position.height = current.sizeY;
-          //Widgets.update(json, $scope.dashboard.dashboardSelected);
+          //Widgets.update( {data : json , widget_id : current.data.id} );
         }
       }
     };
@@ -149,7 +165,6 @@ angular.module('dashboardApp')
          drag: function (event, $element, widget) { }, // optional callback fired when item is moved,
          stop: function (event, $element, widget) {
            controller.updatePluginsPosition();
-           console.log('new_positions')
            // en esta parte solo me muestra el actual cambiado, posiciones, pero tengo que cambiar otra cosa
          } // optional callback fired when item is finished dragging
       }

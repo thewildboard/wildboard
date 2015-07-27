@@ -5,6 +5,7 @@ angular.module('dashboardApp')
   controller.dashboard_selected = null;
   controller.dashboardList = [];
   controller.widget_list = [];
+  controller.widget_object_list = {};
   controller.dashboardSelected = null;
   $scope.showModal = false;
 
@@ -30,10 +31,13 @@ angular.module('dashboardApp')
     });
   };
 
+
+
   $scope.showDashboard = function(){
     controller.dashboard_selected = true;
     controller.dashboardSelected = $scope.item;
     controller.widget_list = [];
+    controller.widget_object_list = {};
 
  //Load the dashboards' wodgets
     Widgets.get(controller.dashboardSelected.id)
@@ -43,17 +47,28 @@ angular.module('dashboardApp')
       var current;
       for(i; i < current_list.length; i += 1){
         current = current_list[i];
-        controller.widget_list.push({
+        controller.widget_object_list[current.id] = {
           sizeX : current.position.width,
           sizeY : current.position.height,
           col : current.position.col,
           row : current.position.row,
           template : '<first-widget></first-widget>',
           data : current
-        });
+        };
       }
+
+      controller.widget_list = controller.getCollection(controller.widget_object_list);
     });
 
+  };
+
+  controller.getCollection = function(obj){
+    var i;
+    var result = [];
+    for (i in obj){
+      result.push(obj[i]);
+    }
+    return result;
   };
 
   $scope.createDashboard = function(){
