@@ -14,6 +14,15 @@ module.exports = {
     
     server: {
       index: "app/views/index.html"
+    },
+    
+    sessions: {
+      // cookie name dictates the key name added to the request object
+      cookieName: 'session',
+      // should be a large unguessable string
+      secret: 'mynameisralphwiggum',
+      // how long the session will stay valid in ms
+      duration: 259200 * 1000
     }
   },
 
