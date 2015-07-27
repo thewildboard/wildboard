@@ -96,13 +96,13 @@ angular.module('dashboardApp')
         current = elements[i];
         json = {};
         if(does_not_have_same_position(current)){
-          json.data = {};
-          json.data.name = current.data.name;
-          json.data.position = current.data.position;
-          json.data.position.col = current.col;
-          json.data.position.row = current.row;
-          json.data.position.width = current.sizeX;
-          json.data.position.height = current.sizeY;
+          json = {};
+          json.name = current.data.name;
+          json.position = current.data.position;
+          json.position.col = current.col;
+          json.position.row = current.row;
+          json.position.width = current.sizeX;
+          json.position.height = current.sizeY;
           Widgets.update( {data : json , widget_id : current.data.id} )
           .then(function(){
 
