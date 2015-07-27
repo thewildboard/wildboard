@@ -18,9 +18,9 @@ module.exports = {
     
     sessions: {
       // cookie name dictates the key name added to the request object
-      cookieName: 'cookie_name',
+      cookieName: 'session',
       // should be a large unguessable string
-      secret: 'secret_name',
+      secret: 'mynameisralphwiggum',
       // how long the session will stay valid in ms
       duration: 259200 * 1000
     }
