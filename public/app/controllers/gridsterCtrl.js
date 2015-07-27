@@ -66,6 +66,7 @@ angular.module('dashboardApp')
           };
           $scope.dashboard.widget_object_list[result.data.id] = data;
           $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
+          controller.updatePluginsPosition();
         });
       })
       .catch(function(err){
@@ -79,6 +80,7 @@ angular.module('dashboardApp')
       if(!json.position){
         return false;
       }
+
       return json.position.col !== current.col ||
          json.position.row !== current.row ||
          json.position.width !== current.sizeX||
@@ -103,6 +105,7 @@ angular.module('dashboardApp')
           json.position.row = current.row;
           json.position.width = current.sizeX;
           json.position.height = current.sizeY;
+
           Widgets.update( {data : json , widget_id : current.data.id} )
           .then(function(){
 
@@ -153,7 +156,6 @@ angular.module('dashboardApp')
 
       });
     }
-
 
 
     controller.gridsterOpts = {
