@@ -1,38 +1,67 @@
-<div ng-controller="dashboardCtrl as dashboard">
+<div ng-controller="dashboardCtrl as dashboard" class="container-fluid">
 
+  <div class="header">
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
 
-    <div class="header">
-    <div class="navbar navbar-default" role="navigation">
-      <div>
+      <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+
+          <button class="navbar-toggle collapsed"  aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">
-            <img src="assets/images/add_dashboard.png" alt="Description" ng-click="toggleModal()"/>
-            </a>
-            <a class="navbar-brand">
-            <select ng-model="item" id="dashboard_selected_list" class="form-control"
-          ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
-            <option value="" disabled selected>Select your option</option>
-          </select>
-</a>
 
+          <a class="navbar-brand">
+
+          </a>
         </div>
 
-        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        <!-- collapsible menu -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- left menu-->
+          <ul class="nav navbar-nav">
+          </ul>
+
+
+          <!-- right menu -->
           <ul class="nav navbar-nav navbar-right">
-            <li ng-controller="LogoutCtrl as logout"><a ng-show="isAuthenticated()" ui-sref-active="active" ng-click="logout.logout()">logout</a></li>
+            <li>
+              <select ng-model="item" id="dashboard_selected_list" class="form-control navbar-form dashboard-select"
+              ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
+                <option value="" disabled selected>Select your option</option>
+              </select>
+            </li>
+
+            <li class="dropdown">
+              <a class="glyphicon glyphicon-cog btn-lg dropdown-toggle settings-icon" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" role="button">
+              </a>
+              <ul class="dropdown-menu">
+                <li role="presentation">
+                  <a class="glyphicon glyphicon-plus" role="menuitem" ng-click="toggleModal()"> Add dashboard</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li ng-controller="LogoutCtrl as logout" role="presentation">
+                  <a class="glyphicon glyphicon-off" role="menuitem" ng-click="logout.logout()"> Logout</a>
+                </li>
+
+              </ul>
+            </li>
+
           </ul>
         </div>
+
+
       </div>
-    </div>
+    </nav>
+
+  </div>
 
 
-  <div class="container-fluid">
+
+  <div class="container-fluid body-container">
       <create-dashboard title="Create Dashboard" visible="showModal">
         <form role="form" ng-submit="createDashboard()">
           <div class="form-group">
@@ -41,21 +70,14 @@
           </div>
           <div class="text-right">
             <button type="button" class="btn btn-default" ng-click="toggleModal()">Cancel</button>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-info">Submit</button>
           </div>
         </form>
       </create-dashboard>
-      <div ng-show="dashboard.no_dashboard">
-        No existe ningun dashboard asociado a esta cuenta, por favor cree uno nuevo
+      <div ng-show="dashboard.no_dashboard" class="notifications_banner">
+        There no are any dashboard associated to this account
       </div>
-
-
-
-
-
-
   </div>
-
   <dashboard>
   </dashboard>
 

@@ -17,15 +17,15 @@ angular.module('dashboardApp')
     update : function(values){
       return $http(
         {
-          method : 'PUT',
+          method : 'PATCH',
           url : MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/widgets/' + values.widget_id,
           data : values.data
         }
       );
     },
-    delete : function(values){
+    delete : function(widget_id){
       return $http.delete(
-        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + values.dashboard_id + '/widgets/' + valueswidget_id
+        MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/widgets/' + widget_id
       );
     },
     getSelected : function(widget_id){

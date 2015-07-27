@@ -1,6 +1,185 @@
-/*body {
-  padding-top: 20px;
-}*/
+.widget-menu{
+    background: #e7e7e7;
+    display: inline-block;
+    padding-top: 5px;
+    width: 100%;
+}
+
+.widget-right-menu{
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+}
+
+.widget-left-menu{
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+}
+.widget-title{
+  color: gray;
+  font-weight: bold;
+}
+
+
+.header-modalform{
+  background: none repeat scroll 0 0 #495565;
+  color : white;
+}
+.body-modalform{
+  background: none repeat scroll 0 0 #d9d9db;
+}
+.clode-modalform{
+  color : white;
+}
+
+body{
+  background : url('../images/background.png');
+}
+
+.main-menu{
+
+}
+
+.widget-body{
+  margin: 0px;
+  top: 10px;
+  left: 10px;
+  width: 260px;
+  height: 115px;
+  border: 5px solid rgb(231, 220, 200);
+  border-radius: 0px;
+  background-color: white !important;
+}
+
+.widget-data-simple-number{
+  color: #5bc0de;
+  font-weight: bold;
+}
+
+.navbar-widget{
+  background-color: #f8f8f8;
+  /*border-color: #e7e7e7;*/
+  height: 35px !important;
+  min-height: 30px !important;
+
+}
+
+.navbar-widget .navbar-brand{
+  float: left;
+  padding: 5px;
+  font-size: 15px;
+}
+
+
+
+.navbar-widget .navbar-nav>li>a{
+  line-height: 5px !important;
+}
+
+
+/* greemn rgba(36, 143, 141, 0.2)*
+azzul  rgba(40, 96, 144, 1)#286090
+*/
+.icon_values{
+  background-color: transparent !important;
+}
+
+
+.main-nav{
+  background-color: rgba(255,255,255,0.5);
+}
+
+.dashboard-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color : white;
+    background: rgba(77,77,77,0.6) url("../images/select.png") no-repeat 100% center;
+    height: 40px !important;
+    margin-left: 1px;
+
+}
+.dashboard-select > option{
+  background: none repeat scroll 0 0 #f8f8f8;
+  color: #555;
+}
+
+.dashboard-select > option:disabled{
+  background: none repeat scroll 0 0 #f8f8f8;
+  color: rgb(180, 180, 180);
+}
+.settings-icon{
+  background: transparent !important;
+  margin-left: 10px;
+}
+.button-style{
+  color: gray;
+    height: 25px;
+    text-align: center;
+    width: 25px;
+}
+
+
+.notifications_banner {
+  background: none repeat scroll 0 0 #800000;
+  font-weight: 900;
+  color: #fff;
+  font-family: Lato,appleLogo,sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  padding: 5px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transition: all 0.1s ease 0s;
+  width: 100% !important;
+  cursor: pointer;
+  margin-left: -29px;
+  margin-top : 55px;
+  float: right;
+  position: fixed;
+}
+.add_new_widget{
+  color: #777;
+  position: fixed;
+  top: 5px;
+  z-index: 1050;
+}
+.add_new_widget:hover{
+  color: #333;
+  text-decoration:none;
+}
+
+.body-container{
+  margin-top: 55px;
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (max-width: 768px){
+  .navbar-nav{
+    overflow: hidden!important;
+  }
+
+}
+
+.dashboard-title{
+  color : white !important;
+  font-weight: bold;
+  font-family: Lucida Grande;
+}
+
+
+#dashboard_selected_list.form-control:focus{
+  border : 1px solid white;
+  box-shadow: none!important;
+}
+
+.gridster-loaded .gridster-preview-holder{
+  background-color: rgba(40, 96, 144, 1) !important;
+}
 
 
 .signup-or-separator {

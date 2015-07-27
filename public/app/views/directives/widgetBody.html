@@ -1,8 +1,20 @@
-<div class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        {{item.data.name}}
-      </a>
-    </div>
-    <!--<img src="assets/images/delete_widget.png" alt="Description" ng-click="deleteWidget($index)"/>-->
+<div class="widget-menu" ng-controller="gridsterCtrl as gridster">
+  <div class="widget-left-menu">
+    <p class="widget-title">{{item.data.name}}</p>
+  </div>
+  <div class="widget-right-menu">
+    <ul class="dropdown">
+    <span  class="dropdown-toggle glyphicon glyphicon-option-vertical button-style" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">
+    </span>
+    <ul class="dropdown-menu" role="menu">
+      <li  role="presentation">
+        <a class="glyphicon glyphicon-remove" role="menuitem" ng-click="gridster.widget_delete(item.data.id)"> Delete</a>
+      </li>
+      <li  role="presentation">
+        <a class="glyphicon glyphicon glyphicon-pencil" role="menuitem"> Edit</a>
+      </li>
+    </ul>
+  </ul>
+  </div>
 </div>

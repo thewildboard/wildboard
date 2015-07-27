@@ -19,63 +19,35 @@
   <!-- JS / LIBS -->
 
 
+
+
+
 </head>
 <body ng-app="dashboardApp">
 <div ng-controller="mainController as main" ng-hide="isAuthenticated()">
+
   <div class="header">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Wildboard</a>
+
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" ng-text="Wildboard">
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
+    </nav>
+
 </div>
-
 </div>
-
-
-
-
-
-
-<!--<div ng-controller="mainController as main" ng-hide="isAuthenticated()">
-  <div class="header">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Wildboard</a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-
-          <li><a ng-hide="isAuthenticated()" ui-sref-active="active" ui-sref="login">Login</a></li>
-          <li><a ng-hide="isAuthenticated()" ui-sref-active="active" ui-sref="signup">Signup</a></li>
-          <li ng-controller="LogoutCtrl as logout"><a ng-show="isAuthenticated()" ui-sref-active="active" ng-click="logout.logout()">logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>-->
-
-
-
-
-
     <div ui-view></div>
 
 
   <script src="assets/libs/jquery/dist/jquery.js"></script>
   <script src="assets/libs/angular/angular.js"></script>
   <script src="assets/libs/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+
   <script src="assets/libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+
   <script src="assets/libs/angular-animate/angular-animate.js"></script>
   <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
   <script src="assets/libs/angular-resource/angular-resource.js"></script>
