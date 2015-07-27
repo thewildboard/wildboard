@@ -10,13 +10,43 @@ angular.module('dashboardApp')
     This funcion is used to list all the sources and the providers this osources belong
     */
 
+    /**
+    function used to show the CreateWidgetForm
+    **/
     $scope.toggleModal = function(){
       controller.widget_name = '';
       $scope.showModal = !$scope.showModal;
       controller.provider_list();
     };
 
-    $scope.createWidget = function(){
+   /**
+   This function is used to
+        get information abour the fiven widget
+        update its value representation
+        update it representation in the widget_object_list and in the widget_list
+   **/
+    controller.getSelectedWidget = function(widget_id){
+      Widgets.getSelected(widget_id)
+      .then(function(result){
+        var data = {
+          sizeX : result.data.position.width,
+          sizeY : result.data.position.height,
+          col : result.data.position.col,
+          row : result.data.position.row,
+          data : result.data,
+          template : '<first-widget></first-widget>'
+        };
+        $scope.dashboard.widget_object_list[result.data.id] = data;
+        $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
+      })
+      .catch(function(err){
+      });
+    };
+
+    /** This function is used to create a newWidget
+        position  ==> will be the first of all widgets
+    **/
+    controller.createWidget = function(){
       var size_type = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 3;
       var data = {
         name : controller.widget_name,
@@ -53,27 +83,16 @@ angular.module('dashboardApp')
         controller.widget_name = '';
 
         controller.updatePluginsPosition();
-
-        Widgets.getSelected(result.data.widgetId)
-        .then(function(result){
-          var data = {
-            sizeX : result.data.position.width,
-            sizeY : result.data.position.height,
-            col : result.data.position.col,
-            row : result.data.position.row,
-            data : result.data,
-            template : '<first-widget></first-widget>'
-          };
-          $scope.dashboard.widget_object_list[result.data.id] = data;
-          $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
-          controller.updatePluginsPosition();
-        });
+        controller.getSelectedWidget(result.data.widgetId);
       })
       .catch(function(err){
-
+        controller.widget_name = '';
+        $scope.showModal = !$scope.showModal;
+        alert(err.message);
       });
-
     };
+
+    //Auxiliar function used to know is the current widgets have position changed
 
     var does_not_have_same_position = function(current){
       var json = current.data;
@@ -87,6 +106,9 @@ angular.module('dashboardApp')
          json.position.height !== current.sizeY;
     }
 
+    /**
+    This function update the widgets if there hacve changed its position
+    **/
     controller.updatePluginsPosition = function(){
       var i = 0;
       var elements = $scope.dashboard.widget_object_list;
@@ -108,15 +130,14 @@ angular.module('dashboardApp')
 
           Widgets.update( {data : json , widget_id : current.data.id} )
           .then(function(){
-
           })
           .catch(function(){
           });
         }
       }
-
     };
 
+    /** action used to delete the selected widget**/
     controller.widget_delete = function(widget_id){
       Widgets.delete(widget_id)
       .then(function(result){
@@ -129,6 +150,7 @@ angular.module('dashboardApp')
       });
     };
 
+    /** this function is used to load the porvider list in order of get the source data**/
     controller.provider_list = function(){
       Providers.get()
       .then(function(result){
