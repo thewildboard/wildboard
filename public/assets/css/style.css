@@ -21,7 +21,6 @@
   font-weight: bold;
 }
 
-
 .header-modalform{
   background: none repeat scroll 0 0 #495565;
   color : white;
@@ -47,14 +46,39 @@ body{
   left: 10px;
   width: 260px;
   height: 115px;
-  border: 5px solid rgb(231, 220, 200);
+  border: 5px solid #EEEEEE;
   border-radius: 0px;
   background-color: white !important;
 }
 
 .widget-data-simple-number{
-  color: #5bc0de;
-  font-weight: bold;
+  color: #666666;
+  font-family: 'Montserrat';
+  font-size: 72px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.widget-data-simple-number-text{
+  color: #CCCCCC;
+  font-family: 'Montserrat';
+  font-size: 24px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.widget-simple-number{
+  display: inline-block;
+}
+
+.divider{
+  background-color: #339999;
+  height: 120px;
+  width: 7px;
+  display: inline-block;
+  margin-left: 60px;
 }
 
 .navbar-widget{
