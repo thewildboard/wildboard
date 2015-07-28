@@ -1,4 +1,4 @@
-<div ng-controller="dashboardCtrl as dashboard" class="container-fluid">
+<div ng-controller="dashboardCtrl as dashboard" class="container-fluid" ng-init="dashboard.dashboard_list()">
 
   <div class="header">
     <nav class="navbar navbar-default navbar-fixed-top main-nav">
@@ -29,7 +29,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <select ng-model="item" id="dashboard_selected_list" class="form-control navbar-form dashboard-select"
-              ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="showDashboard()">
+              ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="dashboard.showDashboard()">
                 <option value="" disabled selected>Select your option</option>
               </select>
             </li>
@@ -63,7 +63,7 @@
 
   <div class="container-fluid body-container">
       <create-dashboard title="Create Dashboard" visible="showModal">
-        <form role="form" ng-submit="createDashboard()">
+        <form role="form" ng-submit="dashboard.createDashboard()">
           <div class="form-group">
             <label for="name">Name</label>
             <input ng-model="dashboard.name" type="text" class="form-control" placeholder="Dashboard name" required/>

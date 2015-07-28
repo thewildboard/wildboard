@@ -9,25 +9,27 @@ angular.module('dashboardApp')
   controller.dashboardSelected = {};
   $scope.showModal = false;
 
-  var init = function(){
-    controller.dashboard_list();
-  };
-
+  /**
+  This function is used to decide if show the create_dashboard form
+  **/
   $scope.toggleModal = function(){
     controller.name = '';
     $scope.showModal = !$scope.showModal;
 
   };
 
+  /**
+  Here we list all dashboard that the user have created
+  and if there is some then we automatically we select the first one
+  **/
   controller.dashboard_list = function(){
     DashboardActions.dashboardList()
     .then(function(result){
       controller.dashboardList = result.data;
       if ( result.data.length >= 1 ) {
-        controller.dashboardSelected = result.data[0];
-        $scope.item = controller.dashboardSelected;
+        $scope.item = result.data[0];
         controller.no_dashboard = false;
-        $scope.showDashboard();
+        controller.showDashboard();
       }
       else{
         controller.no_dashboard = true;
@@ -39,16 +41,12 @@ angular.module('dashboardApp')
     });
   };
 
-
-
-  $scope.showDashboard = function(){
-    controller.dashboard_selected = true;
-    controller.dashboardSelected = $scope.item;
-    controller.widget_list = [];
-    controller.widget_object_list = {};
-
- //Load the dashboards' wodgets
-    Widgets.get(controller.dashboardSelected.id)
+  /**
+  this function is used to load all the widget of a specific dashboard and create the structure needed to the
+  correct visualization
+  **/
+  controller.load_and_show_widgets = function(dashboard_id){
+    Widgets.get(dashboard_id)
     .success(function(result){
       var i = 0;
       var current_list = result;
@@ -64,12 +62,25 @@ angular.module('dashboardApp')
           data : current
         };
       }
-
       controller.widget_list = controller.getCollection(controller.widget_object_list);
     });
-
   };
 
+
+  /**
+  This function is used to show the widgets that an specific dashbaord have
+  **/
+  controller.showDashboard = function(){
+    controller.dashboard_selected = true;
+    controller.dashboardSelected = $scope.item;
+    controller.widget_list = [];
+    controller.widget_object_list = {};
+    controller.load_and_show_widgets(controller.dashboardSelected.id);
+  };
+
+  /**
+  aux_function used to get all the values of an object
+  **/
   controller.getCollection = function(obj){
     var i;
     var result = [];
@@ -79,7 +90,10 @@ angular.module('dashboardApp')
     return result;
   };
 
-  $scope.createDashboard = function(){
+  /**
+  This function is used to create a new dashbaord.
+  **/
+  controller.createDashboard = function(){
     DashboardActions.dashboardCreate({
       name : controller.name,
       owner : 'me'
@@ -91,16 +105,17 @@ angular.module('dashboardApp')
       controller.dashboardList.push(data);
       setTimeout(function () {changeValue(data)}, 0);
     })
-    .error(function(a,b){
+    .error(function(result){
+      $scope.showModal = false;
+      controller.name = '';
+      alert(result.message);
     });
   };
 
   var changeValue = function(data){
     controller.dashboardSelected = data;
     $scope.item = data;
-    $scope.showDashboard();
+    controller.showDashboard();
   };
-
-  init();
 
 });
