@@ -2,12 +2,28 @@
 angular.module('dashboardApp')
 .controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets) {
   var controller = this;
-  controller.dashboard_selected = null;
-  controller.dashboardList = [];
-  controller.widget_list = [];
-  controller.widget_object_list = {};
-  controller.dashboardSelected = {};
   $scope.showModal = false;
+  controller.confirm_delete_dashboard = 'Do you wan to delete the dashboard "$1"?'
+
+
+  controller.deleteDashboard = function() {
+    DashboardActions.delete(controller.dashboardSelected.id)
+    .then(function(response){
+      controller.dashboard_list();
+    })
+    .catch(function(err){
+    });
+  };
+
+  var clean_dashboard_values = function(){
+    controller.dashboard_selected = null;
+    controller.dashboardList = [];
+    controller.widget_list = [];
+    controller.widget_object_list = {};
+    controller.dashboardSelected = {};
+    $scope.item = {};
+  };
+
 
   /**
   This function is used to decide if show the create_dashboard form
@@ -23,6 +39,7 @@ angular.module('dashboardApp')
   and if there is some then we automatically we select the first one
   **/
   controller.dashboard_list = function(){
+    clean_dashboard_values();
     DashboardActions.dashboardList()
     .then(function(result){
       controller.dashboardList = result.data;

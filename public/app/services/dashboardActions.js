@@ -13,6 +13,9 @@
       },
       dashboardCreate : function(data){
         return $http.post(MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards', data);
+      },
+      delete : function(dashboard_id){
+        return $http.delete(MY_CONFIG.url + ':' + MY_CONFIG.port + '/api/boards/' + dashboard_id);
       }
     };
     return myObject;
