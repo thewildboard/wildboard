@@ -28,7 +28,8 @@
     "angular-gridster": "~0.13.5",
     "bootstrap-social": "~4.9.1",
     "angular-bootstrap": "~0.13.1",
-    "ng-foobar": "~0.1.0"
+    "ng-foobar": "~0.1.0",
+    "angular-multiple-transclusion": "~1.0.0"
   },
   "resolutions": {
     "angular": "~1.4.2",

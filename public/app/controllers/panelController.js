@@ -1,17 +1,23 @@
 angular.module('dashboardApp').
 controller('panelController', function ($scope) {
-  this.tab = 1;
-  this.selectTab = function(setTab){
-    this.tab = setTab;
+
+  var controller = $scope.gridster;
+  controller.tab = 1;
+  controller.image_selected = 1;
+  controller.selectTab = function(setTab){
+    controller.tab = setTab;
   }
 
-  this.isSelected = function(checkTab){
-    return this.tab === checkTab;
+  controller.isSelected = function(checkTab){
+    return controller.tab === checkTab;
   }
-  this.jumpToInvalidTab=function(){
-    this.tab = 1;
-    if(this.data_form.$valid){
-      this.tab = 2;
-    }
+
+  controller.isImageSelected = function(image){
+    return controller.image_selected === image
   };
+
+  controller.selectImage = function(image){
+    controller.image_selected = image;
+  };
+
 });

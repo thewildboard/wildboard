@@ -8,8 +8,14 @@
     role="button">
     </a>
 
-    <create-dashboard title="Create new widget" createWidgetBody="true" visible="showModal">
-      <create-widget></create-widget>
+    <create-dashboard title="Create new widget" createWidgetBody="true" visible="showModal" >
+      <create-widget transclude-to="body_values" ng-controller="panelController as panel"></create-widget>
+
+      <div class="text-right" transclude-to="footer">
+        <button type="button" class="btn btn-cancel" ng-click="toggleModal()">Cancel</button>
+        <button form="createWidget" type="submit" class="btn btn-create" ng-click="gridster.jumpToInvalidTab()">Submit</button>
+      </div>
+
 
     </create-dashboard>
   </div>
