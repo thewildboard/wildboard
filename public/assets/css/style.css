@@ -85,6 +85,10 @@ body{
 
 }
 
+.createwidget_body{
+  height : 350px;
+}
+
 .widget-body{
   margin: 0px;
   top: 10px;
