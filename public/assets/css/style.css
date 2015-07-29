@@ -22,15 +22,28 @@
 }
 
 .header-modalform{
-  background: none repeat scroll 0 0 #495565;
-  color : white;
+  border-radius: 4px;
+  color: gray;
+  font-size: 5px !important;
+  padding: 8px 15px;
+  background: #e7e7e7;
 }
 .body-modalform{
-  background: none repeat scroll 0 0 #d9d9db;
+  /*background: url("../images/background.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #008d98;*/
+  padding-top: 35px;
 }
-.clode-modalform{
-  color : white;
+
+btn-create{
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #fff;
 }
+
+btn-create:hover{
+
+}
+
 
 body{
   background : url('../images/background.png');
