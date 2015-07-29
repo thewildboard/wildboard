@@ -34,14 +34,46 @@
   padding-top: 35px;
 }
 
-btn-create{
-  background-color: #5bc0de;
-  border-color: #46b8da;
+.btn-create{
+  background-color: #019fac;
+  border-color: #0088a0;
   color: #fff;
 }
 
-btn-create:hover{
+.btn-create:hover{
+  background-color: #0088a0;
+  border-color: #00718e;
+  color: #fff;
+}
 
+.btn-create:focus{
+  background-color: #00718e;
+  border-color: #00718e;
+  color: #fff;
+}
+
+
+.btn-cancel{
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  color: #333;
+}
+
+.btn-cancel:hover{
+  background-color: #d4d4d4;
+  border-color: #adadad;
+  color: #333;
+}
+
+.btn-cancel:focus{
+  background-color: #c5c5c5;
+  border-color: #868686;
+  color: #333;
+}
+
+.label-style{
+  font-weight: normal;
+  color : #0088a0;
 }
 
 
