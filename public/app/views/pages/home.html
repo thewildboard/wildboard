@@ -43,8 +43,7 @@
                   <a class="glyphicon glyphicon-plus" role="menuitem" ng-click="toggleModal()"> Add dashboard</a>
                 </li>
                 <li role="presentation" ng-if="dashboard.dashboardSelected.id">
-                  <a class="glyphicon glyphicon-minus" role="menuitem" ng-click="dashboard.deleteDashboard"
-                  confirmation-needed="{{dashboard.confirm_delete_dashboard}}" dashboardid="{{dashboard.dashboardSelected.name}}"> Delete dashboard</a>
+                  <a class="glyphicon glyphicon-minus" role="menuitem" ng-click="dashboard.deleteDashboardPress()"> Delete dashboard</a>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li ng-controller="LogoutCtrl as logout" role="presentation">

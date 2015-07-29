@@ -1,12 +1,12 @@
 'use strict';
 angular.module('dashboardApp')
-.controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets, ngFoobar) {
+.controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets, ngFoobar, $modal, $log) {
   var controller = this;
   $scope.showModal = false;
-  controller.confirm_delete_dashboard = 'Do you wan to delete the dashboard "$1"?'
+  $scope.animationsEnabled = true;
 
-
-  controller.deleteDashboard = function() {
+  //**Delete the selected dashbaord
+  controller.deleteDashboard = function(){
     DashboardActions.delete(controller.dashboardSelected.id)
     .then(function(response){
       controller.dashboard_list();
@@ -14,6 +14,30 @@ angular.module('dashboardApp')
     .catch(function(err){
     });
   };
+
+  //action that is launched by the "delete dashbaord button"
+  /**
+  This will be ask for confirmation before delete the dashbaord
+  **/
+  controller.deleteDashboardPress = function(){
+    var modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'app/views/directives/confirm_delete_dashboard.html',
+        controller: 'ModalInstanceCtrl',
+        size: 'md',
+        resolve: {
+          items: function () {
+            return controller.dashboardSelected.name;
+          }
+        }
+      });
+      modalInstance.result.then(function (selectedItem) {
+        controller.deleteDashboard();
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+  };
+
 
   var clean_dashboard_values = function(){
     controller.dashboard_selected = null;

@@ -124,7 +124,7 @@ azzul  rgba(40, 96, 144, 1)#286090
 
 
 .main-nav{
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(230, 230, 230, 0.5);
 }
 
 .dashboard-select{
@@ -249,4 +249,9 @@ azzul  rgba(40, 96, 144, 1)#286090
 @-moz-keyframes spinm {
   from { -moz-transform: rotate(0deg);}
   to { -moz-transform: rotate(360deg);}
+}
+
+.modal-content{
+  border-radius: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
