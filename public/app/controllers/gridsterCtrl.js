@@ -6,17 +6,24 @@ angular.module('dashboardApp')
     controller.provider_list = [];
     $scope.source_selected = {};
     $scope.provider_selected = {};
+    $scope.provider_selected.provider_selected = {};
     $scope.showModal = false;
     controller.size_type = 'small';
     /**
     This funcion is used to list all the sources and the providers this osources belong
     */
 
+    var clean_widget_form = function(){
+      controller.widget_name = '';
+      $scope.provider_selected.provider_selected = {};
+      $scope.source_selected = {};
+    };
+
     /**
     function used to show the CreateWidgetForm
     **/
     $scope.toggleModal = function(){
-      controller.widget_name = '';
+      clean_widget_form();
       $scope.showModal = !$scope.showModal;
       if($scope.showModal){
         controller.get_provider_list();
@@ -84,7 +91,6 @@ angular.module('dashboardApp')
         $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
 
         $scope.toggleModal();
-        controller.widget_name = '';
 
         controller.updatePluginsPosition();
         controller.getSelectedWidget(result.data.widgetId);
