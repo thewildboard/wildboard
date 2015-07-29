@@ -12,20 +12,31 @@
 
       <form role="form" ng-submit="gridster.createWidget()">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label>Name</label>
           <input ng-model="gridster.widget_name" type="text" class="form-control" placeholder="Widget name" required/>
         </div>
 
         <div>
-          <label for="source">Source</label>
+          <label>Provider</label>
           <br>
-          <select ng-model="gridster.source_selected" class="form-control"
-          ng-options="source_selected.provider + ' ' + source_selected.id for source_selected in gridster.source_list">
+          <select ng-model="provider_selected.provider_selected" class="form-control" ng-change="gridster.show_source_list()"
+          ng-options="provider_selected.name for provider_selected in gridster.provider_list" required>
+           <option></option>
+          </select>
+        </div>
+        </br>
+        <div>
+          <label>Source</label>
+          <br>
+          <select ng-model="source_selected" class="form-control"
+          ng-options="source_selected.id for source_selected in gridster.source_list" required>
+           <option></option>
           </select>
         </div>
       </br>
+
         <div>
-          <label for="source">Size</label>
+          <label>Size</label>
           <br>
           <select ng-model="gridster.size_type" class="form-control">
             <option value="small">Small</option>

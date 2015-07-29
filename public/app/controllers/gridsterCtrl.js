@@ -3,7 +3,9 @@ angular.module('dashboardApp')
   .controller('gridsterCtrl', function($rootScope, $scope, Providers, Widgets) {
     var controller = this;
     controller.source_list = [];
-    $scope.source_selected = null;
+    controller.provider_list = [];
+    $scope.source_selected = {};
+    $scope.provider_selected = {};
     $scope.showModal = false;
     controller.size_type = 'small';
     /**
@@ -16,7 +18,9 @@ angular.module('dashboardApp')
     $scope.toggleModal = function(){
       controller.widget_name = '';
       $scope.showModal = !$scope.showModal;
-      controller.provider_list();
+      if($scope.showModal){
+        controller.get_provider_list();
+      }
     };
 
    /**
@@ -59,9 +63,9 @@ angular.module('dashboardApp')
         indicator : {
           source : {
             provider : {
-              name : controller.source_selected.provider
+              name : $scope.provider_selected.provider_selected.name
             },
-            id : controller.source_selected.id
+            id : $scope.source_selected.id
           }
         }
       };
@@ -151,34 +155,41 @@ angular.module('dashboardApp')
     };
 
     /** this function is used to load the porvider list in order of get the source data**/
-    controller.provider_list = function(){
+    controller.get_provider_list = function(){
       Providers.get()
       .then(function(result){
         var i = 0;
         var data = result.data;
         var length = data.length;
         var sources;
-        var provider_list = [];
         var provider;
         var source;
-        var current_source;
-        controller.source_list = [];
+        var provider_source_list = [];
+        controller.provider_list = [];
         for (i; i < length; i+=1) {
-          provider = data[i];
-          sources = provider.sources;
+          provider = {
+            name : data[i].name,
+            sources : provider_source_list
+          };
+          controller.provider_list.push(provider);
+          sources = data[i].sources;
           for(source in sources){
-            current_source = sources[source];
-            current_source.provider = provider.name;
-            controller.source_list.push(current_source);
+            provider_source_list.push(sources[source]);
           }
         }
-        controller.source_selected = controller.source_list[0]
       })
       .catch(function(err){
 
       });
-    }
+    };
 
+    controller.show_source_list = function(){
+        controller.source_list = $scope.provider_selected.provider_selected.sources;
+        if(controller.source_list && controller.source_list.length >= 1){
+          $scope.source_selected = controller.source_list[0];
+        }
+
+    };
 
     controller.gridsterOpts = {
       columns: 8, // the width of the grid, in columns
