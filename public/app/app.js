@@ -10,7 +10,8 @@ var app = angular
   'satellizer',
   'ui.router',
   'gridster',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngFoobar'
 ])
 .constant('MY_CONFIG', {
   url : 'https://localhost',

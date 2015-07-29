@@ -1,6 +1,6 @@
 'use strict';
 angular.module('dashboardApp')
-.controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets) {
+.controller('dashboardCtrl', function ($scope, $http, DashboardActions, Widgets, ngFoobar) {
   var controller = this;
   $scope.showModal = false;
   controller.confirm_delete_dashboard = 'Do you wan to delete the dashboard "$1"?'
@@ -49,6 +49,7 @@ angular.module('dashboardApp')
         controller.showDashboard();
       }
       else{
+        ngFoobar.show("warning", "There no are any dashboard associated to this account");
         controller.no_dashboard = true;
       }
 
