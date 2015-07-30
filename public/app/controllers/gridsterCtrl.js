@@ -174,7 +174,7 @@ angular.module('dashboardApp')
     controller.widget_delete_action = function(widget_id, widget_name){
       var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: 'app/views/directives/confirm_delete_dashboard.html',
+          templateUrl: 'app/views/directives/confirm_delete.html',
           controller: 'ModalInstanceCtrl',
           size: 'md',
           resolve: {

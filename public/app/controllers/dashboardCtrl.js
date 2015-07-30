@@ -22,7 +22,7 @@ angular.module('dashboardApp')
   controller.deleteDashboardPress = function(){
     var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'app/views/directives/confirm_delete_dashboard.html',
+        templateUrl: 'app/views/directives/confirm_delete.html',
         controller: 'ModalInstanceCtrl',
         size: 'md',
         resolve: {
