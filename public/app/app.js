@@ -11,7 +11,8 @@ var app = angular
   'ui.router',
   'gridster',
   'ui.bootstrap',
-  'ngFoobar'
+  'ngFoobar',
+  'angular-multiple-transclusion'
 ])
 .constant('MY_CONFIG', {
   url : 'https://localhost',

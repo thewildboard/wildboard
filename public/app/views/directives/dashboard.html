@@ -8,49 +8,14 @@
     role="button">
     </a>
 
-    <create-dashboard title="Create new widget" visible="showModal">
+    <create-dashboard title="Create new widget" createWidgetBody="true" visible="showModal" >
+      <create-widget transclude-to="body_values" ng-controller="panelController as panel"></create-widget>
 
-      <form role="form" ng-submit="gridster.createWidget()">
-        <div class="form-group">
-          <label>Name</label>
-          <input ng-model="gridster.widget_name" type="text" class="form-control" placeholder="Widget name" required/>
-        </div>
-
-        <div>
-          <label>Provider</label>
-          <br>
-          <select ng-model="provider_selected.provider_selected" class="form-control" ng-change="gridster.show_source_list()"
-          ng-options="provider_selected.name for provider_selected in gridster.provider_list" required>
-           <option></option>
-          </select>
-        </div>
-        </br>
-        <div>
-          <label>Source</label>
-          <br>
-          <select ng-model="source_selected" class="form-control"
-          ng-options="source_selected.id for source_selected in gridster.source_list" required>
-           <option></option>
-          </select>
-        </div>
-      </br>
-
-        <div>
-          <label>Size</label>
-          <br>
-          <select ng-model="gridster.size_type" class="form-control">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="big">Big</option>
-          </select>
-        </div>
-
-      <br>
-      <div class="text-right">
-        <button type="button" class="btn btn-default" ng-click="toggleModal()">Cancel</button>
-        <button type="submit" class="btn btn-info">Submit</button>
+      <div class="text-right" transclude-to="footer">
+        <button type="button" class="btn btn-cancel" ng-click="toggleModal()">Cancel</button>
+        <button form="createWidget" type="submit" class="btn btn-create" ng-click="gridster.jumpToInvalidTab()">Submit</button>
       </div>
-      </form>
+
 
     </create-dashboard>
   </div>

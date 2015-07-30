@@ -9,6 +9,7 @@ angular.module('dashboardApp')
       scope:true,
       link: function postLink(scope, element, attrs) {
         scope.title = attrs.title;
+        scope.createWidgetBody = attrs.createwidgetbody; // this is used to fix a min-hegiht value
         scope.$watch(attrs.visible, function(value){
           if(value) {
             $(element).modal('show');

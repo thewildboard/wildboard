@@ -2,25 +2,42 @@
 angular.module('dashboardApp')
   .controller('gridsterCtrl', function($rootScope, $scope, Providers, Widgets) {
     var controller = this;
+
     controller.source_list = [];
     controller.provider_list = [];
     $scope.source_selected = {};
     $scope.provider_selected = {};
+    $scope.provider_selected.provider_selected = {};
     $scope.showModal = false;
     controller.size_type = 'small';
     /**
     This funcion is used to list all the sources and the providers this osources belong
     */
 
+    var clean_widget_form = function(){
+      controller.tab = 1;
+      controller.image_selected = 1;
+      controller.widget_name = '';
+      $scope.provider_selected.provider_selected = {};
+      $scope.source_selected = {};
+    };
+
     /**
     function used to show the CreateWidgetForm
     **/
     $scope.toggleModal = function(){
-      controller.widget_name = '';
+      clean_widget_form();
       $scope.showModal = !$scope.showModal;
       if($scope.showModal){
         controller.get_provider_list();
       }
+    };
+
+    controller.jumpToInvalidTab = function(){
+      controller.tab = 1;
+      /*if(controller.data_form.$valid){
+        controller.tab = 2;
+      }*/
     };
 
    /**
@@ -51,14 +68,15 @@ angular.module('dashboardApp')
         position  ==> will be the first of all widgets
     **/
     controller.createWidget = function(){
-      var size_type = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 3;
+      var width_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 1 : 2;
+      var height_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 2;
       var data = {
         name : controller.widget_name,
         position : {
           col: 0,
           row: 0,
-          width: 2 * size_type,
-          height: 1 * size_type
+          width: width_size,
+          height: height_size
         },
         indicator : {
           source : {
@@ -84,7 +102,6 @@ angular.module('dashboardApp')
         $scope.dashboard.widget_list = $scope.dashboard.getCollection($scope.dashboard.widget_object_list);
 
         $scope.toggleModal();
-        controller.widget_name = '';
 
         controller.updatePluginsPosition();
         controller.getSelectedWidget(result.data.widgetId);
@@ -198,15 +215,15 @@ angular.module('dashboardApp')
       swapping: true, // whether or not to have items switch places instead of push down if they are the same size
       width: 'auto', // width of the grid. "auto" will expand the grid to its parent container
       colWidth: 350, // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
-      rowHeight: 250, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
+      rowHeight: 200, // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
       margins: [15, 15], // the pixel distance between each widget
       outerMargin: true,
       mobileModeEnabled: true, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
-      isMobile: false, // stacks the grid items if true
+      isMobile: true, // stacks the grid items if true
       mobileBreakPoint: 500, // if the screen is not wider that this, remove the grid layout and stack the items
 
       minColumns: 1, // the minimum columns the grid must have
-      minRows: 2, // the minimum height of the grid, in rows
+      minRows: 1, // the minimum height of the grid, in rows
       maxRows: 100,
       defaultSizeX: 2, // the default width of a gridster item, if not specifed
       defaultSizeY: 1, // the default height of a gridster item, if not specified
