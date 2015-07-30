@@ -10,6 +10,15 @@ angular.module('dashboardApp')
     $scope.provider_selected.provider_selected = {};
     $scope.showModal = false;
     controller.size_type = 'small';
+    controller.has_been_the_source_selected_before = false;
+
+
+    controller.source_selection_changed = function(){
+      if(!controller.has_been_the_source_selected_before){
+        controller.has_been_the_source_selected_before = true;
+        controller.widget_name = $scope.source_selected.source_selected.description;
+      }
+    };
     /**
     This funcion is used to list all the sources and the providers this osources belong
     */
@@ -83,7 +92,7 @@ angular.module('dashboardApp')
             provider : {
               name : $scope.provider_selected.provider_selected.name
             },
-            id : $scope.source_selected.id
+            id : $scope.source_selected.source_selected.id
           }
         }
       };
@@ -223,11 +232,7 @@ angular.module('dashboardApp')
     };
 
     controller.show_source_list = function(){
-        controller.source_list = $scope.provider_selected.provider_selected.sources;
-        if(controller.source_list && controller.source_list.length >= 1){
-          $scope.source_selected = controller.source_list[0];
-        }
-
+      controller.source_list = $scope.provider_selected.provider_selected.sources;
     };
 
     controller.gridsterOpts = {
