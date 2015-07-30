@@ -22,11 +22,10 @@
 }
 
 .header-modalform{
-  border-radius: 4px;
   color: gray;
   font-size: 5px !important;
   padding: 8px 15px;
-  background: #e7e7e7;
+  background: #339999;
 }
 .body-modalform{
   /*background: url("../images/background.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -34,71 +33,98 @@
   padding-top: 35px;
 }
 
+.modal-title{
+  color: white;
+}
+
+
+
 .btn-create{
-  background-color: #007c99;
-  border-color: #0088a0;
+  border-radius: 0px;
+  background-color: #339999;
   color: #fff;
 }
 
 .btn-create:hover{
-  background-color: #0088a0;
-  border-color: #00718e;
+  background-color: #009999;
   color: #fff;
 }
 
 .btn-create:focus{
-  background-color: #00718e;
-  border-color: #00718e;
+  background-color: #009999;
   color: #fff;
 }
 
 
 .btn-cancel{
+  border-radius: 0px;
   background-color: #e6e6e6;
-  border-color: #adadad;
   color: #333;
 }
 
 .btn-cancel:hover{
   background-color: #d4d4d4;
-  border-color: #adadad;
   color: #333;
 }
 
 .btn-cancel:focus{
   background-color: #c5c5c5;
-  border-color: #868686;
   color: #333;
+}
+
+.btn-block{
+  border-radius: 0px !important;
+  background-color: #669999 !important;
+  border: 0px;
+}
+.btn-primary{
+  border-radius: 0px !important;
+  background-color: #339999;
+  border: 0px;
+}
+
+.btn-primary:hover{
+  border-radius: 0px !important;
+  background-color: #009999;
+  border: 0px;
 }
 
 .label-style{
   font-weight: normal;
-  color : #007c99;
+  color : #339999;
 }
 
 .tab-style{
 
 }
 .tab-style.active > a{
-  background: -moz-linear-gradient(center top , #f8f8f8 30%, #cccccc 90%) repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
-  color: gray !important;
-  border-radius: 4px 4px 0px 0px;
-  border: 1px solid #cccccc;
+  background: #009999 !important;
+  color: white !important;
+  border-radius: 0px;
 }
 .tab-style > a{
   /*color : #007c99!important;*/
-  background: #f8f8f8 !important;
-  color: gray !important;
-  border-radius: 4px 4px 0px 0px !important;
-  border: 1px solid #cccccc;
-  padding: 5px 10px !important;
+  background: #E6E6E6 !important;
+  color: white !important;
+  border-radius: 0px !important;
+  /*padding: 5px 10px !important;*/
 }
 body{
   background : url('../images/background.png');
+  font-family: 'Montserrat' !important;
+
 }
 
 .main-menu{
 
+}
+
+.panel {
+  background-color: transparent !important;
+}
+.modal-button-close{
+  color: white !important;
+  margin-top: 2px !important;
 }
 
 .createwidget_body{
@@ -118,8 +144,7 @@ body{
 
 .widget-data-simple-number{
   color: #666666;
-  font-family: 'Montserrat';
-  font-size: 72px;
+  font-size: 60px;
   margin-top: 20px;
   margin-bottom: 30px;
   margin-left: 15px;
@@ -128,7 +153,7 @@ body{
 
 .widget-data-simple-number-text{
   color: #CCCCCC;
-  font-family: 'Montserrat';
+  
   font-size: 24px;
   margin-left: 15px;
   text-align: left;
@@ -143,7 +168,7 @@ body{
   height: 120px;
   width: 7px;
   display: inline-block;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 
 .navbar-widget{
@@ -183,8 +208,9 @@ azzul  rgba(40, 96, 144, 1)#286090
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    border-radius : 0px;
     color : white;
-    background: rgba(77,77,77,0.6) url("../images/select.png") no-repeat 100% center;
+    background: #339999 url("../images/select.png") no-repeat 100% center;
     height: 40px !important;
     margin-left: 1px;
 
@@ -260,6 +286,9 @@ azzul  rgba(40, 96, 144, 1)#286090
   font-family: Lucida Grande;
 }
 
+.form-control {
+  border-radius: 0px !important;
+}
 
 #dashboard_selected_list.form-control:focus{
   border : 1px solid white;
@@ -283,7 +312,6 @@ azzul  rgba(40, 96, 144, 1)#286090
     width: 90%;
 }
 
-
 .glyphicon-refresh-animate {
   -animation: spin .7s infinite linear;
   -ms-animation: spin .7s infinite linear;
@@ -306,4 +334,11 @@ azzul  rgba(40, 96, 144, 1)#286090
 .modal-content{
   border-radius: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 }
