@@ -1,9 +1,12 @@
 <div class="container body-container" style="max-width: 350px">
-  <h4 ng-show="login.message" style="color:red;">{{login.message}}</h4>
+  <h4 ng-show="login.message" style="color:#339999; text-align:center">{{login.message}}</h4>
   <div class="row">
     <div class="center-form panel">
       <div class="panel-body">
-        <h2 class="text-center">Log in</h2>
+        <div>
+          <img class="logo"src="assets/images/wildboardLogo.png">  
+        </div>
+        
         <form method="post" ng-submit="login.login()" name="loginForm">
           <div class="form-group has-feedback">
             <input class="form-control input" type="text" name="text" ng-model="login.username" placeholder="Username" required autofocus>
