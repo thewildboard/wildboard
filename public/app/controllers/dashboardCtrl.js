@@ -27,7 +27,10 @@ angular.module('dashboardApp')
         size: 'md',
         resolve: {
           items: function () {
-            return controller.dashboardSelected.name;
+            return {
+              element : 'dashboard',
+              name : controller.dashboardSelected.name
+            };
           }
         }
       });
