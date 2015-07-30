@@ -1,6 +1,6 @@
 'use strict';
 angular.module('dashboardApp')
-  .controller('gridsterCtrl', function($rootScope, $scope, Providers, Widgets) {
+  .controller('gridsterCtrl', function($rootScope, $scope, Providers, Widgets, $modal, $log) {
     var controller = this;
 
     controller.source_list = [];
@@ -169,6 +169,28 @@ angular.module('dashboardApp')
       .catch(function(err){
 
       });
+    };
+
+    controller.widget_delete_action = function(widget_id, widget_name){
+      var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'app/views/directives/confirm_delete.html',
+          controller: 'ModalInstanceCtrl',
+          size: 'md',
+          resolve: {
+            items: function () {
+              return {
+                element : 'widget',
+                name : widget_name
+              };
+            }
+          }
+        });
+        modalInstance.result.then(function (selectedItem) {
+          controller.widget_delete(widget_id);
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
     };
 
     /** this function is used to load the porvider list in order of get the source data**/
