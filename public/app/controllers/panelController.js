@@ -15,16 +15,15 @@ controller('panelController', function ($scope) {
   };
 
   controller.isImageSelected = function(image){
-    return controller.image_selected === image;
+    return controller.colorSelected === image;
   };
 
-  controller.selectImage = function(image){
-    controller.image_selected = image;
+  controller.selectImage = function(color){
+    controller.colorSelected = color;
   };
 
   controller.selectColor = function(color){
     controller.colorSelected = color;
-    console.log(controller.colorSelected);
   };
 
 });

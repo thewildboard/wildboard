@@ -160,13 +160,38 @@ body{
   display: inline-block;
 }
 
-.widget_divider{
+.widget_divider_blue0{
+  background-color: #328FB0;
+  height: 120px;
+  width: 7px;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.widget_divider_blue1{
   background-color: #339999;
   height: 120px;
   width: 7px;
   display: inline-block;
   margin-left: 40px;
 }
+
+.widget_divider_blue2{
+  background-color: #32B08C;
+  height: 120px;
+  width: 7px;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.widget_divider_blue3{
+  background-color: #2FA663;
+  height: 120px;
+  width: 7px;
+  display: inline-block;
+  margin-left: 40px;
+}
+
 
 .navbar-widget{
   background-color: #f8f8f8;

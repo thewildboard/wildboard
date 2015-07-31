@@ -75,6 +75,27 @@ angular.module('dashboardApp')
     /** This function is used to create a newWidget
         position  ==> will be the first of all widgets
     **/
+
+    var chooseColor = function(color){
+      
+      switch(color) {
+        case 0:
+          return "blue0";
+        
+        case 1:
+          return "blue1"; 
+        
+        case 2:
+          return "blue2";
+        
+        case 3:
+          return "blue3";
+
+        default:
+          return "blue1";
+      }
+    };
+
     controller.createWidget = function(){
       var width_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 1 : 2;
       var height_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 2;
@@ -85,6 +106,9 @@ angular.module('dashboardApp')
           row: 0,
           width: width_size,
           height: height_size
+        },
+        style: {
+          color: chooseColor(controller.colorSelected)
         },
         indicator : {
           source : {
