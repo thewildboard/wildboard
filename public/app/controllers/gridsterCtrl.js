@@ -10,14 +10,11 @@ angular.module('dashboardApp')
     $scope.provider_selected.provider_selected = {};
     $scope.showModal = false;
     controller.size_type = 'small';
-    controller.has_been_the_source_selected_before = false;
 
 
     controller.source_selection_changed = function(){
-      if(!controller.has_been_the_source_selected_before){
         controller.has_been_the_source_selected_before = true;
         controller.widget_name = $scope.source_selected.source_selected.description;
-      }
     };
     /**
     This funcion is used to list all the sources and the providers this osources belong
@@ -27,6 +24,7 @@ angular.module('dashboardApp')
       controller.tab = 1;
       controller.image_selected = 1;
       controller.widget_name = '';
+      controller.unit_measure = '';
       $scope.provider_selected.provider_selected = {};
       $scope.source_selected = {};
     };
@@ -81,6 +79,7 @@ angular.module('dashboardApp')
       var height_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 2;
       var data = {
         name : controller.widget_name,
+        unit_of_measure : controller.unit_measure,
         position : {
           col: 0,
           row: 0,
@@ -152,6 +151,7 @@ angular.module('dashboardApp')
         if(does_not_have_same_position(current)){
           json = {};
           json.name = current.data.name;
+          json.unit_of_measure = current.data.unit_of_measure;
           json.position = current.data.position;
           json.position.col = current.col;
           json.position.row = current.row;
@@ -213,7 +213,10 @@ angular.module('dashboardApp')
           size: 'md',
           resolve: {
             items: function () {
-              return {data : widget, gridster : controller};
+              return {
+                data : widget,
+                gridster : controller
+              };
             }
           }
         });
@@ -228,7 +231,8 @@ angular.module('dashboardApp')
 
     controller.widget_edit = function(widget_id){
       var json = {
-        name : controller.widget_edit_name
+        name : controller.widget_edit_name,
+        unit_of_measure : controller.edit_widget_measure,
       };
       Widgets.update({widget_id : widget_id, data :json})
       .then(function(result){
