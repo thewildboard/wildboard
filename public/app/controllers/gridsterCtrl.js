@@ -14,7 +14,9 @@ angular.module('dashboardApp')
 
     controller.source_selection_changed = function(){
         controller.has_been_the_source_selected_before = true;
-        controller.widget_name = $scope.source_selected.source_selected.description;
+        if($scope.source_selected.source_selected){
+          controller.widget_name = $scope.source_selected.source_selected.description;
+        }
     };
     /**
     This funcion is used to list all the sources and the providers this osources belong
@@ -24,7 +26,6 @@ angular.module('dashboardApp')
       controller.tab = 1;
       controller.image_selected = 1;
       controller.widget_name = '';
-      controller.unit_measure = '';
       $scope.provider_selected.provider_selected = {};
       $scope.source_selected = {};
     };
@@ -79,7 +80,6 @@ angular.module('dashboardApp')
       var height_size = controller.size_type === 'small' ? 1 : controller.size_type === 'medium' ? 2 : 2;
       var data = {
         name : controller.widget_name,
-        unit_of_measure : controller.unit_measure,
         position : {
           col: 0,
           row: 0,
@@ -151,7 +151,6 @@ angular.module('dashboardApp')
         if(does_not_have_same_position(current)){
           json = {};
           json.name = current.data.name;
-          json.unit_of_measure = current.data.unit_of_measure;
           json.position = current.data.position;
           json.position.col = current.col;
           json.position.row = current.row;
@@ -205,7 +204,6 @@ angular.module('dashboardApp')
 
     controller.editWidgetPress = function(widget){
       controller.widget_edit_name = widget.name;
-      controller.unit_edit_measure = widget.pp;
       var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'app/views/directives/editWidget.html',
@@ -231,8 +229,7 @@ angular.module('dashboardApp')
 
     controller.widget_edit = function(widget_id){
       var json = {
-        name : controller.widget_edit_name,
-        unit_of_measure : controller.edit_widget_measure,
+        name : controller.widget_edit_name
       };
       Widgets.update({widget_id : widget_id, data :json})
       .then(function(result){
@@ -247,7 +244,6 @@ angular.module('dashboardApp')
 
     var clean_edit_form = function(){
       controller.edit_widget_name = '';
-      controller.edit_widget_measure = '';
     };
 
 
@@ -261,9 +257,10 @@ angular.module('dashboardApp')
         var sources;
         var provider;
         var source;
-        var provider_source_list = [];
+        var provider_source_list;
         controller.provider_list = [];
         for (i; i < length; i+=1) {
+          provider_source_list = []
           provider = {
             name : data[i].name,
             sources : provider_source_list
@@ -282,6 +279,7 @@ angular.module('dashboardApp')
 
     controller.show_source_list = function(){
       controller.source_list = $scope.provider_selected.provider_selected.sources;
+      controller.widget_name = '';
     };
 
     controller.gridsterOpts = {
