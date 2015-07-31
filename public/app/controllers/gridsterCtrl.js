@@ -202,6 +202,51 @@ angular.module('dashboardApp')
         });
     };
 
+
+    controller.editWidgetPress = function(widget){
+      controller.widget_edit_name = widget.name;
+      controller.unit_edit_measure = widget.pp;
+      var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'app/views/directives/editWidget.html',
+          controller: 'editWidgetCtrl',
+          size: 'md',
+          resolve: {
+            items: function () {
+              return {data : widget, gridster : controller};
+            }
+          }
+        });
+        modalInstance.result.then(function (selectedItem) {
+          controller.widget_edit(widget.id);
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
+
+
+    };
+
+    controller.widget_edit = function(widget_id){
+      var json = {
+        name : controller.widget_edit_name
+      };
+      Widgets.update({widget_id : widget_id, data :json})
+      .then(function(result){
+        controller.getSelectedWidget(widget_id);
+
+      })
+      .catch(function(err){
+
+      });
+    };
+
+
+    var clean_edit_form = function(){
+      controller.edit_widget_name = '';
+      controller.edit_widget_measure = '';
+    };
+
+
     /** this function is used to load the porvider list in order of get the source data**/
     controller.get_provider_list = function(){
       Providers.get()
