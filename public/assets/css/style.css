@@ -169,7 +169,7 @@ body{
 }
 
 .widget_divider_blue1{
-  background-color: #339999;
+  background-color: #E91E63;
   height: 120px;
   width: 7px;
   display: inline-block;
@@ -177,7 +177,7 @@ body{
 }
 
 .widget_divider_blue2{
-  background-color: #32B08C;
+  background-color: #FF5722;
   height: 120px;
   width: 7px;
   display: inline-block;
@@ -185,7 +185,7 @@ body{
 }
 
 .widget_divider_blue3{
-  background-color: #2FA663;
+  background-color: #4CAF50;
   height: 120px;
   width: 7px;
   display: inline-block;
@@ -399,27 +399,27 @@ img.btn.active:hover{
 }
 
 .btn-pink{
-  background-color: #339999 !important;
+  background-color: #E91E63 !important;
 }
 
 .btn-active.btn-pink{
-  background-color: #339999 !important;
+  background-color: #E91E63 !important;
 }
 
 .btn-blue{
-  background-color: #32B08C !important;
+  background-color: #FF5722 !important;
 }
 
 .btn-active.btn-blue{
-  background-color: #32B08C !important;
+  background-color: #FF5722 !important;
 }
 
 .btn-lime{
-  background-color: #2FA663 !important;
+  background-color: #4CAF50 !important;
 }
 
 .btn-active.btn-lime{
-  background-color: #2FA663 !important;
+  background-color: #4CAF50 !important;
 }
 
 img.btn.active{
