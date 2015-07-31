@@ -9,12 +9,17 @@
     </span>
     <ul class="dropdown-menu" role="menu">
       <li  role="presentation">
-        <a class="glyphicon glyphicon-remove" role="menuitem" ng-click="gridster.widget_delete_action(item.data.id, item.data.name)"> Delete</a>
+        <a class="glyphicon glyphicon-remove" role="menuitem"
+        ng-click="gridster.widget_delete_action(item.data.id, item.data.name)"> Delete</a>
       </li>
       <li  role="presentation">
-        <a class="glyphicon glyphicon glyphicon-pencil" role="menuitem"> Edit</a>
+
+        <a class="glyphicon glyphicon glyphicon-pencil" role="menuitem" ng-click="gridster.editWidgetPress(item.data)"
+        > Edit</a>
+
       </li>
     </ul>
   </ul>
   </div>
+
 </div>
