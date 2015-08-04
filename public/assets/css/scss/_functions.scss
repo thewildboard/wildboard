@@ -1,0 +1,9 @@
+@function sumWidths($widths...) {
+  $result: 0;
+
+  @each $width in $widths {
+    $result: $result + $width;
+  }
+
+  @return $result;
+}
