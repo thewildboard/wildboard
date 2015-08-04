@@ -15,7 +15,8 @@
     "url": "https://github.com/h4ckademy"
   },
   "scripts": {
-    "start": "node ./",
+    "start": "npm run styles && node ./",
+    "styles": "node-sass ./public/assets/css/scss/style.scss ./public/assets/css/style.css",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {

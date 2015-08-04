@@ -1,0 +1,100 @@
+.btn{
+  border-radius : 0px !important;
+}
+
+img.btn{
+  padding: 0px !important;
+  border-width: 0px !important;
+
+}
+
+// Types
+
+.btn-cancel{
+  border-radius: 0px;
+  background-color: #e6e6e6;
+  color: #333;
+
+  &:hover {
+    background-color: #d4d4d4;
+  }
+
+  &:focus {
+    background-color: #c5c5c5;
+  }
+}
+
+.btn-block{
+  border-radius: 0px !important;
+  background-color: #669999 !important;
+  border: 0px;
+}
+.btn-primary{
+  border-radius: 0px !important;
+  background-color: #339999;
+  border: 0px;
+}
+
+.btn-primary:hover{
+  border-radius: 0px !important;
+  background-color: #009999;
+  border: 0px;
+}
+
+
+// States
+
+.btn.active{
+  box-shadow: none;
+}
+
+// Color
+
+.btn-tile{
+  background-color: #328FB0 !important;
+}
+
+.btn.active.btn-tile{
+  background-color: #328FB0 !important;
+}
+
+.btn-pink{
+  background-color: #E91E63 !important;
+}
+
+.btn-active.btn-pink{
+  background-color: #E91E63 !important;
+}
+
+.btn-blue{
+  background-color: #FF5722 !important;
+}
+
+.btn-active.btn-blue{
+  background-color: #FF5722 !important;
+}
+
+.btn-lime{
+  background-color: #4CAF50 !important;
+}
+
+.btn-active.btn-lime{
+  background-color: #4CAF50 !important;
+}
+
+img.btn.active{
+  border-width: 3px !important;
+  border-color: #FFFF00 !important;
+}
+
+
+.btn-create{
+  border-radius: 0px;
+  background-color: #339999;
+  color: #fff;
+
+  &:hover,
+  &:focus{
+    background-color: #009999;
+  }
+}
