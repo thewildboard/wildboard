@@ -22,7 +22,7 @@ angular.module("dashboardApp")
     var no_authenticated = ['$q', '$location', '$auth', function($q, $location, $auth) {
       var deferred = $q.defer();
       if ($auth.isAuthenticated()) {
-        $location.path('/home');
+        $location.path('/');
       } else {
         deferred.resolve();
       }
@@ -32,7 +32,7 @@ angular.module("dashboardApp")
     $stateProvider
         .state("home", {
             url: "/",
-            templateUrl: "app/views/pages/home.html",
+            templateUrl: "app/views/pages/dashboard.html",
             controller: "mainController",
             controllerAs: "main",
             resolve : {

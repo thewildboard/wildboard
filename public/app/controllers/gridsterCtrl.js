@@ -8,7 +8,7 @@ angular.module('dashboardApp')
     $scope.source_selected = {};
     $scope.provider_selected = {};
     $scope.provider_selected.provider_selected = {};
-    $scope.showModal = false;
+    controller.showModal = false;
     controller.size_type = 'small';
 
 
@@ -35,8 +35,8 @@ angular.module('dashboardApp')
     **/
     $scope.toggleModal = function(){
       clean_widget_form();
-      $scope.showModal = !$scope.showModal;
-      if($scope.showModal){
+      controller.showModal = !controller.showModal;
+      if(controller.showModal){
         controller.get_provider_list();
       }
     };
@@ -77,17 +77,17 @@ angular.module('dashboardApp')
     **/
 
     var chooseColor = function(color){
-      
+
       switch(color) {
         case 0:
           return "blue0";
-        
+
         case 1:
-          return "blue1"; 
-        
+          return "blue1";
+
         case 2:
           return "blue2";
-        
+
         case 3:
           return "blue3";
 
@@ -140,7 +140,7 @@ angular.module('dashboardApp')
       })
       .catch(function(err){
         controller.widget_name = '';
-        $scope.showModal = !$scope.showModal;
+        controller.showModal = controller.showModal;
         alert(err.message);
       });
     };
@@ -206,8 +206,8 @@ angular.module('dashboardApp')
     controller.widget_delete_action = function(widget_id, widget_name){
       var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: 'app/views/directives/confirm_delete.html',
-          controller: 'ModalInstanceCtrl',
+          templateUrl: 'app/views/directives/confirmDelete.html',
+          controller: 'ConfirmDeleteCtrl',
           size: 'md',
           resolve: {
             items: function () {
@@ -243,18 +243,13 @@ angular.module('dashboardApp')
           }
         });
         modalInstance.result.then(function (selectedItem) {
-          controller.widget_edit(widget.id);
+          controller.widget_edit(widget.id, {name : selectedItem});
         }, function () {
           $log.info('Modal dismissed at: ' + new Date());
         });
-
-
     };
 
-    controller.widget_edit = function(widget_id){
-      var json = {
-        name : controller.widget_edit_name
-      };
+    controller.widget_edit = function(widget_id, json){
       Widgets.update({widget_id : widget_id, data :json})
       .then(function(result){
         controller.getSelectedWidget(widget_id);

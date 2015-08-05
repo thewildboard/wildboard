@@ -15,7 +15,8 @@
     "url": "https://github.com/h4ckademy"
   },
   "scripts": {
-    "start": "node ./",
+    "start": "npm run styles && node ./",
+    "styles": "node-sass ./public/assets/css/scss/style.scss ./public/assets/css/style.css",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
@@ -33,6 +34,7 @@
     "mongoose": "^4.0.6",
     "mongoose-relationship": "^0.1.4",
     "multer": "^1.0.1",
+    "node-sass": "^3.2.0",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
     "promise": "^7.0.3",

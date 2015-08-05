@@ -1,4 +1,4 @@
-<div ng-controller="dashboardCtrl as dashboard" class="container-fluid" ng-init="dashboard.dashboard_list()">
+<div ng-controller="dashboardCtrl as dashboard" ng-init="dashboard.dashboard_list()">
 
   <div class="header">
     <nav class="navbar navbar-default navbar-fixed-top main-nav">
@@ -62,7 +62,7 @@
   </div>
 
   <div class="container-fluid body-container">
-      <create-dashboard title="Create Dashboard" visible="showModal">
+      <create-form title="Create Dashboard" visible="showModal">
         <form name="dashboardcreate" id="dashboardcreate" transclude-to="body_values" role="form" ng-submit="dashboard.createDashboard()" class="form-horizontal">
 
             <div class="form-group">
@@ -76,10 +76,10 @@
           <button type="button" class="btn btn-cancel" ng-click="toggleModal()">Cancel</button>
           <button form="dashboardcreate" type="submit" class="btn btn-create">Submit</button>
         </div>
-      </create-dashboard>
+      </create-form>
   </div>
-  <dashboard>
-  </dashboard>
+  <dashboard-panel>
+  </dashboard-panel>
 
 
 </div>

@@ -23,3 +23,6 @@ config.js
 
 public/public.zip
 public/assets/libs
+
+public/assets/css/style.css
+public/assets/css/style.css.map
