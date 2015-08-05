@@ -1,30 +1,24 @@
+<div class="modal-header header-modalform">
+  <button type="button" class="close modal-button-close"  ng-click="cancel()"data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 class="modal-title">Edit widget</h4>
+</div>
 
-      <div class="modal-header header-modalform">
-        <button type="button" class="close modal-button-close"  ng-click="cancel()"data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Edit widget</h4>
-      </div>
-
-      <div class="modal-body">
-        <section>
-          <form id="editWidget" name="editWidget" ng-submit="ok()" class="form-horizontal">
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label label-style">Title</label>
-              <div class="col-sm-9">
-                <input ng-model="gridster.widget_edit_name" type="text" class="form-control"
-                placeholder="introduce a title for the widget" required/>
-              </div>
-            </div>
-
-          </form>
-        </section>
-      </div>
-
-
-      <div class="modal-footer">
-        <div class="text-right" >
-          <button type="button" class="btn btn-cancel" ng-click="cancel()">Cancel</button>
-          <button form="editWidget" type="submit" class="btn btn-create">Submit</button>
+<div class="modal-body">
+  <section>
+    <form id="editWidget" name="editWidget" ng-submit="ok()" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label label-style">Title</label>
+        <div class="col-sm-9">
+          <input ng-model="widget_edit_name" type="text" class="form-control" placeholder="introduce a title for the widget" required/>
         </div>
-
       </div>
+    </form>
+  </section>
+</div>
+
+<div class="modal-footer">
+  <div class="text-right" >
+    <button type="button" class="btn btn-cancel" ng-click="cancel()">Cancel</button>
+    <button form="editWidget" type="submit" class="btn btn-create">Submit</button>
+  </div>
+</div>

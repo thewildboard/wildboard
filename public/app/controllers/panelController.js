@@ -1,10 +1,9 @@
 angular.module('dashboardApp').
 controller('panelController', function ($scope) {
-
-  var controller = $scope.gridster;
+  var controller = this;
   controller.tab = 1;
-  controller.image_selected = 1;
   controller.colorSelected = 0;
+  $scope.gridster.colorSelected = 0;
 
   controller.selectTab = function(setTab){
     controller.tab = setTab;
@@ -14,16 +13,13 @@ controller('panelController', function ($scope) {
     return controller.tab === checkTab;
   };
 
-  controller.isImageSelected = function(image){
+  controller.isColorSelected = function(image){
     return controller.colorSelected === image;
-  };
-
-  controller.selectImage = function(color){
-    controller.colorSelected = color;
   };
 
   controller.selectColor = function(color){
     controller.colorSelected = color;
+    $scope.gridster.colorSelected = color;
   };
 
 });
