@@ -41,6 +41,17 @@ img.btn{
   border: 0px;
 }
 
+.btn-color{
+    height: 100px;
+    width: 100px;
+}
+.btn-color:hover{
+    border : 3px solid yellow;
+}
+.btn-color.active{
+  border : 3px solid yellow;
+}
+
 
 // States
 

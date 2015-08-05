@@ -1,21 +1,21 @@
 <section  ng-controller="panelController as panel">
   <form id="createWidget" name="createWidget" ng-submit="gridster.createWidget()" ng-init="gridster.tab = 1">
     <ul class="nav nav-pills" style="border-bottom: 1px solid #ccc">
-      <li class="tab-style" ng-class="{active: gridster.isSelected(1)}">
-        <a href ng-click="gridster.selectTab(1)">
+      <li class="tab-style" ng-class="{active: panel.isSelected(1)}">
+        <a href ng-click="panel.selectTab(1)">
           Data
         </a>
       </li>
 
 
-      <li class="tab-style" ng-class="{active: gridster.isSelected(2)}">
-        <a href ng-click="gridster.selectTab(2)">
+      <li class="tab-style" ng-class="{active: panel.isSelected(2)}">
+        <a href ng-click="panel.selectTab(2)">
           Style
         </a>
       </li>
     </ul>
 
-    <ng-form  ng-show="gridster.isSelected(1)" name="gridster.data_form" class="form-horizontal">
+    <ng-form  ng-show="panel.isSelected(1)" name="gridster.data_form" class="form-horizontal">
 
 
 
@@ -51,29 +51,33 @@
 
 
 
-    <ng-form ng-show="gridster.isSelected(2)" name="gridster.style_form" class="form-horizontal">
+    <ng-form ng-show="panel.isSelected(2)" name="gridster.style_form" class="form-horizontal">
         <br>
         <div class="text-center">
           <div style="display:inline-block">
-            <img ng-class="{active: gridster.isImageSelected(0)}"
-            width=100 height=100 class="btn btn-default btn-tile" role="button"
-             ng-click="gridster.selectImage(0)">
+            <div ng-class="{active: panel.isColorSelected(0)}"
+            class="btn-color btn-tile" role="button"
+             ng-click="panel.selectColor(0)">
+           </div>
           </div>
           <div style="display:inline-block">
-            <img ng-class="{active: gridster.isImageSelected(1)}"
-            width=100 height=100  class="btn btn-default btn-pink" role="button"
-             ng-click="gridster.selectImage(1)">
+            <div ng-class="{active: panel.isColorSelected(1)}"
+            class="btn-color  btn-pink" role="button"
+             ng-click="panel.selectColor(1)">
+           </div>
           </div>
 
           <div style="display:inline-block">
-            <img ng-class="{active: gridster.isImageSelected(2)}"
-            width=100 height=100 class="btn btn-default btn-blue" role="button"
-            ng-click="gridster.selectImage(2)">
+            <div ng-class="{active: panel.isColorSelected(2)}"
+            class="btn-color btn-blue" role="button"
+            ng-click="panel.selectColor(2)">
+            </div>
           </div>
           <div style="display:inline-block">
-            <img ng-class="{active: gridster.isImageSelected(3)}"
-            width=100 height=100 class="btn btn-default btn-lime" role="button"
-            ng-click="gridster.selectImage(3)">
+            <div ng-class="{active: panel.isColorSelected(3)}"
+            class="btn-color btn-lime" role="button"
+            ng-click="panel.selectColor(3)">
+            </div>
           </div>
         </div>
 

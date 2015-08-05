@@ -1,8 +1,8 @@
 'use strict';
 angular.module('dashboardApp')
-.directive('createDashboard', function () {
+.directive('createForm', function () {
     return {
-      templateUrl: 'app/views/directives/createDashboardModal.html',
+      templateUrl: 'app/views/directives/createForm.html',
       restrict: 'E',
       transclude: true,
       replace:true,

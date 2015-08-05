@@ -33,14 +33,9 @@
 
 </head>
 <body ng-app="dashboardApp">
-<div ng-controller="mainController as main" ng-hide="isAuthenticated()">
-
-  <div class="header">
-
-</div>
-</div>
+  <div class="container">
     <div ui-view></div>
-
+  </div>
 
   <script src="assets/libs/jquery/dist/jquery.js"></script>
   <script src="assets/libs/angular/angular.js"></script>
@@ -80,7 +75,7 @@
   <script src="app/controllers/logout.js"></script>
   <script src="app/controllers/gridsterCtrl.js"></script>
   <script src="app/controllers/dashboardCtrl.js"></script>
-  <script src="app/controllers/ModalInstanceCtrl.js"></script>
+  <script src="app/controllers/ConfirmDeleteCtrl.js"></script>
   <script src="app/controllers/panelController.js"></script>
   <script src="app/controllers/editWidgetCtrl.js"></script>
 
@@ -91,11 +86,10 @@
   <script src="app/directives/secondWidget.js"></script>
   <script src="app/directives/ngText.js"></script>
   <script src="app/directives/passwordVerify.js"></script>
-  <script src="app/directives/createDashboard.js"></script>
-  <script src="app/directives/dashboard.js"></script>
+  <script src="app/directives/createForm.js"></script>
+  <script src="app/directives/dashboardPanel.js"></script>
   <script src="app/directives/loadingValue.js"></script>
   <script src="app/directives/createWidget.js"></script>
-  <script src="app/directives/editWidget.js"></script>
 
   <script src="app/services/Authentication.js"></script>
   <script src="app/services/dashboardActions.js"></script>

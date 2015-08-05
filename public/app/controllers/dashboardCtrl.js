@@ -5,43 +5,6 @@ angular.module('dashboardApp')
   $scope.showModal = false;
   $scope.animationsEnabled = true;
 
-  //**Delete the selected dashbaord
-  controller.deleteDashboard = function(){
-    DashboardActions.delete(controller.dashboardSelected.id)
-    .then(function(response){
-      controller.dashboard_list();
-    })
-    .catch(function(err){
-    });
-  };
-
-  //action that is launched by the "delete dashbaord button"
-  /**
-  This will be ask for confirmation before delete the dashbaord
-  **/
-  controller.deleteDashboardPress = function(){
-    var modalInstance = $modal.open({
-        animation: $scope.animationsEnabled,
-        templateUrl: 'app/views/directives/confirm_delete.html',
-        controller: 'ModalInstanceCtrl',
-        size: 'md',
-        resolve: {
-          items: function () {
-            return {
-              element : 'dashboard',
-              name : controller.dashboardSelected.name
-            };
-          }
-        }
-      });
-      modalInstance.result.then(function (selectedItem) {
-        controller.deleteDashboard();
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
-  };
-
-
   var clean_dashboard_values = function(){
     controller.dashboard_selected = null;
     controller.dashboardList = [];
@@ -51,15 +14,12 @@ angular.module('dashboardApp')
     $scope.item = {};
   };
 
-
-  /**
-  This function is used to decide if show the create_dashboard form
-  **/
-  $scope.toggleModal = function(){
-    controller.name = '';
-    $scope.showModal = !$scope.showModal;
-
+  var changeValue = function(data){
+    controller.dashboardSelected = data;
+    $scope.item = data;
+    controller.showDashboard();
   };
+
 
   /**
   Here we list all dashboard that the user have created
@@ -79,12 +39,56 @@ angular.module('dashboardApp')
         ngFoobar.show("warning", "There no are any dashboard associated to this account");
         controller.no_dashboard = true;
       }
-
     })
     .catch(function(error){
       controller.no_dashboard = true;
     });
   };
+
+  //**Delete the selected dashboard
+  controller.deleteDashboard = function(){
+    DashboardActions.delete(controller.dashboardSelected.id)
+    .then(function(response){
+      controller.dashboard_list();
+    })
+    .catch(function(err){
+    });
+  };
+
+  //action that is launched by the "delete dashboard button"
+  /**
+  This will be ask for confirmation before delete the dashboard
+  **/
+  controller.deleteDashboardPress = function(){
+    var modalInstance = $modal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'app/views/directives/confirmDelete.html',
+        controller: 'ConfirmDeleteCtrl',
+        size: 'md',
+        resolve: {
+          items: function () {
+            return {
+              element : 'dashboard',
+              name : controller.dashboardSelected.name
+            };
+          }
+        }
+      });
+      modalInstance.result.then(function (selectedItem) {
+        controller.deleteDashboard();
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+  };
+
+  /**
+  This function is used to decide if show the create_dashboard form
+  **/
+  $scope.toggleModal = function(){
+    controller.name = '';
+    $scope.showModal = !$scope.showModal;
+  };
+
 
   /**
   this function is used to load all the widget of a specific dashboard and create the structure needed to the
@@ -113,7 +117,7 @@ angular.module('dashboardApp')
 
 
   /**
-  This function is used to show the widgets that an specific dashbaord have
+  This function is used to show the widgets that an specific dashboard have
   **/
   controller.showDashboard = function(){
     controller.dashboard_selected = true;
@@ -136,7 +140,7 @@ angular.module('dashboardApp')
   };
 
   /**
-  This function is used to create a new dashbaord.
+  This function is used to create a new dashboard.
   **/
   controller.createDashboard = function(){
     DashboardActions.dashboardCreate({
@@ -156,11 +160,4 @@ angular.module('dashboardApp')
       alert(result.message);
     });
   };
-
-  var changeValue = function(data){
-    controller.dashboardSelected = data;
-    $scope.item = data;
-    controller.showDashboard();
-  };
-
 });
