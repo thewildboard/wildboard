@@ -20,8 +20,13 @@
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
+    "expect.js": "^0.3.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.7",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
     "mocha": "2.2.5",
-    "expect.js": "^0.3.1"
+    "phantomjs": "^1.9.17"
   },
   "dependencies": {
     "async": "^1.4.0",
