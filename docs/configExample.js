@@ -5,17 +5,17 @@ module.exports = {
     port: 3000,
 
     secure: true,
-    
+
     // Https
     express: {
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem"
     },
-    
+
     server: {
-      index: "app/views/index.html"
+      index: "app/index.html"
     },
-    
+
     sessions: {
       // cookie name dictates the key name added to the request object
       cookieName: 'session',
