@@ -1,0 +1,88 @@
+<div ng-init="dashboard.dashboard_list()">
+
+  <div class="header">
+    <nav class="navbar navbar-default navbar-fixed-top main-nav">
+
+      <div class="container">
+        <div class="navbar-header">
+
+          <button class="navbar-toggle collapsed"  aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand">
+          </a>
+        </div>
+
+        <!-- collapsible menu -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- left menu-->
+          <ul class="nav navbar-nav">
+          </ul>
+
+
+          <!-- right menu -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <select ng-model="item" id="dashboard_selected_list" class="form-control navbar-form dashboard-select"
+              ng-options="item.name for item in dashboard.dashboardList track by item.id" ng-change="dashboard.showDashboard()">
+                <option value="" disabled selected>Select your option</option>
+              </select>
+            </li>
+
+            <li class="dropdown">
+              <a class="glyphicon glyphicon-cog btn-lg dropdown-toggle settings-icon" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" role="button">
+              </a>
+              <ul class="dropdown-menu">
+                <li role="presentation">
+                  <a class="glyphicon glyphicon-plus" role="menuitem" ng-click="toggleModal()"> Add dashboard</a>
+                </li>
+                <li role="presentation" ng-if="item.id">
+                  <a class="glyphicon glyphicon-minus" role="menuitem" ng-click="dashboard.delete()"> Delete dashboard</a>
+                </li>
+
+                <li role="separator" class="divider"></li>
+                <li ng-controller="LogoutCtrl as logout" role="presentation">
+                  <a class="glyphicon glyphicon-off" role="menuitem" ng-click="logout.logout()"> Logout</a>
+                </li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+
+
+      </div>
+    </nav>
+
+  </div>
+
+  <div class="container-fluid body-container">
+      <create-form title="Create Dashboard" visible="showModal">
+        <form name="dashboardcreate" id="dashboardcreate" transclude-to="body_values" role="form" ng-submit="dashboard.createDashboard()" class="form-horizontal">
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 col-xs-3 control-label label-style">Name</label>
+              <div class="col-sm-10 col-xs-9">
+                <input ng-model="dashboard.name" type="text" class="form-control" placeholder="Dashboard name" required/>
+              </div>
+            </div>
+        </form>
+        <div class="text-right" transclude-to="footer">
+          <button type="button" class="btn btn-cancel" ng-click="toggleModal()">Cancel</button>
+          <button form="dashboardcreate" type="submit" class="btn btn-create">Submit</button>
+        </div>
+      </create-form>
+  </div>
+
+  <!-- DASHBOARD PANEL --->
+  <dashboard-panel>
+  </dashboard-panel>
+
+
+</div>

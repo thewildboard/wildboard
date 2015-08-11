@@ -3,7 +3,7 @@
 describe('Service: providers', function () {
 
   // load the service's module
-  beforeEach(module('dashboardApp', function(){
+  beforeEach(module('widgetsApp', function(){
   }));
 
   // instantiate service
