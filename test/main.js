@@ -1,6 +1,6 @@
 var request = require('request'),
-  expect = require('expect.js'),
-  urlParser = require('url');
+expect = require('expect.js'),
+urlParser = require('url');
 
 var Core = require('../lib/core.js');
 
@@ -22,7 +22,7 @@ describe('Core', function() {
   it('can be started', function(done) {
     expect(core.server).not.to.be(null);
     done();
-  })
+  });
 
   it('can connect to database', function(done) {
     expect(core.db).not.to.be(null);

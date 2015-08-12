@@ -1,7 +1,6 @@
 (function(){
   'use strict';
-
-  angular.module('dashboards')
+  angular.module('boardsApp')
   .factory('Dashboards', function WidgetsFactory($modal, $http, MY_CONFIG, WidgetsApi, DashboardsApi){
 
     var dashboardList = [];

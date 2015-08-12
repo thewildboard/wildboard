@@ -6,6 +6,7 @@
     $scope.showModal = false;
     $scope.item = {};
 
+    this.message = "The Wildboard";
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
@@ -19,7 +20,7 @@
 
     $scope.$on('update_widget_list', function(){
       controller.widget_list = Dashboards.getWidgetList();
-    })
+    });
 
     /**
     Here we list all dashboard that the user have created

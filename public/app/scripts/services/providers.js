@@ -27,7 +27,7 @@
         var provider_source_list;
         providerList = [];
         for (i; i < length; i+=1) {
-          provider_source_list = []
+          provider_source_list = [];
           provider = {
             name : data[i].name,
             sources : provider_source_list

@@ -73,7 +73,7 @@
         width : width_size,
         height : height_size
       };
-    }
+    };
 
     var create = function(json, dashboard_id){
       var size = getSizeType(json.size_type);
@@ -120,7 +120,7 @@
 
     var updatePosition = function(widget){
       var json = {};
-      json.name = widget.data.name,
+      json.name = widget.data.name;
       json.position = widget.data.position;
       json.position.col = widget.col;
       json.position.row = widget.row;

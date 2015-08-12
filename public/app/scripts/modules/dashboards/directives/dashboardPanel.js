@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  angular.module('dashboards')
+  angular.module('boardsApp')
   .directive('dashboardPanel', function () {
     return {
       templateUrl: 'app/scripts/modules/dashboards/directives/dashboardPanel.html',

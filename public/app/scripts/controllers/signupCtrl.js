@@ -17,7 +17,7 @@
       .then(function(data){
         Authentication.logout().then(function(){
           Authentication.login(ctrl).then(function(){
-            $location.path("/")
+            $location.path("/");
           });
         });
       })

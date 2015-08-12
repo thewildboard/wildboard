@@ -1,7 +1,6 @@
 (function(){
   'use strict';
-
-  angular.module('dashboards')
+  angular.module('boardsApp')
   .factory('DashboardsApi', function DashboardApiFactory($http, MY_CONFIG){
     var myObject = {
       all : function(force){

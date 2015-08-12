@@ -4,7 +4,7 @@
   var app = angular
   .module("dashboardApp", [
     'widgetsApp',
-    'dashboards',
+    'boardsApp',
     'ngAnimate',
     'ngCookies',
     'ngResource',

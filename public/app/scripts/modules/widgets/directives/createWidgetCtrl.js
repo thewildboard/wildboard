@@ -32,7 +32,7 @@
         color : controller.colorSelected,
         provider_name : $scope.provider_selected.provider_selected.name,
         source_selected : $scope.source_selected.source_selected.id
-      }
+      };
 
       Widgets.create( json , Dashboards.getCurrentDashboard().id)
       .then(function(result){
@@ -54,7 +54,7 @@
 
     controller.clean_widget_form = function(){
       controller.widget_name = '';
-      controller.tab = 1,
+      controller.tab = 1;
       controller.colorSelected = 0;
       $scope.provider_selected.provider_selected = {};
       controller.provider_list = [];
