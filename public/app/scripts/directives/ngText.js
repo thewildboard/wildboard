@@ -5,7 +5,7 @@
     return {
       restrict: 'A',
       link : function (scope, element, attrs) {
-        element.text(attrs.ngText)
+        element.text(attrs.ngText);
       }
     };
   });

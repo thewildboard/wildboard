@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  angular.module('dashboards')
+  angular.module('boardsApp')
   .controller('dashboardPanelCtrl',['Widgets', function(Widgets) {
     var controller = this;
 
