@@ -4,7 +4,6 @@
   describe('Controller: dashboardCtrl', function () {
 
     // load the controller's module
-    beforeEach(module('widgetsApp'));
     beforeEach(module('dashboardApp'));
 
     var AboutCtrl,
