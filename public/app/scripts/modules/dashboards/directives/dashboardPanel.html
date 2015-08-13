@@ -1,0 +1,27 @@
+<div class="container" ng-if="$parent.item.id">
+
+  <!--CREATE WIDGET -->
+  <div ng-controller="createWidgetCtrl as create_widget_ctrl">
+    <a ng-click="toggleModal()" class="add_new_widget btn-lg settings-icon glyphicon glyphicon-plus"
+    role="button">
+    </a>
+    <create-form title="Create new widget" createWidgetBody="true" visible="create_widget_ctrl.showModal" >
+      <create-widget transclude-to="body_values"></create-widget>
+      <div class="text-right" transclude-to="footer">
+        <button type="button" class="btn btn-cancel" ng-click="toggleModal()">Cancel</button>
+        <button form="createWidget" type="submit" class="btn btn-create" ng-click="create_widget_ctrl.jumpToInvalidTab()">Create</button>
+      </div>
+    </create-form>
+  </div>
+<br/>
+
+<!-- GRIDSTER -->
+  <div  gridster="dashboardpanel.gridsterOpts">
+    <ul>
+        <li ng-model="item" gridster-item="item" ng-repeat="item in dashboard.widget_list" class="widget-body">
+          <!--WIDGET - BODY -->
+          <widget-body></widget-body>
+        </li>
+    </ul>
+  </div>
+</div>

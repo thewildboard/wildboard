@@ -1,0 +1,22 @@
+<div class="widget-menu">
+  <div class="widget-left-menu">
+    <p class="widget-title">{{item.data.name}}</p>
+  </div>
+  <div class="widget-right-menu">
+    <ul class="dropdown">
+    <span  class="dropdown-toggle glyphicon glyphicon-option-vertical button-style" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">
+    </span>
+    <ul class="dropdown-menu" role="menu">
+      <li  role="presentation">
+        <a class="glyphicon glyphicon-remove" role="menuitem"
+        ng-click="widgetbody.delete(item.data.id, item.data.name)"> Delete</a>
+      </li>
+      <li  role="presentation">
+        <a class="glyphicon glyphicon glyphicon-pencil" role="menuitem" ng-click="widgetbody.edit(item.data)"> Edit</a>
+      </li>
+    </ul>
+  </ul>
+  </div>
+
+</div>
