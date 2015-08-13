@@ -5,7 +5,7 @@ var Core = require('./lib/core.js');
 var args = process.argv.slice(2);
 
 var port;
-var envelopment = "development";
+var environment = "development";
 
 function start() {
   for (var i = 0; i < args.length; i++) {
@@ -16,7 +16,7 @@ function start() {
     } else if (args[i] === "--env" || args[i] === "-e") {
       //environment command
       i++;
-      envelopment = args[i];
+      environment = args[i];
     } else if (args[i] === "--generate" || args[i] === "-g") {
       i++;
       if (args[i] === "config") {
@@ -27,7 +27,7 @@ function start() {
       process.exit(0);
     }
   }
-  Core(envelopment, port);
+  Core(environment, port);
 }
 
 function generateConfig() {
