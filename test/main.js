@@ -42,7 +42,7 @@ describe('Core', function() {
 describe('User', function() {
   it('can be created', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/signup',
+      url: 'http://localhost:3000/user/signup',
       form: {
         username: 'johndoe',
         email: 'johndoe@whatever.com',
@@ -56,7 +56,7 @@ describe('User', function() {
 
   it('can\'t be created if it already exists', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/signup',
+      url: 'http://localhost:3000/user/signup',
       form: {
         username: 'johndoe',
         email: 'johndoe@whatever.com',
@@ -70,7 +70,7 @@ describe('User', function() {
 
   it('can\'t be created without username', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/signup',
+      url: 'http://localhost:3000/user/signup',
       form: {
         email: 'johndoe2@whatever.com',
         password: '123'
@@ -83,7 +83,7 @@ describe('User', function() {
 
   it('can\'t be created without email', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/signup',
+      url: 'http://localhost:3000/user/signup',
       form: {
         username: 'johndoe2',
         password: '123'
@@ -96,7 +96,7 @@ describe('User', function() {
 
   it('can\'t be created without password', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/signup',
+      url: 'http://localhost:3000/user/signup',
       form: {
         email: 'johndoe2@whatever.com',
         username: 'johndoe2'
@@ -109,7 +109,7 @@ describe('User', function() {
 
   it('can log in', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/login',
+      url: 'http://localhost:3000/user/login',
       form: {
         username: 'johndoe',
         password: '123'
@@ -122,7 +122,7 @@ describe('User', function() {
 
   it('can\'t log in if it doesn\'t exist', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/login',
+      url: 'http://localhost:3000/user/login',
       form: {
         username: 'notjohndoe',
         password: '123'
@@ -135,7 +135,7 @@ describe('User', function() {
 
   it('can\'t log in with a wrong password', function(done) {
     request.post({
-      url: 'http://localhost:3000/api/login',
+      url: 'http://localhost:3000/user/login',
       form: {
         username: 'johndoe',
         password: '456'
