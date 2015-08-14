@@ -1,4 +1,4 @@
-<div class="container body-container" style="max-width: 350px">
+<div class="container body-container" style="max-width: 350px" ng-init="login.loadproviders()">
   <h4 ng-show="login.message" style="color:#339999; text-align:center">{{login.message}}</h4>
   <div class="row">
     <div class="center-form panel">
@@ -24,9 +24,11 @@
             <hr>
           </div>
         </form>
-        <button class="btn  btn-block btn-social btn-google" ng-click="authenticate('google')">
-          <span class="fa fa-google"></span>Sign in with Google
-        </button>
+        <div>
+          <button class="btn  btn-block btn-primary text-center" ng-repeat="provider in login.providers">
+            {{provider.name}}
+          </button>
+        </div>
       </div>
     </div>
   </div>

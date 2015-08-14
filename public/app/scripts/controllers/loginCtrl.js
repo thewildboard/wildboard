@@ -10,8 +10,9 @@
   */
 
   angular.module('dashboardApp')
-  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication', function ($scope, $location, $auth, Authentication) {
+  .controller('LoginIndexCtrl', ['Providers', '$scope', '$location', '$auth', 'Authentication', function (Providers, $scope, $location, $auth, Authentication) {
     var ctrl = this;
+    ctrl.providers = [];
 
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
@@ -32,5 +33,14 @@
       ctrl.message = error.data.message;
     });
   };
+
+  this.loadproviders = function(){
+    Providers.all()
+    .then(function(){
+      Providers.generateButtonList(Providers.getProvidersData());
+      ctrl.providers = Providers.getButtonList();
+    });
+  };
+
 }]);
 }());
