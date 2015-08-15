@@ -24,8 +24,8 @@
             <hr>
           </div>
         </form>
-        <div>
-          <button class="btn  btn-block btn-primary text-center" ng-repeat="provider in login.providers">
+        <div ng-repeat="provider in login.providers">
+          <button class="btn btn-block btn-primary text-center" ng-click="login.redirectToProvider()">
             {{provider.name}}
           </button>
         </div>

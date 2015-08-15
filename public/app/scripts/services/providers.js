@@ -23,6 +23,7 @@
       var i = 0;
       var data = getProvidersData();
       var current;
+      buttonlist = [];
       for (i; i < data.length ; i += 1){
         current = data[i];
         if(current.auth){
