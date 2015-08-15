@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('dashboardApp')
-  .factory('Authentication', function AuthenticationFactory($http, $state, $q, $auth, $rootScope){
+  .factory('Authentication', ['$auth', function AuthenticationFactory($auth){
     // temporary object
     var myObject = {
       login : function(values){
@@ -22,5 +22,5 @@
       }
     };
     return myObject;
-  });
+  }]);
 }());

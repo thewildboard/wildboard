@@ -1,7 +1,8 @@
 (function(){
   'use strict';
   angular.module('dashboardApp')
-  .controller('dashboardCtrl', function ($scope, $http, DashboardsApi, Dashboards, Widgets, WidgetsApi,  ngFoobar, $modal, $log) {
+  .controller('dashboardCtrl', ['$scope', 'Dashboards', 'ngFoobar', '$modal',
+  function ($scope, Dashboards, ngFoobar, $modal) {
     var controller = this;
     $scope.showModal = false;
     $scope.item = {};
@@ -82,5 +83,5 @@
         alert("error");
       });
     };
-  });
+  }]);
 }());

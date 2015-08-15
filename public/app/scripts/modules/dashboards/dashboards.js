@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('boardsApp')
-  .factory('Dashboards', function WidgetsFactory($modal, $http, MY_CONFIG, WidgetsApi, DashboardsApi){
+  .factory('Dashboards', ['$modal', 'DashboardsApi', function WidgetsFactory($modal, DashboardsApi){
 
     var dashboardList = [];
     var thereIsDashboardSelected = false;
@@ -138,5 +138,5 @@
       delete : delete_,
       setCurrentDashboard  : setCurrentDashboard
     };
-  });
+  }]);
 }());

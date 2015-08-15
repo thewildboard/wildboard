@@ -1,7 +1,8 @@
 (function(){
   'use strict';
   angular.module('widgetsApp')
-  .controller('createWidgetCtrl', function ($rootScope, $scope, Widgets, Dashboards, Providers) {
+  .controller('createWidgetCtrl', ['$rootScope', '$scope', 'Widgets', 'Dashboards', 'Providers',
+    function ($rootScope, $scope, Widgets, Dashboards, Providers) {
     var controller = this;
     controller.showModal = false;
     controller.source_list = [];
@@ -100,5 +101,5 @@
       });
     };
 
-  });
+  }]);
 }());

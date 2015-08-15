@@ -21,14 +21,12 @@
     url : 'https://localhost',
     port : '3000'
   })
-  .config(function($authProvider) {
-
-
+  .config(['$authProvider', function($authProvider) {
     $authProvider.google({
       clientId: '176660184367-ivsogvjqqdv24a5l68ljds0v1h4qkutj.apps.googleusercontent.com',
       responseType: 'token'
     });
-  })
+  }])
   .config(['$httpProvider', 'satellizer.config', function($httpProvider, config) {
     $httpProvider.interceptors.push(['$q', function($q) {
       var tokenName = config.tokenPrefix ? config.tokenPrefix + '_' + config.tokenName : config.tokenName;

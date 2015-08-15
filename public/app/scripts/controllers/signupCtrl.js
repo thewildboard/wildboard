@@ -9,7 +9,7 @@
   * Controller of the dashboardApp
   */
   angular.module('dashboardApp')
-  .controller('SignupIndexCtrl', function ($rootScope, $location, $scope, $auth, Authentication) {
+  .controller('SignupIndexCtrl', ['$location', '$scope', 'Authentication', function ($location, $scope, Authentication) {
     var ctrl = this;
 
     this.signup = function(){
@@ -28,5 +28,5 @@
         $scope.message = error.message;
       });
     };
-  });
+  }]);
 }());

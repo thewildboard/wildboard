@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('widgetsApp')
-  .factory('Widgets', function WidgetsFactory($modal, $log, WidgetsApi, Dashboards){
+  .factory('Widgets', ['$modal', '$log', 'WidgetsApi', 'Dashboards', function WidgetsFactory($modal, $log, WidgetsApi, Dashboards){
     /**
     @param{object} result ====> the json eelments that defined the widget
     this function is used to create the data structure of the widget retrieved
@@ -200,5 +200,5 @@
       delete : delete_,
       edit : edit
     };
-  });
+  }]);
 }());

@@ -1,9 +1,7 @@
 (function(){
   'use strict';
   angular.module('widgetsApp')
-  .controller('widgetBodyCtrl', ['$rootScope', '$scope', 'Providers', 'Dashboards',
-    'Widgets', 'WidgetsApi', '$modal', '$log', function($rootScope, $scope, Providers, Dashboards,
-    Widgets, WidgetsApi, $modal, $log) {
+  .controller('widgetBodyCtrl', ['$rootScope', 'Dashboards', 'Widgets', function($rootScope, Dashboards, Widgets) {
       var controller = this;
 
       /**

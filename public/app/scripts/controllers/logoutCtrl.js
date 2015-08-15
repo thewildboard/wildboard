@@ -10,12 +10,12 @@
   */
 
   angular.module('dashboardApp')
-  .controller('LogoutCtrl', function ($location, Authentication) {
+  .controller('LogoutCtrl', ['$location', 'Authentication', function ($location, Authentication) {
     var ctrl = this;
     this.logout = function(){
       Authentication.logout().then(function(){
         $location.path('/login');
       });
     };
-  });
+  }]);
 }());

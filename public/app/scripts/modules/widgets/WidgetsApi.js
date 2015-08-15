@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('widgetsApp')
-  .factory('WidgetsApi', function WidgetsApiFactory($http, MY_CONFIG){
+  .factory('WidgetsApi', ['$http', 'MY_CONFIG', function WidgetsApiFactory($http, MY_CONFIG){
     // temporary object
 
     /********************  APIS CALLS  **************************/
@@ -35,5 +35,5 @@
       }};
 
       return service;
-    });
+    }]);
   }());

@@ -10,7 +10,8 @@
   */
 
   angular.module('dashboardApp')
-  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication', function ($scope, $location, $auth, Authentication) {
+  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication',
+  function ($scope, $location, $auth, Authentication) {
     var ctrl = this;
 
     $scope.authenticate = function(provider) {
