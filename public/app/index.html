@@ -32,7 +32,7 @@
 
 
 </head>
-<body ng-app="dashboardApp">
+<body ng-app="dashboardApp" ng-controller="mainCtrl">
   <div class="container">
     <div ui-view></div>
   </div>
@@ -71,6 +71,7 @@
   <script src="app/scripts/services/providers.js"></script>
 
   <!-- CONTROLLERS -->
+  <script src="app/scripts/controllers/mainCtrl.js"></script>
   <script src="app/scripts/controllers/dashboardCtrl.js"></script>
   <script src="app/scripts/controllers/loginCtrl.js"></script>
   <script src="app/scripts/controllers/signupCtrl.js"></script>

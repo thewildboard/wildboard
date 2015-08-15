@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('boardsApp')
-  .factory('Dashboards', function WidgetsFactory($modal, $http, MY_CONFIG, WidgetsApi, DashboardsApi){
+  .factory('Dashboards', function WidgetsFactory(  $location, $modal, $http, MY_CONFIG, WidgetsApi, DashboardsApi){
 
     var dashboardList = [];
     var thereIsDashboardSelected = false;
@@ -67,7 +67,6 @@
         }
       })
       .catch(function(error){
-        //controller.no_dashboard = true;
       });
     };
 
