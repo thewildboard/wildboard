@@ -1,5 +1,7 @@
-<div class="widget_divider_{{item.data.style.color}}"></div>
-<div class="text-center widget-simple-number">
-  <h1 class="widget-data-simple-number">{{item.data.indicator.values[item.data.indicator.values.length-1].value | number:2}}</h1>
-  <p class="widget-data-simple-number-text">{{item.data.indicator.source.unit}}</p>
+<div>
+  <div class="widget_divider_{{item.data.style.color}}"></div>
+  <div class="text-center widget-simple-number">
+    <h1 class="widget-data-simple-number">{{item.data.indicator.values[item.data.indicator.values.length-1].value | number:2}}</h1>
+    <p class="widget-data-simple-number-text">{{item.data.indicator.source.unit}}</p>
+  </div>
 </div>

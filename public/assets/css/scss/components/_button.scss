@@ -101,11 +101,12 @@ img.btn.active{
 
 .btn-create{
   border-radius: 0px;
-  background-color: #339999;
+  background-color: $create-background-color;
   color: #fff;
 
   &:hover,
   &:focus{
-    background-color: #009999;
+    background-color: $create-background-color-darker;
+    color: #fff;
   }
 }

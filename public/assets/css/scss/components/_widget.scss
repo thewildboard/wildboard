@@ -1,25 +1,27 @@
 .widget-menu{
-    background: #e7e7e7;
-    display: inline-block;
-    padding-top: 5px;
-    width: 100%;
+  background: #e7e7e7;
+  display: inline-block;
+  padding-top: 5px;
+  width: 100%;
 }
 
 .widget-right-menu{
   display: inline-block;
-  float: right;
-  margin-right: 5px;
+  width: 10px;
 }
 
 .widget-left-menu{
   display: inline-block;
-  float: left;
   margin-left: 10px;
+  width: calc(100% - 80px);
 }
 
 .widget-title{
   color: gray;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
@@ -45,7 +47,7 @@
 
 .widget-data-simple-number-text{
   color: #CCCCCC;
-  
+
   font-size: 24px;
   margin-left: 15px;
   text-align: left;
