@@ -1,6 +1,7 @@
 body{
   background : url('../images/background.png');
   font-family: $primary-font-family;
+  overflow-y: scroll;
 }
 
 .header-modalform{
