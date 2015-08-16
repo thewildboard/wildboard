@@ -10,28 +10,34 @@
   */
 
   angular.module('dashboardApp')
-  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication',
-  function ($scope, $location, $auth, Authentication) {
+  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication', 'Providers', 'MY_CONFIG', '$window',
+  function ($scope, $location, $auth, Authentication, Providers, MY_CONFIG, $window) {
     var ctrl = this;
+    ctrl.providers = [];
 
-    $scope.authenticate = function(provider) {
-      $auth.authenticate(provider)
+    this.redirectToProvider = function(){
+      $window.open(MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/auth', '_self');
+    };
+
+    this.login = function(){
+      Authentication.login(ctrl)
       .then(function(data){
-        $location.path('/');
-      }
-    );
-  };
+        Authentication.logged();
+      })
+      .catch(function(error){
+        ctrl.username = '';
+        ctrl.password = '';
+        ctrl.message = error.data.message;
+      });
+    };
 
-  this.login = function(){
-    Authentication.login(ctrl)
-    .then(function(data){
-      $location.path('/');
-    })
-    .catch(function(error){
-      ctrl.username = '';
-      ctrl.password = '';
-      ctrl.message = error.data.message;
-    });
-  };
-}]);
+    this.loadproviders = function(){
+      Providers.all()
+      .then(function(){
+        Providers.generateButtonList(Providers.getProvidersData());
+        ctrl.providers = Providers.getButtonList();
+      });
+    };
+
+  }]);
 }());

@@ -14,7 +14,7 @@
     var ctrl = this;
     this.logout = function(){
       Authentication.logout().then(function(){
-        $location.path('/login');
+        Authentication.logged();
       });
     };
   }]);

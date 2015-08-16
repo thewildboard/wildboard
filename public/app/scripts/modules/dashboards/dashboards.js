@@ -67,7 +67,6 @@
         }
       })
       .catch(function(error){
-        //controller.no_dashboard = true;
       });
     };
 
