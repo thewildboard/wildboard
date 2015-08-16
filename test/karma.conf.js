@@ -50,7 +50,7 @@ module.exports = function(config) {
       'public/app/scripts/modules/widgets/directives/createWidgetCtrl.js',
       'public/app/scripts/modules/widgets/directives/createWidget.js',
       'public/app/scripts/modules/widgets/directives/editWidgetCtrl.js',
-      'public/app/scripts/modules/widgets/directives/firstWidget.js',
+      'public/app/scripts/modules/widgets/directives/numberTemplate.js',
       'public/app/scripts/modules/widgets/directives/widgetBodyCtrl.js',
       'public/app/scripts/modules/widgets/directives/widgetBody.js',
       'test/specs/**/*spec.js'

@@ -5,10 +5,11 @@ body{
 }
 
 .header-modalform{
-  color: gray;
-  font-size: 5px !important;
-  padding: 8px 15px;
+  /*color: gray;
   background: $primary-color;
+  font-size: 5px !important;*/
+  padding: 20px 15px 15px 15px;
+
 }
 .body-modalform{
   /*background: url("../images/background.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -17,7 +18,7 @@ body{
 }
 
 .modal-title{
-  color: white;
+  color: $create-background-color;
 }
 
 .label-style{
@@ -25,25 +26,35 @@ body{
   color : $primary-color;
 }
 
-.tab-style.active > a{
-  background: #009999 !important;
-  color: white !important;
-  border-radius: 0px;
+.tab-style.active {
+  a{
+    background: $create-background-color !important;
+    color: white !important;
+    border-radius: 0px;
+    opacity: 1;
+  }
 }
-.tab-style > a{
-  /*color : #007c99!important;*/
-  background: #E6E6E6 !important;
-  color: white !important;
-  border-radius: 0px !important;
-  /*padding: 5px 10px !important;*/
+
+.tab-style {
+  a{
+    background: $create-background-color !important;
+    opacity: 0.3;
+    color: white !important;
+    border-radius: 0px !important;
+  }
 }
 
 .panel {
   background-color: transparent !important;
 }
 .modal-button-close{
-  color: white !important;
-  margin-top: 2px !important;
+  color: $create-background-color;
+  opacity: 0.3;
+
+  &:hover{
+    opacity: 0.5;
+    color: $create-background-color;
+  }
 }
 
 .createwidget_body{
@@ -62,14 +73,14 @@ azzul  rgba(40, 96, 144, 1)#286090
 }
 
 .dashboard-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius : 0px;
-    color : white;
-    background: $primary-color url("../images/select.png") no-repeat 100% center;
-    height: 40px !important;
-    margin-left: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius : 0px;
+  color : white;
+  background: $primary-color url("../images/select.png") no-repeat 100% center;
+  height: 40px !important;
+  margin-left: 1px;
 
 }
 .dashboard-select > option{
@@ -87,9 +98,9 @@ azzul  rgba(40, 96, 144, 1)#286090
 }
 .button-style{
   color: gray;
-    height: 25px;
-    text-align: center;
-    width: 25px;
+  height: 25px;
+  text-align: center;
+  width: 25px;
 }
 
 
@@ -158,20 +169,20 @@ azzul  rgba(40, 96, 144, 1)#286090
 
 
 .signup-or-separator {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    height: 34px;
-    position: relative;
-    text-align: center;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 34px;
+  position: relative;
+  text-align: center;
 }
 .signup-or-separator hr {
-    border-top: 1px solid #dce0e0;
-    margin: -16px auto 10px;
-    width: 90%;
+  border-top: 1px solid #dce0e0;
+  margin: -16px auto 10px;
+  width: 90%;
 }
 
 .modal-content{
   border-radius: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .logo {

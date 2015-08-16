@@ -88,7 +88,7 @@
             sizeY : current.position.height,
             col : current.position.col,
             row : current.position.row,
-            template : '<first-widget></first-widget>',
+            template : '<number-template></number-template>',
             data : current
           };
         }
