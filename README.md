@@ -18,7 +18,7 @@ Install Node.js and MongoDB on your system. For Linux machines it'd be something
 Install project dependencies:
 
 ```bash
-    npm install && cd public && bower install && cd -
+    npm install &&  bower install
 ```
 
 Generate self-signed server certificates:
@@ -33,8 +33,8 @@ Generate self-signed server certificates:
 ```
 
 Generate the config and modify it to your requirements:
-   
-```bash 
+
+```bash
     node ./ -g config
 ```
 
@@ -55,6 +55,7 @@ To run the tests:
 
 ```bash
     npm test
+    gulp test
 ```
 
 To convert SCSS files into CSS:
@@ -96,4 +97,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
