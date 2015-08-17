@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('widgetsApp')
-  .factory('Widgets', function WidgetsFactory($modal, $log, WidgetsApi, Dashboards){
+  .factory('Widgets', ['$modal', '$log', 'WidgetsApi', 'Dashboards', function WidgetsFactory($modal, $log, WidgetsApi, Dashboards){
     /**
     @param{object} result ====> the json eelments that defined the widget
     this function is used to create the data structure of the widget retrieved
@@ -14,7 +14,7 @@
         col : result.data.position.col,
         row : result.data.position.row,
         data : result.data,
-        template : '<first-widget></first-widget>'
+        template : '<number-template></number-template>'
       };
       return data;
     };
@@ -54,15 +54,15 @@
     var chooseColor = function(color){
       switch(color) {
         case 0:
-        return "blue0";
+        return "#328FB0";
         case 1:
-        return "blue1";
+        return "#E91E63";
         case 2:
-        return "blue2";
+        return "#FF5722";
         case 3:
-        return "blue3";
+        return "#4CAF50";
         default:
-        return "blue1";
+        return "#328FB0";
       }
     };
 
@@ -200,5 +200,5 @@
       delete : delete_,
       edit : edit
     };
-  });
+  }]);
 }());

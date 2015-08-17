@@ -15,7 +15,8 @@
     });
   }])
 
-  .config(function(MY_CONFIG, $routeProvider, $authProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
+  .config(['MY_CONFIG', '$authProvider', '$stateProvider', '$locationProvider', '$urlRouterProvider',
+    function(MY_CONFIG, $authProvider, $stateProvider, $locationProvider, $urlRouterProvider) {
     // Parametros de configuración
     $authProvider.loginUrl = MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/login';
     $authProvider.signupUrl = MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/signup';
@@ -53,5 +54,5 @@
     });
 
     $locationProvider.html5Mode(true);
-  });
+  }]);
 }());

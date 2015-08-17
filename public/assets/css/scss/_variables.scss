@@ -1,9 +1,16 @@
 // Colors
 
-$primary-color: #399;
+$primary-color: #339999;
 
 // Fonts
 
-$primary-font-family: 'Montserrat', sans-serif;
+$primary-font-family: sans-serif;
 $secondary-font-family: 'Lato', 'appleLogo', sans-serif;
 
+$cancel-background-color: #e6e6e6;
+$cancel-background-color-darker: darken($cancel-background-color, 5%);
+$cancel-border-color: darken($cancel-background-color, 5%);
+$cancel-border-color-darker: darken($cancel-border-color, 15%);
+
+$create-background-color: #339999;
+$create-background-color-darker: darken($create-background-color, 5%);

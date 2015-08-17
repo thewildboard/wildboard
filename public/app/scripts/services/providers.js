@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('dashboardApp')
-  .factory('Providers', function ProvidersFactory($http, MY_CONFIG){
+  .factory('Providers', ['$http', 'MY_CONFIG', function ProvidersFactory($http, MY_CONFIG){
     var providerList = [];
     var providers_data;
     var buttonlist = [];
@@ -84,5 +84,5 @@
       getButtonList : getButtonList,
       getProvidersData : getProvidersData
     };
-  });
+  }]);
 }());

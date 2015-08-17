@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('dashboardApp')
-  .factory('Authentication', function AuthenticationFactory(MY_CONFIG, $http, $state, $q, $auth, $rootScope){
+  .factory('Authentication', ['$auth', '$http', 'MY_CONFIG', function AuthenticationFactory($auth, $http, MY_CONFIG){
     // temporary object
     var authenticated = true;
 
@@ -39,5 +39,5 @@
       logged : logged,
       isAuthenticated : isAuthenticated
     };
-  });
+  }]);
 }());

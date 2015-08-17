@@ -1,6 +1,6 @@
 (function(){
   angular.module('widgetsApp').
-  controller('editWidgetCtrl', function ($scope, $modalInstance, items) {
+  controller('editWidgetCtrl', ['$scope', '$modalInstance', 'items', function ($scope, $modalInstance, items) {
 
 
     $scope.widget_edit_name = items.name;
@@ -12,5 +12,5 @@
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  });
+  }]);
 }());

@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('widgetsApp')
-  .directive('createWidget', function () {
+  .directive('createWidget', [function () {
     return {
       templateUrl: 'app/scripts/modules/widgets/directives/createWidget.html',
       restrict: 'E',
@@ -27,5 +27,5 @@
         };
       }
     };
-  });
+  }]);
 }());

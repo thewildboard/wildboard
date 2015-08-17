@@ -1,6 +1,6 @@
-.btn{
+/*.btn{
   border-radius : 0px !important;
-}
+}*/
 
 img.btn{
   padding: 0px !important;
@@ -11,32 +11,27 @@ img.btn{
 // Types
 
 .btn-cancel{
-  border-radius: 0px;
-  background-color: #e6e6e6;
+  border: 1px solid $cancel-border-color;
+  background-color: $cancel-background-color;
   color: #333;
 
-  &:hover {
-    background-color: #d4d4d4;
-  }
-
+  &:hover,
   &:focus {
-    background-color: #c5c5c5;
+    background-color: $cancel-background-color-darker;
+    border: 1px solid $cancel-border-color-darker;
   }
 }
 
 .btn-block{
-  border-radius: 0px !important;
   background-color: #669999 !important;
   border: 0px;
 }
 .btn-primary{
-  border-radius: 0px !important;
   background-color: #339999;
   border: 0px;
 }
 
 .btn-primary:hover{
-  border-radius: 0px !important;
   background-color: #009999;
   border: 0px;
 }
@@ -100,12 +95,12 @@ img.btn.active{
 
 
 .btn-create{
-  border-radius: 0px;
-  background-color: #339999;
+  background-color: $create-background-color;
   color: #fff;
 
   &:hover,
   &:focus{
-    background-color: #009999;
+    background-color: $create-background-color-darker;
+    color: #fff;
   }
 }

@@ -10,8 +10,8 @@
   */
 
   angular.module('dashboardApp')
-  .controller('LoginIndexCtrl', ['$window', 'MY_CONFIG', 'Providers', '$scope', '$location', '$auth', 'Authentication',
-  function ($window, MY_CONFIG, Providers, $scope, $location, $auth, Authentication) {
+  .controller('LoginIndexCtrl', ['$scope', '$location', '$auth', 'Authentication', 'Providers', 'MY_CONFIG', '$window',
+  function ($scope, $location, $auth, Authentication, Providers, MY_CONFIG, $window) {
     var ctrl = this;
     ctrl.providers = [];
 

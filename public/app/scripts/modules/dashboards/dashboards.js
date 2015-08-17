@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('boardsApp')
-  .factory('Dashboards', function WidgetsFactory(  $location, $modal, $http, MY_CONFIG, WidgetsApi, DashboardsApi){
+  .factory('Dashboards', ['$modal', 'DashboardsApi', function WidgetsFactory($modal, DashboardsApi){
 
     var dashboardList = [];
     var thereIsDashboardSelected = false;
@@ -88,7 +88,7 @@
             sizeY : current.position.height,
             col : current.position.col,
             row : current.position.row,
-            template : '<first-widget></first-widget>',
+            template : '<number-template></number-template>',
             data : current
           };
         }
@@ -137,5 +137,5 @@
       delete : delete_,
       setCurrentDashboard  : setCurrentDashboard
     };
-  });
+  }]);
 }());

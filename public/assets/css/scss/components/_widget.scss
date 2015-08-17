@@ -1,37 +1,70 @@
 .widget-menu{
-    background: #e7e7e7;
-    display: inline-block;
-    padding-top: 5px;
-    width: 100%;
+  background: #e7e7e7;
+  display: inline-block;
+  padding-top: 5px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .widget-right-menu{
   display: inline-block;
-  float: right;
-  margin-right: 5px;
+  width: 10px;
 }
 
 .widget-left-menu{
   display: inline-block;
-  float: left;
   margin-left: 10px;
+  width: calc(100% - 80px);
 }
 
 .widget-title{
   color: gray;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.widget{
+  .widget-li{
+    margin: 0px;
+    top: 10px;
+    left: 10px;
+    width: 260px;
+    height: 115px;
+    border: 5px solid #EEEEEE;
+    border-radius: 0px;
+    background-color: white !important;
+  }
+  .main-body{
+    height: calc(100%);
+    display: block;
+  }
+  .el-body{
+    display: block;
+    height: calc(100% - 40px);
+  }
+}
 
-.widget-body{
-  margin: 0px;
-  top: 10px;
-  left: 10px;
-  width: 260px;
-  height: 115px;
-  border: 5px solid #EEEEEE;
-  border-radius: 0px;
-  background-color: white !important;
+.number-template{
+  display: flex;
+  height: calc(100%);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.widget-divider{
+  display: inline-block;
+  height: calc(100%);
+  margin-left: 40px;
+  width: 7px;
+}
+
+.widget-simple-number{
+  display: inline-block;
+  height: calc(100%);
+  vertical-align: middle;
+  width: calc(100% - 75px);
 }
 
 .widget-data-simple-number{
@@ -45,47 +78,12 @@
 
 .widget-data-simple-number-text{
   color: #CCCCCC;
-  
+
   font-size: 24px;
   margin-left: 15px;
   text-align: left;
 }
 
-.widget-simple-number{
-  display: inline-block;
-}
-
-.widget_divider_blue0{
-  background-color: #328FB0;
-  height: 120px;
-  width: 7px;
-  display: inline-block;
-  margin-left: 40px;
-}
-
-.widget_divider_blue1{
-  background-color: #E91E63;
-  height: 120px;
-  width: 7px;
-  display: inline-block;
-  margin-left: 40px;
-}
-
-.widget_divider_blue2{
-  background-color: #FF5722;
-  height: 120px;
-  width: 7px;
-  display: inline-block;
-  margin-left: 40px;
-}
-
-.widget_divider_blue3{
-  background-color: #4CAF50;
-  height: 120px;
-  width: 7px;
-  display: inline-block;
-  margin-left: 40px;
-}
 
 
 .navbar-widget{

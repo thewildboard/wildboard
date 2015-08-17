@@ -1,6 +1,6 @@
 (function(){
   angular.module('dashboardApp').
-  controller('ConfirmDeleteCtrl', function ($scope, $modalInstance, items) {
+  controller('ConfirmDeleteCtrl', ['$scope', '$modalInstance', 'items', function ($scope, $modalInstance, items) {
 
     $scope.element_name = items.name;
     $scope.element = items.element;
@@ -11,5 +11,5 @@
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  });
+  }]);
 }());

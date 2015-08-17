@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('boardsApp')
-  .factory('DashboardsApi', function DashboardApiFactory($http, MY_CONFIG){
+  .factory('DashboardsApi', ['$http', 'MY_CONFIG', function DashboardApiFactory($http, MY_CONFIG){
     var myObject = {
       all : function(force){
         return $http({
@@ -20,5 +20,5 @@
       }
     };
     return myObject;
-  });
+  }]);
 }());
