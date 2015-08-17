@@ -11,23 +11,32 @@
 
 Install Node.js and MongoDB on your system. For Linux machines it'd be something like this:
 
+```bash
     sudo apt-get install node mongodb
+```
 
 Install project dependencies:
 
-    npm install
+```bash
+    npm install && cd public && bower install && cd -
+```
 
 Generate self-signed server certificates:
 
+```bash
     mkdir ssl && cd ssl
     openssl genrsa -out server-key.pem 2048
     openssl req -new -sha256 -key server-key.pem -out server-csr.pem
     openssl x509 -req -in server-csr.pem -signkey server-key.pem -out server-cert.pem
     rm server-csr.pem
+    cd -
+```
 
 Generate the config and modify it to your requirements:
-    
+   
+```bash 
     node ./ -g config
+```
 
 The file config.js will be created on the main folder.
 
@@ -36,14 +45,23 @@ The file config.js will be created on the main folder.
 
 To run the application:
 
-    node ./
+```bash
+    npm start
+```
 
 The server is at `https://localhost:3000/`
 
 To run the tests:
 
+```bash
     npm test
+```
 
+To convert SCSS files into CSS:
+
+```bash
+    npm run styles
+```
 
 ##Documentation
 
