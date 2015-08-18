@@ -15,15 +15,14 @@
     this.signup = function(){
       Authentication.signup(ctrl)
       .then(function(data){
-        Authentication.logout().then(function(){
-          Authentication.login(ctrl).then(function(){
-            Authentication.logged();
-          });
+        Authentication.login(ctrl).then(function(){
+          Authentication.logged();
         });
       })
       .catch(function(error){
         ctrl.username = '';
         ctrl.password = '';
+        ctrl.confirmPassword = '';
         ctrl.email = '';
         $scope.message = error.message;
       });

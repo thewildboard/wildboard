@@ -3,7 +3,7 @@
   angular.module('dashboardApp')
   .factory('Authentication', ['$auth', '$http', 'MY_CONFIG', function AuthenticationFactory($auth, $http, MY_CONFIG){
     // temporary object
-    var authenticated = true;
+    var authenticated = false;
 
     var login =  function(values){
       return $auth.login({
@@ -19,8 +19,7 @@
       });
     };
     var logout =  function(){
-      return $auth.logout();
-      //$http.get(MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/logged')
+      return $http.get(MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/logout');
     };
     var logged = function(){
       return $http.get(MY_CONFIG.url + ':' + MY_CONFIG.port + '/user/logged')
