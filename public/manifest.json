@@ -4,5 +4,14 @@
         "name": "localManifest",
         "url": ""
     },
-    "sources": []
+    "sources": [
+      {
+        "id": "world_population",
+        "description": "World population",
+        "url": "http://myapi.com/world-population",
+        "type": "number",
+        "unit": "persons",
+        "refresh_rate": "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
+      },
+    ]
 }
