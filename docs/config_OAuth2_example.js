@@ -3,10 +3,12 @@ module.exports = {
     manifests: [{
       url: "https://localhost:3000/manifest.json",
       auth: {
-        "type": "oauth2",
-        "oauth2": {
-            "authorization_url": "https://dokify.net/oauth",
-            "token_url": "https://dokify.net/oauth/access_token"
+        type: "oauth2",
+        oauth2: {
+          authorizationURL: 'auth url',
+          tokenURL: 'token url',
+          clientID: "id",
+          clientSecret: "id",
         }
       }
     }],
@@ -20,6 +22,13 @@ module.exports = {
       key: "./ssl/server-key.pem",
       cert: "./ssl/server-cert.pem"
     },
+
+    custom_login: {
+      authorizationURL: 'auth url',
+      tokenURL: 'token url',
+      clientID: "id",
+      clientSecret: "id",
+    }
 
     server: {
       index: "app/index.html"
