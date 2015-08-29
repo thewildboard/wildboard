@@ -18,8 +18,8 @@
     'angular-multiple-transclusion'
   ])
   .constant('MY_CONFIG', {
-    url : 'https://localhost',
-    port : '3000'
+    url: location.protocol + '//' + location.hostname,
+    port: location.port
   })
   .config(['$authProvider', function($authProvider) {
     $authProvider.google({
