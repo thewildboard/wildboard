@@ -36,7 +36,7 @@
           controller.showDashboard();
         }
         else{
-          ngFoobar.show("warning", "There no are any dashboard associated to this account");
+          $scope.toggleModal();
         }
       })
       .catch(function(error){
