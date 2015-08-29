@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/jose/Github/wildboard"
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "SCSS",
+			"cmd": ["sass", "--update", "--no-cache", "$file:${file_path}/../${file_base_name}.css"],
+			"selector": "source.scss"
+		}
+	]
+}
