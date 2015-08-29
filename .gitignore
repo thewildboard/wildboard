@@ -28,3 +28,5 @@ public/assets/css/style.css.map
 dist/
 
 .vagrant
+
+wildboard.sublime-workspace
